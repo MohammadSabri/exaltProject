@@ -1,0 +1,77 @@
+2020-06-23 09:04:43.691  INFO 11692 --- [main] c.exalt.petclinic.PetClinicApplication   : Starting PetClinicApplication on MohammadSabri with PID 11692 (C:\Users\Moham\Desktop\project-master\pet-clinic\target\classes started by Moham in C:\Users\Moham\Desktop\project-master\pet-clinic)
+2020-06-23 09:04:43.696 DEBUG 11692 --- [main] c.exalt.petclinic.PetClinicApplication   : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-06-23 09:04:43.697  INFO 11692 --- [main] c.exalt.petclinic.PetClinicApplication   : No active profile set, falling back to default profiles: default
+2020-06-23 09:04:44.470  INFO 11692 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-06-23 09:04:44.477  INFO 11692 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-06-23 09:04:44.478  INFO 11692 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-06-23 09:04:44.530  INFO 11692 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-06-23 09:04:44.530  INFO 11692 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 786 ms
+2020-06-23 09:04:44.667  INFO 11692 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-23 09:04:44.793  WARN 11692 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2020-06-23 09:04:44.794  INFO 11692 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-23 09:04:44.796  INFO 11692 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-06-23 09:04:44.803  INFO 11692 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-06-23 09:04:44.806 ERROR 11692 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2020-06-23 09:05:10.806  INFO 408 --- [main] c.exalt.petclinic.PetClinicApplication   : Starting PetClinicApplication on MohammadSabri with PID 408 (C:\Users\Moham\Desktop\project-master\pet-clinic\target\classes started by Moham in C:\Users\Moham\Desktop\project-master\pet-clinic)
+2020-06-23 09:05:10.807 DEBUG 408 --- [main] c.exalt.petclinic.PetClinicApplication   : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-06-23 09:05:10.808  INFO 408 --- [main] c.exalt.petclinic.PetClinicApplication   : No active profile set, falling back to default profiles: default
+2020-06-23 09:05:11.351  INFO 408 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+2020-06-23 09:05:11.356  INFO 408 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-06-23 09:05:11.357  INFO 408 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-06-23 09:05:11.400  INFO 408 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-06-23 09:05:11.400  INFO 408 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 566 ms
+2020-06-23 09:05:11.519  INFO 408 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-23 09:05:11.638  INFO 408 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path ''
+2020-06-23 09:05:11.649  INFO 408 --- [main] c.exalt.petclinic.PetClinicApplication   : Started PetClinicApplication in 1.079 seconds (JVM running for 1.776)
+2020-06-23 09:06:38.235  INFO 408 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-06-23 09:06:38.236  INFO 408 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-06-23 09:06:38.239  INFO 408 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2020-06-23 09:49:49.659  INFO 408 --- [RMI TCP Connection(55)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2020-06-23 09:49:49.978  INFO 408 --- [RMI TCP Connection(55)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-23 09:49:53.502  INFO 11816 --- [main] c.exalt.petclinic.PetClinicApplication   : Starting PetClinicApplication on MohammadSabri with PID 11816 (C:\Users\Moham\Desktop\project-master\pet-clinic\target\classes started by Moham in C:\Users\Moham\Desktop\project-master\pet-clinic)
+2020-06-23 09:49:53.504 DEBUG 11816 --- [main] c.exalt.petclinic.PetClinicApplication   : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-06-23 09:49:53.504  INFO 11816 --- [main] c.exalt.petclinic.PetClinicApplication   : No active profile set, falling back to default profiles: default
+2020-06-23 09:49:54.037  INFO 11816 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+2020-06-23 09:49:54.042  INFO 11816 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-06-23 09:49:54.043  INFO 11816 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-06-23 09:49:54.086  INFO 11816 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-06-23 09:49:54.086  INFO 11816 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 557 ms
+2020-06-23 09:49:54.207  INFO 11816 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-23 09:49:54.312  INFO 11816 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path ''
+2020-06-23 09:49:54.318  INFO 11816 --- [main] c.exalt.petclinic.PetClinicApplication   : Started PetClinicApplication in 1.05 seconds (JVM running for 1.739)
+2020-06-23 09:50:20.503  INFO 11816 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-06-23 09:50:20.503  INFO 11816 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-06-23 09:50:20.506  INFO 11816 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2020-06-23 09:57:55.338  INFO 11816 --- [RMI TCP Connection(17)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2020-06-23 09:57:55.655  INFO 11816 --- [RMI TCP Connection(17)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-23 09:57:59.161  INFO 12920 --- [main] c.exalt.petclinic.PetClinicApplication   : Starting PetClinicApplication on MohammadSabri with PID 12920 (C:\Users\Moham\Desktop\project-master\pet-clinic\target\classes started by Moham in C:\Users\Moham\Desktop\project-master\pet-clinic)
+2020-06-23 09:57:59.162 DEBUG 12920 --- [main] c.exalt.petclinic.PetClinicApplication   : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-06-23 09:57:59.163  INFO 12920 --- [main] c.exalt.petclinic.PetClinicApplication   : No active profile set, falling back to default profiles: default
+2020-06-23 09:57:59.696  INFO 12920 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+2020-06-23 09:57:59.701  INFO 12920 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-06-23 09:57:59.701  INFO 12920 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-06-23 09:57:59.744  INFO 12920 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-06-23 09:57:59.745  INFO 12920 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 556 ms
+2020-06-23 09:57:59.867  INFO 12920 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-23 09:57:59.974  INFO 12920 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path ''
+2020-06-23 09:57:59.979  INFO 12920 --- [main] c.exalt.petclinic.PetClinicApplication   : Started PetClinicApplication in 1.05 seconds (JVM running for 1.736)
+2020-06-23 09:58:10.128  INFO 12920 --- [http-nio-8000-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-06-23 09:58:10.128  INFO 12920 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-06-23 09:58:10.132  INFO 12920 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2020-06-23 09:58:31.318  INFO 12920 --- [RMI TCP Connection(8)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2020-06-23 09:58:31.645  INFO 12920 --- [RMI TCP Connection(8)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
