@@ -21,6 +21,7 @@ public class ClientControllerTest {
 	private TestRestTemplate restTemplate;
 	@Autowired
 	ClientServiceImpl clientServiceImpl;
+	
 	@Test
 	void testurl() {
 		int id=1;

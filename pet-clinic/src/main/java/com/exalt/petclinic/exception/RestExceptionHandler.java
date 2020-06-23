@@ -1,5 +1,6 @@
 package com.exalt.petclinic.exception;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.validation.ConstraintViolationException;
@@ -9,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -40,8 +42,12 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(
 			MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-
-	ApiError apiError = new ApiError("weweweewewewewewewe", new Date(), request.getDescription(false));
+		ArrayList<String >errorList =new ArrayList<>();
+		for (ObjectError e:ex.getBindingResult().getFieldErrors())
+		{System.out.println(e.getDefaultMessage());
+			errorList.add(e.getDefaultMessage());
+		}
+	ApiError apiError = new ApiError(errorList.toString(), new Date(), request.getDescription(false));
 	return new ResponseEntity<>(apiError, new HttpHeaders(), HttpStatus.BAD_REQUEST);
 	}
 

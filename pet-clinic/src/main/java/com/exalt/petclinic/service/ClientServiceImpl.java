@@ -16,7 +16,7 @@ import com.exalt.petclinic.model.Client;
 @Service
 public class ClientServiceImpl implements ClientService {
 	//public static final Pattern VALID_EMAIL_ADDRESS_REGEX =   Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
-	private static List<Client> clientArray = new ArrayList<>(
+	private final static List<Client> clientArray = new ArrayList<>(
 			Arrays.asList(new Client(1, "moh", "sab", "0592573952", "ewwew@fsdfs.com", "1/2/2018", "123456789"),
 					new Client(2, "fda", "sgab", "0592586491", "gdfg@fsdfs.com", "13/8/2018", "123456789"),
 					new Client(3, "fadi", "hamad", "0563111417", "ewwew@fsdfs.com", "21/7/2017", "123456789")));
@@ -24,8 +24,9 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	public Client create(Client client) {
-		if (client.getPhoneNumber().length() != 10)
+		if (client.getPhoneNumber().length() != 10) {
 			throw new CommonException(ErrorEnum.PHONE_NUMBER_INVALID);
+		}
 
 		//Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(client.getEmail());
 		//if (!matcher.find())

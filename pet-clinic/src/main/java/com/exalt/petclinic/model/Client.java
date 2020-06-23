@@ -1,21 +1,36 @@
 package com.exalt.petclinic.model;
 
-import validator.ValidateEmail;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+import com.exalt.petclinic.vallidator.ValidateEmail;
 
 public class Client {
-	private int id;
+	@NotNull
+	@Min(value=0,message = "the id must by >1")
+	private Integer id;
+	@NotNull
 	private String firstName;
+	@NotNull
 	private String lastName;
+	@NotNull
+	@Min(value=10,message = "The phone number consist of 10 digits")
+	@Max(value=10,message = "The phone number consist of 10 digits")
 	private String phoneNumber;
-	@ValidateEmail
+	@ValidateEmail()
+	@NotNull
 	private String email;
+	@NotNull
 	private String creationDate;
+	@NotNull
 	private String password;
+	
 	public Client() {
 		super();
 	}
 
-	public Client(int id, String firstName, String lastName, String phoneNumber, String email, String creationDate,
+	public Client(Integer id, String firstName, String lastName, String phoneNumber, String email, String creationDate,
 			String password) {
 		super();
 		this.id = id;
@@ -28,11 +43,11 @@ public class Client {
 		
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 
 	}

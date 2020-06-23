@@ -28,6 +28,7 @@ public class Pet {
 	private int clientId;
 	@NotNull()
 	private String creationDate;
+	
 	public Pet() {
 		super();
 		// TODO Auto-generated constructor stub
