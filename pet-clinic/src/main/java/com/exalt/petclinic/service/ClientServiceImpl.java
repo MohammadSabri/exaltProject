@@ -78,7 +78,7 @@ public class ClientServiceImpl implements ClientService {
 	@Override
 	public List<Client> getAll(int page, int limit) {
 		
-		return clientArray.stream().skip((long) page).limit((long) limit).collect(Collectors.toList());
+		return clientArray.stream().skip((long) (page-1)*limit).limit((long) limit).collect(Collectors.toList());
 	}
 
 	@Override

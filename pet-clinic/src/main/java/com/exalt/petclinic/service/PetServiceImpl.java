@@ -49,7 +49,7 @@ public class PetServiceImpl implements PetService {
 	@Override
 	public List<Pet> getAll(int page, int limit) {
 
-		return PetsArray.stream().skip((long) page).limit((long) limit).collect(Collectors.toList());
+		return PetsArray.stream().skip((long) (page-1)*limit).limit((long) limit).collect(Collectors.toList());
 	}
 
 	@Override

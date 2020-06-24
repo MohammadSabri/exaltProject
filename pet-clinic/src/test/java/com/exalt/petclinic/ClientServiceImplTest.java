@@ -21,7 +21,7 @@ public class ClientServiceImplTest {
 	@DisplayName(value = "testClientCreate_AddNewClient_successfull")
 	void testCreat() {
 		int id=8;
-		Client client = new Client(id, "test", "class", "123456789", "test@class", "24/3/2001", "123456789");
+		Client client = new Client(id, "test", "class", "1234567890", "test@class", "24/3/2001", "123456789");
 		clientServiceImpl.create(client);
 		Client testClient =clientServiceImpl.get(id);
 		assertAll(
@@ -41,7 +41,7 @@ public class ClientServiceImplTest {
 		int id = 2;
 		boolean testExist = false;
 		clientServiceImpl.delete(id);
-		for (Client c : clientServiceImpl.getAll(0, 100)) {
+		for (Client c : clientServiceImpl.getAll(0, 10)) {
 			if (c.getId() == id) {
 				testExist = true;
 				break;
@@ -54,8 +54,10 @@ public class ClientServiceImplTest {
 	@Test
 	void testUpdate() {
 		int id = 1;
-		Client client = new Client(id, "moh", "sab", "0592573952", "ewwew@fsdfs", "1/2/2018", "123456789");
+		Client client = new Client(id, "moh", "sab", "3343113132", "ewwew@fsdfs.com", "1/2/2018", "123456789");
+		clientServiceImpl.update(id, client);
 		Client test = clientServiceImpl.get(id);
+		
 		assertAll(() -> assertEquals(test.getFirstName(), client.getFirstName()),
 				() -> assertEquals(test.getLastName(), client.getLastName()),
 				() -> assertEquals(test.getPhoneNumber(), client.getPhoneNumber()),

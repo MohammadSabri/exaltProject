@@ -15,15 +15,15 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	private static List<Employee> employeeArray = new ArrayList<Employee>(Arrays.asList(
 			new Employee(1, "dia", "jam", "birzeit-uni street", 7000.0, "ScD", WorkingField.Owner, "23123213", 7,
-					"1/4/2015", "123456789","mofs@fdsf.com"),
+					"1/4/2015", "123456789", "mofs@fdsf.com"),
 			new Employee(2, "moh", "sa", "ramallah-safd street", 4220.0, "M.D", WorkingField.Worker, "3123524", 5,
-					"23/4/2018", "123456789","mofs@fdsf.com"),
+					"23/4/2018", "123456789", "mofs@fdsf.com"),
 			new Employee(3, "geha", "fadal", "nablus-hos street", 3700.0, "M.D", WorkingField.Worker, "6754646", 3,
-					"3/2/2017", "123456789","mofs@fdsf.com"),
+					"3/2/2017", "123456789", "mofs@fdsf.com"),
 			new Employee(4, "abd", "qar", "safad-safd street", 3000.0, " B.E", WorkingField.Admin, "3123524", 2,
-					"23/4/2017", "123456789","mofs@fdsf.com"),
+					"23/4/2017", "123456789", "mofs@fdsf.com"),
 			new Employee(5, "moh", "sa", "ramallah-safd street", 2700.0, "B.Res.Ec.", WorkingField.Admin, "3123524", 2,
-					"23/4/2018", "123456789","mofs@fdsf.com")));
+					"23/4/2018", "123456789", "mofs@fdsf.com")));
 
 	@Override
 	public Employee getEmployee(int id) {
@@ -33,8 +33,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public List<Employee> getAllWorker(int page, int limit) {
 
-		return employeeArray.stream().filter(p -> p.getWorkingField().equals(WorkingField.Worker)).skip((long) page)
-				.limit((long) limit).collect(Collectors.toList());
+		return employeeArray.stream().filter(p -> p.getWorkingField().equals(WorkingField.Worker))
+				.skip((long) (page - 1) * limit).limit((long) limit).collect(Collectors.toList());
 
 	}
 

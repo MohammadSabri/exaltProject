@@ -18,7 +18,7 @@ import javax.validation.Payload;
 public @interface ValidateEmail {
 	String message() default "Not valid Email";
 
-	String regex() default "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+	String regex() default "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
 
 	Class<?>[] groups() default {};
 
