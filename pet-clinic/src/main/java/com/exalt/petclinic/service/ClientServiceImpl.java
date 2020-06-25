@@ -2,6 +2,7 @@ package com.exalt.petclinic.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.sql.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,9 +18,9 @@ import com.exalt.petclinic.model.Client;
 public class ClientServiceImpl implements ClientService {
 	//public static final Pattern VALID_EMAIL_ADDRESS_REGEX =   Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 	private final static List<Client> clientArray = new ArrayList<>(
-			Arrays.asList(new Client(1, "moh", "sab", "0592573952", "ewwew@fsdfs.com", "1/2/2018", "123456789"),
-					new Client(2, "fda", "sgab", "0592586491", "gdfg@fsdfs.com", "13/8/2018", "123456789"),
-					new Client(3, "fadi", "hamad", "0563111417", "ewwew@fsdfs.com", "21/7/2017", "123456789")));
+			Arrays.asList(new Client(1, "moh", "sab", "0592573952", "ewwew@fsdfs.com",new Date(2020, 2, 4), "123456789"),
+					new Client(2, "fda", "sgab", "0592586491", "gdfg@fsdfs.com", new Date(2020, 2, 4), "123456789"),
+					new Client(3, "fadi", "hamad", "0563111417", "ewwew@fsdfs.com", new Date(2020, 2, 4), "123456789")));
 
 
 	@Override

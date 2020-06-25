@@ -6,4 +6,5 @@ import com.exalt.petclinic.model.Pet;
 
 public interface PetRepository extends CrudRepository<Pet, Integer> {
 
+	
 }

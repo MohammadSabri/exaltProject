@@ -1,10 +1,15 @@
 package com.exalt.petclinic.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import com.exalt.petclinic.vallidator.ValidateEmail;
-
+@Entity
+@Table(name = "employee")
 public class Employee {
 	public enum WorkingField {
 		Owner, Admin, Worker
@@ -12,25 +17,34 @@ public class Employee {
 
 	@NotNull
 	@Min(value = 0, message = "the id must by >1")
+	@Id
 	private Integer id;
 	@NotNull
+	@Column(name="first_name")
 	private String firstName;
 	@NotNull
+	@Column(name="last_name")
 	private String lastName;
 	@NotNull
+	@Column(name="house_location")
 	private String houseLocation;
 	@NotNull
 	@Min(value = 200, message = "no salary less than 200")
 	private Double salary;
 	@NotNull
+	@Column(name="collage_degree")
 	private String collegeDegree;
 	@NotNull
+	@Column(name="working_field")
 	private WorkingField workingField;
 	@NotNull
+	@Column(name="phone_number")
 	private String phoneNumber;
 	@NotNull
+	@Column(name="year_of_experience")
 	private Integer yearsOfExperience;
 	@NotNull
+	@Column(name="creation_date")
 	private String creationDate;
 	@NotNull
 	private String password;

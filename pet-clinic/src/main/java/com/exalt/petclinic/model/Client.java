@@ -1,28 +1,40 @@
 package com.exalt.petclinic.model;
 
+import java.sql.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import com.exalt.petclinic.vallidator.ValidateEmail;
-
+@Entity
+@Table(name = "client")
 public class Client {
 	@NotNull
 	@Min(value=0,message = "the id must by >1")
+	@Id
 	private Integer id;
 	@NotNull
+	@Column(name="first_name")
 	private String firstName;
 	@NotNull
+	@Column(name="last_name")
 	private String lastName;
 	@NotNull
 	@Min(value=10,message = "The phone number consist of 10 digits")
 	@Max(value=10,message = "The phone number consist of 10 digits")
+	@Column(name="phone_number")
 	private String phoneNumber;
 	@ValidateEmail()
 	@NotNull
 	private String email;
 	@NotNull
-	private String creationDate;
+	@Column(name="creation_date")
+	private Date creationDate;
 	@NotNull
 	private String password;
 	
@@ -30,7 +42,7 @@ public class Client {
 		super();
 	}
 
-	public Client(Integer id, String firstName, String lastName, String phoneNumber, String email, String creationDate,
+	public Client(Integer id, String firstName, String lastName, String phoneNumber, String email, Date creationDate,
 			String password) {
 		super();
 		this.id = id;
@@ -84,11 +96,11 @@ public class Client {
 		this.email = email;
 	}
 
-	public String getCreationDate() {
+	public Date getCreationDate() {
 		return creationDate;
 	}
 
-	public void setCreationDate(String creationDate) {
+	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
 	}
 

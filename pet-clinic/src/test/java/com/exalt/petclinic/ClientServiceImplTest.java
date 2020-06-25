@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import java.sql.Date;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +23,7 @@ public class ClientServiceImplTest {
 	@DisplayName(value = "testClientCreate_AddNewClient_successfull")
 	void testCreat() {
 		int id=8;
-		Client client = new Client(id, "test", "class", "1234567890", "test@class", "24/3/2001", "123456789");
+		Client client = new Client(id, "test", "class", "1234567890", "test@class",new Date(2020, 2, 4), "123456789");
 		clientServiceImpl.create(client);
 		Client testClient =clientServiceImpl.get(id);
 		assertAll(
@@ -54,7 +56,7 @@ public class ClientServiceImplTest {
 	@Test
 	void testUpdate() {
 		int id = 1;
-		Client client = new Client(id, "moh", "sab", "3343113132", "ewwew@fsdfs.com", "1/2/2018", "123456789");
+		Client client = new Client(id, "moh", "sab", "3343113132", "ewwew@fsdfs.com", new Date(2020, 2, 4), "123456789");
 		clientServiceImpl.update(id, client);
 		Client test = clientServiceImpl.get(id);
 		

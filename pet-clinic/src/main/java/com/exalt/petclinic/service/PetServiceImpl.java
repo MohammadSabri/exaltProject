@@ -2,6 +2,7 @@ package com.exalt.petclinic.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,10 +13,10 @@ import com.exalt.petclinic.model.Pet;
 @Service
 public class PetServiceImpl implements PetService {
 	private static List<Pet> PetsArray = new ArrayList<Pet>(Arrays.asList(
-			new Pet(1, "speedo", 4, "cherasi", 50, 30, "irretation in mouth", 1, "24/1/2019"),
-			new Pet(2, "oscar", 2, "bombat", 43, 13, "weigh problem duo to Intestinal bacteria", 2, "1/2/2020"),
-			new Pet(3, "roc", 7, "Akita", 90, 45, "hearing bacteria", 3, "1/2/2020"),
-			new Pet(4, "speedo", 4, "Azawakh", 30, 30, "tall and weight problem due to ansims", 3, "1/2/2020")));
+			new Pet(1, "speedo", 4, "cherasi", 50, 30, "irretation in mouth", 1, new Date(2020, 2, 4)),
+			new Pet(2, "oscar", 2, "bombat", 43, 13, "weigh problem duo to Intestinal bacteria", 2, new Date(2020, 2, 4)),
+			new Pet(3, "roc", 7, "Akita", 90, 45, "hearing bacteria", 3, new Date(2020, 2, 4)),
+			new Pet(4, "speedo", 4, "Azawakh", 30, 30, "tall and weight problem due to ansims", 3, new Date(2020, 2, 4))));
 
 	@Override
 	public Pet create(Pet pet) {

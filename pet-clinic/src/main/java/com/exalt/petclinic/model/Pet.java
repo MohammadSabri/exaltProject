@@ -1,12 +1,24 @@
 package com.exalt.petclinic.model;
 
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+@Entity
+@Table(name = "pet")
 public class Pet {
-	@Min(value=1,message="can not creat pet with this id, id must be >1")
+	@Min(value = 1, message = "can not creat pet with this id, id must be >1")
 	@NotNull()
+	@Id
 	private int id;
 	@NotEmpty
 	@NotNull()
@@ -27,15 +39,16 @@ public class Pet {
 	@NotNull()
 	private int clientId;
 	@NotNull()
-	private String creationDate;
-	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyy")
+	private Date creationDate;
+
 	public Pet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Pet(int id,String name, int age, String species, double height, double weight, String problemDescribtion,
-			int clientId, String creationDate) {
+	public Pet(int id, String name, int age, String species, double height, double weight, String problemDescribtion,
+			int clientId, Date creationDate) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -112,16 +125,12 @@ public class Pet {
 		this.clientId = clientId;
 	}
 
-
-
-	public String getCreationDate() {
+	public Date getCreationDate() {
 		return creationDate;
 	}
 
-
-
-	public void setCreationDate(String creationDate) {
+	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
 	}
-	
+
 }
