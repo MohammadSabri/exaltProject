@@ -1,12 +1,11 @@
 package com.exalt.petclinic.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -26,16 +25,17 @@ public class Client {
 	private String lastName;
 	@NotNull
 	@Min(value=10,message = "The phone number consist of 10 digits")
-	@Max(value=10,message = "The phone number consist of 10 digits")
-	@Column(name="phone_number")
+	@Column(name="phone_number", unique = true)
 	private String phoneNumber;
 	@ValidateEmail()
 	@NotNull
+	@Column(name="email", unique = true)
 	private String email;
 	@NotNull
 	@Column(name="creation_date")
 	private Date creationDate;
 	@NotNull
+	@Column(name="password")
 	private String password;
 	
 	public Client() {

@@ -2,6 +2,7 @@ package com.exalt.petclinic.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -34,12 +35,16 @@ public class Pet {
 	@Min((long) 1.0)
 	@NotNull()
 	private double weight;
+	@Column(name="problem_describtion")
 	private String problemDescribtion;
 	@Min(1)
 	@NotNull()
+	@Column(name="client_id")
+	@JoinColumn(name = "client_id")
 	private int clientId;
 	@NotNull()
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyy")
+	@Column(name="creation_date")
 	private Date creationDate;
 
 	public Pet() {
@@ -132,5 +137,13 @@ public class Pet {
 	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
 	}
+
+	@Override
+	public String toString() {
+		return "Pet [id=" + id + ", name=" + name + ", age=" + age + ", species=" + species + ", height=" + height
+				+ ", weight=" + weight + ", problemDescribtion=" + problemDescribtion + ", clientId=" + clientId
+				+ ", creationDate=" + creationDate + "]";
+	}
+	
 
 }
