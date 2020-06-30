@@ -16,7 +16,6 @@ public interface PetRepository extends CrudRepository<Pet, Integer> {
 
 	List<Pet> findByAgeGreaterThan(int age);
 
-	List<Pet> findByproblemDescribtionContains(String contain);
 
 	List<Pet> findByWeightBetween(double min, double max);
 

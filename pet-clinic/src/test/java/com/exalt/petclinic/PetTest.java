@@ -27,6 +27,7 @@ public class PetTest {
 		pet.setAge(5);
 		pet.setHeight(1.35);
 		pet.setWeight(23.5);
+		pet.setCreationDate(new Date(2020,4,1));
 		Client client =new Client();
 		client.setId(1);// this step to set the id of the client 
 		pet.setClient(client);
@@ -82,14 +83,7 @@ public class PetTest {
 		petList.forEach(p -> System.out.println(p.getId()));
 
 	}
-	@Test
-	void testGetByproblemDescribtionContains() {
-		
-		List<Pet>petList= petRepository.findByproblemDescribtionContains("test");
-		petList.forEach(p->System.out.println(p.getId()));
-		
-		
-	}
+	
 	@Test
 	void testGetByweightBetween() {
 		

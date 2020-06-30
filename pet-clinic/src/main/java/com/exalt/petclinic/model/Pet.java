@@ -50,7 +50,7 @@ public class Pet {
 	@ManyToOne
 	@JoinColumn(name = "client_id")
 	private Client client;
-	@OneToMany(mappedBy = "pet",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "pet",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	private List<Schedule>schedule =new ArrayList<Schedule>();
 
 	public Pet() {

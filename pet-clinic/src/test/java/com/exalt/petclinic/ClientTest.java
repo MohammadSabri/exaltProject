@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.PrimaryKeyJoinColumn;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,7 +32,8 @@ public class ClientTest {
 		client.setEmail("mohadmdad.khaledsabri@outlook.com");
 		client.setPhoneNumber("0533929492");
 		client.setPassword("1234567890");
-		client.setCreationDate(new Date(2005,4,2));
+		//client.setCreationDate(new Date(2005,4,2));
+		
 		List<Pet> list =new ArrayList<Pet>();
 	//	client.setId(1);
 		

@@ -6,7 +6,11 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -14,6 +18,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import com.exalt.petclinic.vallidator.ValidateEmail;
+
 @Entity
 @Table(name = "employee")
 public class Employee {
@@ -24,41 +29,47 @@ public class Employee {
 	@NotNull
 	@Min(value = 0, message = "the id must by >1")
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@NotNull
-	@Column(name="first_name")
+	@Column(name = "first_name")
 	private String firstName;
 	@NotNull
-	@Column(name="last_name")
+	@Column(name = "last_name")
 	private String lastName;
 	@NotNull
-	@Column(name="house_location")
+	@Column(name = "house_location")
 	private String houseLocation;
 	@NotNull
 	@Min(value = 200, message = "no salary less than 200")
 	private Double salary;
 	@NotNull
-	@Column(name="collage_degree")
+	@Column(name = "collage_degree")
 	private String collegeDegree;
 	@NotNull
-	@Column(name="working_field")
+	@Column(name = "working_field")
+	@Enumerated(EnumType.STRING)
 	private WorkingField workingField;
 	@NotNull
-	@Column(name="phone_number")
+	@Column(name = "phone_number")
 	private String phoneNumber;
 	@NotNull
-	@Column(name="year_of_experience")
+	@Column(name = "year_of_experience")
 	private Integer yearsOfExperience;
 	@NotNull
-	@Column(name="creation_date")
+	@Column(name = "creation_date")
 	private String creationDate;
 	@NotNull
 	private String password;
 	@NotNull
 	@ValidateEmail
 	private String email;
-	@OneToMany(mappedBy = "client",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	private List<Schedule>schedule =new ArrayList<Schedule>();
+	@OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<Schedule> schedule = new ArrayList<Schedule>();
+
+	public Employee() {
+		super();
+	}
 
 	public Employee(Integer id, String firstName, String lastName, String houseLocation, Double salary,
 			String collegeDegree, WorkingField workingField, String phoneNumber, Integer yearsOfExperience,
@@ -181,5 +192,14 @@ public class Employee {
 	public void setSchedule(List<Schedule> schedule) {
 		this.schedule = schedule;
 	}
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", houseLocation="
+				+ houseLocation + ", salary=" + salary + ", collegeDegree=" + collegeDegree + ", workingField="
+				+ workingField + ", phoneNumber=" + phoneNumber + ", yearsOfExperience=" + yearsOfExperience
+				+ ", creationDate=" + creationDate + ", password=" + password + ", email=" + email + "]";
+	}
+	
 
 }
