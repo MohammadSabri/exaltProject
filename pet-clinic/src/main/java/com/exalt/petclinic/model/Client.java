@@ -1,10 +1,17 @@
 package com.exalt.petclinic.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -13,9 +20,10 @@ import com.exalt.petclinic.vallidator.ValidateEmail;
 @Entity
 @Table(name = "client")
 public class Client {
-	@NotNull
-	@Min(value=0,message = "the id must by >1")
+	//@NotNull
+	//@Min(value=0,message = "the id must by >1")
 	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@NotNull
 	@Column(name="first_name")
@@ -37,6 +45,8 @@ public class Client {
 	@NotNull
 	@Column(name="password")
 	private String password;
+	@OneToMany(mappedBy = "client",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	List<Pet>pets ;
 	
 	public Client() {
 		super();
@@ -111,4 +121,15 @@ public class Client {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public List<Pet> getPets() {
+		return pets;
+	}
+
+	public void setPets(List<Pet> pets) {
+		this.pets = pets;
+	}
+
+
+	
 }

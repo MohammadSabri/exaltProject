@@ -1,8 +1,14 @@
 package com.exalt.petclinic.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -51,6 +57,8 @@ public class Employee {
 	@NotNull
 	@ValidateEmail
 	private String email;
+	@OneToMany(mappedBy = "client",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	private List<Schedule>schedule =new ArrayList<Schedule>();
 
 	public Employee(Integer id, String firstName, String lastName, String houseLocation, Double salary,
 			String collegeDegree, WorkingField workingField, String phoneNumber, Integer yearsOfExperience,
@@ -164,6 +172,14 @@ public class Employee {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public List<Schedule> getSchedule() {
+		return schedule;
+	}
+
+	public void setSchedule(List<Schedule> schedule) {
+		this.schedule = schedule;
 	}
 
 }

@@ -1,12 +1,19 @@
 package com.exalt.petclinic.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
@@ -17,9 +24,10 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 @Table(name = "pet")
 public class Pet {
-	@Min(value = 1, message = "can not creat pet with this id, id must be >1")
-	@NotNull()
+	// @Min(value = 1, message = "can not creat pet with this id, id must be >1")
+	// @NotNull()
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@NotEmpty
 	@NotNull()
@@ -35,25 +43,22 @@ public class Pet {
 	@Min((long) 1.0)
 	@NotNull()
 	private double weight;
-	@Column(name="problem_describtion")
-	private String problemDescribtion;
-	@Min(1)
-	@NotNull()
-	@Column(name="client_id")
-	@JoinColumn(name = "client_id")
-	private int clientId;
 	@NotNull()
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyy")
-	@Column(name="creation_date")
+	@Column(name = "creation_date")
 	private Date creationDate;
+	@ManyToOne
+	@JoinColumn(name = "client_id")
+	private Client client;
+	@OneToMany(mappedBy = "pet",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	private List<Schedule>schedule =new ArrayList<Schedule>();
 
 	public Pet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Pet(int id, String name, int age, String species, double height, double weight, String problemDescribtion,
-			int clientId, Date creationDate) {
+	public Pet(int id, String name, int age, String species, double height, double weight, Date creationDate) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -61,8 +66,6 @@ public class Pet {
 		this.species = species;
 		this.height = height;
 		this.weight = weight;
-		this.problemDescribtion = problemDescribtion;
-		this.clientId = clientId;
 		this.creationDate = creationDate;
 	}
 
@@ -114,22 +117,6 @@ public class Pet {
 		this.id = id;
 	}
 
-	public String getProblemDescribtion() {
-		return problemDescribtion;
-	}
-
-	public void setProblemDescribtion(String problemDescribtion) {
-		this.problemDescribtion = problemDescribtion;
-	}
-
-	public int getClientId() {
-		return clientId;
-	}
-
-	public void setClientId(int clientId) {
-		this.clientId = clientId;
-	}
-
 	public Date getCreationDate() {
 		return creationDate;
 	}
@@ -138,12 +125,29 @@ public class Pet {
 		this.creationDate = creationDate;
 	}
 
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+	
+
+	public List<Schedule> getSchedule() {
+		return schedule;
+	}
+
+	public void setSchedule(List<Schedule> schedule) {
+		this.schedule = schedule;
+	}
+
 	@Override
 	public String toString() {
 		return "Pet [id=" + id + ", name=" + name + ", age=" + age + ", species=" + species + ", height=" + height
-				+ ", weight=" + weight + ", problemDescribtion=" + problemDescribtion + ", clientId=" + clientId
-				+ ", creationDate=" + creationDate + "]";
+				+ ", weight=" + weight + ", creationDate=" + creationDate + ", client=" + client + "]";
 	}
+
 	
 
 }

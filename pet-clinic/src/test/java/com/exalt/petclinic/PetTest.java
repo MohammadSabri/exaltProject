@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.exalt.petclinic.model.Client;
 import com.exalt.petclinic.model.Pet;
 import com.exalt.petclinic.repository.PetRepository;
 
@@ -20,7 +21,15 @@ public class PetTest {
 
 	@Test
 	void testAddPet() {
-		Pet pet = new Pet(5, "testDB_spring2", 4, "cherasi", 50, 30, "irretation in mouth", 9, new Date(2020, 2, 4));
+		Pet pet =new Pet();
+		pet.setName("sree");
+		pet.setSpecies("cherasi");
+		pet.setAge(5);
+		pet.setHeight(1.35);
+		pet.setWeight(23.5);
+		Client client =new Client();
+		client.setId(1);// this step to set the id of the client 
+		pet.setClient(client);
 		petRepository.save(pet);
 
 	}
@@ -103,6 +112,12 @@ public class PetTest {
 
 		List<Pet> petList = petRepository.findAllPetNQ("dse");
 		petList.forEach(p -> System.out.println(p.toString()));
+
+	}
+	@Test
+	void testDelete() {
+
+		petRepository.deleteById(2);
 
 	}
 
