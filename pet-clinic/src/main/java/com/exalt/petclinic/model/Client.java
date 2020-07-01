@@ -1,6 +1,5 @@
 package com.exalt.petclinic.model;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,6 +16,8 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import com.exalt.petclinic.vallidator.ValidateEmail;
+import com.fasterxml.jackson.annotation.JsonRawValue;
+import com.fasterxml.jackson.annotation.JsonRootName;
 @Entity
 @Table(name = "client")
 public class Client {
@@ -45,7 +46,10 @@ public class Client {
 	@NotNull
 	@Column(name="password")
 	private String password;
-	@OneToMany(mappedBy = "client",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	
+	
+	@OneToMany(mappedBy = "client",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@JsonRawValue
 	List<Pet>pets ;
 	
 	public Client() {
@@ -128,6 +132,12 @@ public class Client {
 
 	public void setPets(List<Pet> pets) {
 		this.pets = pets;
+	}
+
+	@Override
+	public String toString() {
+		return "Client [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", phoneNumber="
+				+ phoneNumber + ", email=" + email + ", creationDate=" + creationDate + ", password=" + password + "]";
 	}
 
 

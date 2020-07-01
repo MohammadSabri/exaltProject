@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,12 +18,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.exalt.petclinic.exception.CommonException;
 import com.exalt.petclinic.exception.ErrorEnum;
 import com.exalt.petclinic.model.Client;
+import com.exalt.petclinic.repository.ClientRepository;
 import com.exalt.petclinic.service.ClientService;
 
 @RestController
 public class ClientController {
 	@Autowired
 	private ClientService clientService;
+	@Autowired
+	ClientRepository clientRepository;
+	
 
 	@GetMapping(path = "/api/v1/clients", params = { "page", "limit" })
 	public List<Client> getClients(
@@ -40,10 +43,13 @@ public class ClientController {
 		return (clientService.getAll(page, limit));
 	}
 
-	@GetMapping("/api/v1/client/{id}")
+	@GetMapping(path ="/api/v1/client/{id}", produces = "application/json")
 	public Client getClient(@PathVariable int id) {
-	
-			return (clientService.get(id));
+		Client client =clientRepository.findById(id);
+			
+		return client;
+			//return (clientService.get(id));
+		
 
 	}
 

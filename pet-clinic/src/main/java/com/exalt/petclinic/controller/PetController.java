@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.exalt.petclinic.model.Pet;
+import com.exalt.petclinic.repository.PetRepository;
 import com.exalt.petclinic.service.PetService;
 
 @RestController
@@ -27,6 +28,9 @@ public class PetController {
 
 	@Autowired
 	private PetService petService;
+	
+	@Autowired
+	PetRepository petRepository;
 
 	@GetMapping(path = "/api/v1/pets", params = { "page", "limit" })
 	public List<Pet> getPets(@RequestParam("page") @Min(value = 0, message = "page number must by >0") int page,
@@ -38,8 +42,9 @@ public class PetController {
 	@GetMapping("/api/v1/pets/{id}")
 
 	public Pet getOnePet(@PathVariable @Min(value = 1, message = "there is no pet id with value <1") int id) {
-
-		return (petService.get(id));
+		
+		return petRepository.findById(id).get();
+	//	return (petService.get(id));
 	}
 
 	@GetMapping("/api/v1/pets/client/{id}")

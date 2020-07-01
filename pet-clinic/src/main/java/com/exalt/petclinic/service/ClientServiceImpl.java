@@ -8,14 +8,19 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.exalt.petclinic.exception.CommonException;
 import com.exalt.petclinic.exception.ErrorEnum;
 import com.exalt.petclinic.model.Client;
+import com.exalt.petclinic.repository.ClientRepository;
 
 @Service
 public class ClientServiceImpl implements ClientService {
+	
+	@Autowired
+	ClientRepository clientRepository;
 	//public static final Pattern VALID_EMAIL_ADDRESS_REGEX =   Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 	private final static List<Client> clientArray = new ArrayList<>(
 			Arrays.asList(new Client(1, "moh", "sab", "0592573952", "ewwew@fsdfs.com",new Date(2020, 2, 4), "123456789"),

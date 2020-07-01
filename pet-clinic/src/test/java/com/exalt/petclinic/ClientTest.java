@@ -1,16 +1,18 @@
 package com.exalt.petclinic;
 
+import static org.hamcrest.CoreMatchers.sameInstance;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.EntityManager;
 
+import org.hibernate.Session;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.exalt.petclinic.model.Client;
 import com.exalt.petclinic.model.Pet;
@@ -20,6 +22,8 @@ import com.exalt.petclinic.repository.ClientRepository;
 public class ClientTest {
 	@Autowired
 	ClientRepository clientRepository;
+	@Autowired
+	EntityManager entityManager;
 	@Test
 	void contextLoads() {
 		System.out.print("hello");
@@ -69,12 +73,18 @@ public class ClientTest {
 }
 	@Test
 	void getClient() {
-		Client client =clientRepository.findById(1).get(0);
-		for (Pet p : client.getPets()) {
-			System.out.println(p.toString());
-			
+		Client client =clientRepository.findById(1);
+		System.out.println(client.toString());
 		}
 		
+	
+	@Test
+	@Transactional
+	void getClientTransaction() {
+		Client client =clientRepository.findById(1);
+		clientRepository.findById(1);
+		clientRepository.findById(1);
+		System.out.println(client.toString());
 	}
 	
 	@Test
@@ -82,5 +92,16 @@ public class ClientTest {
 		clientRepository.deleteById(2);
 			
 		}
+	@Test
+	@Transactional
+	
+	void testLevele1CacheEvict() {
+		Session session =entityManager.unwrap(Session.class);
+		
+		Client client =clientRepository.findById(1);
+		clientRepository.findById(1);	
+		session.evict(client);
+		clientRepository.findById(1);
+	}
 	
 }

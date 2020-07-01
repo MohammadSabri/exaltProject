@@ -19,6 +19,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
@@ -49,8 +50,11 @@ public class Pet {
 	private Date creationDate;
 	@ManyToOne
 	@JoinColumn(name = "client_id")
+
+
+
 	private Client client;
-	@OneToMany(mappedBy = "pet",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "pet",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	private List<Schedule>schedule =new ArrayList<Schedule>();
 
 	public Pet() {
@@ -124,7 +128,6 @@ public class Pet {
 	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
 	}
-
 	public Client getClient() {
 		return client;
 	}

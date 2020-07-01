@@ -1,6 +1,7 @@
 package com.exalt.petclinic.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,6 +13,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
@@ -26,8 +30,6 @@ public class Employee {
 		Owner, Admin, Worker
 	}
 
-	@NotNull
-	@Min(value = 0, message = "the id must by >1")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -44,7 +46,7 @@ public class Employee {
 	@Min(value = 200, message = "no salary less than 200")
 	private Double salary;
 	@NotNull
-	@Column(name = "collage_degree")
+	@Column(name = "college_degree")
 	private String collegeDegree;
 	@NotNull
 	@Column(name = "working_field")
@@ -54,11 +56,11 @@ public class Employee {
 	@Column(name = "phone_number")
 	private String phoneNumber;
 	@NotNull
-	@Column(name = "year_of_experience")
+	@Column(name = "years_of_experience")
 	private Integer yearsOfExperience;
 	@NotNull
 	@Column(name = "creation_date")
-	private String creationDate;
+	private Date creationDate;
 	@NotNull
 	private String password;
 	@NotNull
@@ -66,28 +68,20 @@ public class Employee {
 	private String email;
 	@OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Schedule> schedule = new ArrayList<Schedule>();
-
+	
+	
+	@ManyToMany( cascade = { CascadeType.MERGE})
+    @JoinTable(
+        name = "employee_role", 
+        joinColumns = { @JoinColumn(name = "employee_id",referencedColumnName ="id") }, 
+        inverseJoinColumns = { @JoinColumn(name = "role_id",referencedColumnName ="id") }
+    )
+	private List<Role>roles;
 	public Employee() {
 		super();
 	}
 
-	public Employee(Integer id, String firstName, String lastName, String houseLocation, Double salary,
-			String collegeDegree, WorkingField workingField, String phoneNumber, Integer yearsOfExperience,
-			String creationDate, String password, String email) {
-		super();
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.houseLocation = houseLocation;
-		this.salary = salary;
-		this.collegeDegree = collegeDegree;
-		this.workingField = workingField;
-		this.phoneNumber = phoneNumber;
-		this.yearsOfExperience = yearsOfExperience;
-		this.creationDate = creationDate;
-		this.password = password;
-		this.email = email;
-	}
+
 
 	public Integer getId() {
 		return id;
@@ -161,13 +155,19 @@ public class Employee {
 		this.yearsOfExperience = yearsOfExperience;
 	}
 
-	public String getCreationDate() {
+	
+
+	public Date getCreationDate() {
 		return creationDate;
 	}
 
-	public void setCreationDate(String creationDate) {
+
+
+	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
 	}
+
+
 
 	public String getPassword() {
 		return password;
@@ -191,6 +191,15 @@ public class Employee {
 
 	public void setSchedule(List<Schedule> schedule) {
 		this.schedule = schedule;
+	}
+	
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
 	}
 
 	@Override
