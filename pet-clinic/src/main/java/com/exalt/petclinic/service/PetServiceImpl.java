@@ -1,55 +1,64 @@
 package com.exalt.petclinic.service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.exalt.petclinic.exception.CommonException;
+import com.exalt.petclinic.exception.ErrorEnum;
 import com.exalt.petclinic.model.Pet;
+import com.exalt.petclinic.repository.PetRepository;
 
 @Service
 public class PetServiceImpl implements PetService {
-	private static List<Pet> PetsArray = new ArrayList<Pet>(
-			Arrays.asList(new Pet(1, "speedo", 4, "cherasi", 50, 30, new Date(2020, 2, 4)),
-					new Pet(2, "oscar", 2, "bombat", 43, 13, new Date(2020, 2, 4)),
-					new Pet(3, "roc", 7, "Akita", 90, 45, new Date(2020, 2, 4)),
-					new Pet(4, "speedo", 4, "Azawakh", 30, 30, new Date(2020, 2, 4))));
+	@Autowired
+	PetRepository petRepository;
 
 	@Override
 	public Pet create(Pet pet) {
-		PetsArray.add(pet);
+		petRepository.save(pet);
 		return pet;
 	}
 
 	@Override
 	public Pet update(int id, Pet pet) {
-		for (Pet p : PetsArray) {
-			if (p.getId() == id) {
-				p.setName(pet.getName());
-				p.setAge(pet.getAge());
-				p.setHeight(pet.getHeight());
-				p.setWeight(pet.getWeight());
-				p.setSpecies(pet.getSpecies());
 
-				return p;
-			}
+		if (petRepository.findPetExistNQ(id) == 0) {
+			throw new CommonException(ErrorEnum.PET_NOT_FOUND);
 		}
-		return null;
+		Pet petTemp = petRepository.findById(id).get();
+		petTemp.setName(pet.getName());
+		petTemp.setAge(pet.getAge());
+		petTemp.setHeight(pet.getHeight());
+		petTemp.setWeight(pet.getWeight());
+		petTemp.setSpecies(pet.getSpecies());
+
+		return petTemp;
 
 	}
 
 	@Override
 	public Pet get(int id) {
-		return PetsArray.stream().filter(p -> p.getId() == id).findFirst().get();
+
+		if (petRepository.findPetExistNQ(id) == 0) {
+
+			throw new CommonException(ErrorEnum.PET_NOT_FOUND);
+
+		} else {
+
+			Pet petTemp = petRepository.findById(id).get();
+			return petTemp;
+		}
+
 	}
 
 	@Override
 	public List<Pet> getAll(int page, int limit) {
-
-		return PetsArray.stream().skip((long) (page - 1) * limit).limit((long) limit).collect(Collectors.toList());
+		return petRepository.findAll();
+		// return PetsArray.stream().skip((long) (page - 1) * limit).limit((long)
+		// limit).collect(Collectors.toList());
 	}
 
 	@Override
@@ -60,8 +69,12 @@ public class PetServiceImpl implements PetService {
 	}
 
 	@Override
-	public void delete(int id) {
-		PetsArray.removeIf(p -> p.getId() == id);
+	public String delete(int id) {
+		if (petRepository.findPetExistNQ(id) == 0) {
+			throw new CommonException(ErrorEnum.PET_NOT_FOUND);
+		}
+		petRepository.deleteById(id);
+		return "Pet deleted successfully ";
 	}
 
 }

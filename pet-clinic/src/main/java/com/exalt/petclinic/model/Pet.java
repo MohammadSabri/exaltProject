@@ -19,14 +19,17 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "pet")
+@JsonIgnoreProperties({"client","schedule"})
+
+
 public class Pet {
-	// @Min(value = 1, message = "can not creat pet with this id, id must be >1")
-	// @NotNull()
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -45,14 +48,11 @@ public class Pet {
 	@NotNull()
 	private double weight;
 	@NotNull()
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyy")
+	//@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyy")
 	@Column(name = "creation_date")
 	private Date creationDate;
 	@ManyToOne
 	@JoinColumn(name = "client_id")
-
-
-
 	private Client client;
 	@OneToMany(mappedBy = "pet",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	private List<Schedule>schedule =new ArrayList<Schedule>();

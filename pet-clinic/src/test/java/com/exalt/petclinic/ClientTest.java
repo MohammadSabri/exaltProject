@@ -26,6 +26,7 @@ public class ClientTest {
 	EntityManager entityManager;
 	@Test
 	void contextLoads() {
+		
 		System.out.print("hello");
 	}
 	@Test
@@ -73,7 +74,7 @@ public class ClientTest {
 }
 	@Test
 	void getClient() {
-		Client client =clientRepository.findById(1);
+		Client client =clientRepository.findById(1).get();
 		System.out.println(client.toString());
 		}
 		
@@ -81,7 +82,7 @@ public class ClientTest {
 	@Test
 	@Transactional
 	void getClientTransaction() {
-		Client client =clientRepository.findById(1);
+		Client client =clientRepository.findById(1).get();
 		clientRepository.findById(1);
 		clientRepository.findById(1);
 		System.out.println(client.toString());
@@ -98,7 +99,7 @@ public class ClientTest {
 	void testLevele1CacheEvict() {
 		Session session =entityManager.unwrap(Session.class);
 		
-		Client client =clientRepository.findById(1);
+		Client client =clientRepository.findById(1).get();
 		clientRepository.findById(1);	
 		session.evict(client);
 		clientRepository.findById(1);

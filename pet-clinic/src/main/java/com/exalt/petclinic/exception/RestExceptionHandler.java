@@ -27,7 +27,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 		logger.error("test the error {} ", ex);
 		ApiError apiError = new ApiError(ex.getMessage(), new Date(), request.getDescription(false));
 
-		return new ResponseEntity<>(apiError, new HttpHeaders(), HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(apiError, new HttpHeaders(), ex.getError().getStatus());
 	}
 
 	@ExceptionHandler(value = { ConstraintViolationException.class })

@@ -10,5 +10,5 @@ public interface ClientService {
 	Client update(int id, Client client);
 	Client get(int id);
 	List<Client> getAll(int page, int limit);
-	void delete (int id);
+	String delete (int id);
 }

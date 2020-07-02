@@ -43,7 +43,7 @@ public class PetController {
 
 	public Pet getOnePet(@PathVariable @Min(value = 1, message = "there is no pet id with value <1") int id) {
 		
-		return petRepository.findById(id).get();
+		return petService.get(id);
 	//	return (petService.get(id));
 	}
 
@@ -67,9 +67,9 @@ public class PetController {
 	}
 
 	@DeleteMapping("/api/v1/pets/{id}")
-	public void deletePet(@PathVariable @Min(1) int id) {
+	public String deletePet(@PathVariable @Min(1) int id) {
 
-		petService.delete(id);
+		return petService.delete(id);
 	}
 
 }

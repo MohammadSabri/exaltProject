@@ -4,6 +4,9 @@ import org.springframework.http.HttpStatus;
 
 public enum ErrorEnum {
 	USER_NOT_FOUND("User not foud",  HttpStatus.NOT_FOUND),
+	CLIENT_NOT_FOUND("No client with this ID",  HttpStatus.NOT_FOUND),
+	PET_NOT_FOUND("No Pet with this ID",  HttpStatus.NOT_FOUND),
+
 	PAGE_INVALID("page must be >1",HttpStatus.BAD_REQUEST),
 	LIMIT_INVALID("limit must be >1",HttpStatus.BAD_REQUEST),
 	EXIST_EMAIL("email already exist",HttpStatus.CONFLICT),

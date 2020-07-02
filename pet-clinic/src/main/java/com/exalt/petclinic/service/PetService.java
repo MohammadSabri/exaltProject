@@ -10,5 +10,5 @@ public interface PetService {
 	Pet get(int id);
 	List<Pet> getAll(int page, int limit);
 	List<Pet> getClientPets (int id);
-	void delete (int id);
+	String delete (int id);
 }

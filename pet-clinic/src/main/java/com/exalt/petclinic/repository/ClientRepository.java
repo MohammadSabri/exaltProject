@@ -1,15 +1,21 @@
 package com.exalt.petclinic.repository;
 
-import java.util.List;
-
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 import com.exalt.petclinic.model.Client;
 
-public interface ClientRepository extends CrudRepository<Client, Integer> {
-	Client findById(int id);
-	@Query(value = "select email,password from client",nativeQuery = true)
-	List<Object> findByIdNQ(int id);
+public interface ClientRepository extends JpaRepository<Client, Integer> {
+	
+	@Query(value = "select count(*) from client where email=:email ",nativeQuery = true)
+	int findEmailExistNQ(@Param("email") String email);
+	
+	@Query(value = "select count(*) from client where phone_number=:phoneNumber ",nativeQuery = true)
+	int findNumberExistNQ(@Param("phoneNumber") String phoneNumber);
+	
+	@Query(value = "select count(*) from client where id=:id ",nativeQuery = true)
+	int findClientExistNQ(@Param("id") int  id);
+	
 
 }

@@ -27,36 +27,31 @@ public class ClientController {
 	private ClientService clientService;
 	@Autowired
 	ClientRepository clientRepository;
-	
 
 	@GetMapping(path = "/api/v1/clients", params = { "page", "limit" })
-	public List<Client> getClients(
-			HttpServletRequest request,
-			@RequestParam("page") int page, @RequestParam("limit") int limit) {
-		if(page < 0) {
+	public List<Client> getClients(HttpServletRequest request, @RequestParam("page") int page,
+			@RequestParam("limit") int limit) {
+		if (page < 0) {
 			throw new CommonException(ErrorEnum.PAGE_INVALID);
 		}
-		if(limit < 0) {
+		if (limit < 0) {
 			throw new CommonException(ErrorEnum.PAGE_INVALID);
 		}
-		
+
 		return (clientService.getAll(page, limit));
 	}
 
-	@GetMapping(path ="/api/v1/client/{id}", produces = "application/json")
+	@GetMapping(path = "/api/v1/client/{id}", produces = "application/json")
 	public Client getClient(@PathVariable int id) {
-		Client client =clientRepository.findById(id);
-			
-		return client;
-			//return (clientService.get(id));
 		
+		 return (clientService.get(id));
 
 	}
 
 	@PostMapping(path = "/api/v1/client", consumes = "application/json", produces = "application/json")
 
 	public Client addClient(@Valid @RequestBody Client client) {
-			
+
 		return clientService.create(client);
 	}
 
@@ -66,12 +61,10 @@ public class ClientController {
 	}
 
 	@DeleteMapping("/api/v1/client/{id}")
-	public void deleteClient(@PathVariable int id) {
-		
-			clientService.delete(id);
+	public String deleteClient(@PathVariable int id) {
 
+		return clientService.delete(id);
 		
-			
-		
+
 	}
 }

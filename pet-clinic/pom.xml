@@ -79,11 +79,17 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>6.0.13.Final</version>
 		</dependency>
-		
-		
+
+
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-ehcache</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>2.3.0</version>
 		</dependency>
 
 	</dependencies>
@@ -91,7 +97,7 @@
 
 
 
-	<build> 
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

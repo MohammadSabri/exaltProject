@@ -1,13 +1,10 @@
 package com.exalt.petclinic.service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.sql.Date;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,80 +15,84 @@ import com.exalt.petclinic.repository.ClientRepository;
 
 @Service
 public class ClientServiceImpl implements ClientService {
-	
+
 	@Autowired
 	ClientRepository clientRepository;
-	//public static final Pattern VALID_EMAIL_ADDRESS_REGEX =   Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
-	private final static List<Client> clientArray = new ArrayList<>(
-			Arrays.asList(new Client(1, "moh", "sab", "0592573952", "ewwew@fsdfs.com",new Date(2020, 2, 4), "123456789"),
-					new Client(2, "fda", "sgab", "0592586491", "gdfg@fsdfs.com", new Date(2020, 2, 4), "123456789"),
-					new Client(3, "fadi", "hamad", "0563111417", "ewwew@fsdfs.com", new Date(2020, 2, 4), "123456789")));
-
 
 	@Override
 	public Client create(Client client) {
+
+		client.setPets(null);
+
 		if (client.getPhoneNumber().length() != 10) {
 			throw new CommonException(ErrorEnum.PHONE_NUMBER_INVALID);
 		}
 
-		//Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(client.getEmail());
-		//if (!matcher.find())
-		//	throw new CommonException(ErrorEnum.EMAIL_INVALID);
-		for (Client c : clientArray) {
-			if (c.getId() == client.getId() || c.getEmail() == client.getEmail()
-					|| c.getPhoneNumber() == client.getPhoneNumber())
-				throw new CommonException(ErrorEnum.EXIST_CLIENT);
+		if (clientRepository.findEmailExistNQ(client.getEmail()) != 0) {
+			throw new CommonException(ErrorEnum.EXIST_EMAIL);
 		}
+		if (clientRepository.findNumberExistNQ(client.getPhoneNumber()) != 0)
+			throw new CommonException(ErrorEnum.EXIST_PHONE_NUMBER);
 
-		clientArray.add(client);
+		clientRepository.save(client);
+
 		return client;
 
 	}
 
 	@Override
 	public Client update(int id, Client client) {
+
+		if (clientRepository.findClientExistNQ(id) == 0)
+			throw new CommonException(ErrorEnum.CLIENT_NOT_FOUND);
+
+		Client clientTemp = clientRepository.findById(id).get();
+
 		if (client.getPhoneNumber().length() != 10)
 			throw new CommonException(ErrorEnum.PHONE_NUMBER_INVALID);
-		
-	//	Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(client.getEmail());
-		//if (!matcher.find())
-		//	throw new CommonException(ErrorEnum.EMAIL_INVALID);
-		for (Client c : clientArray) {
-			if (c.getEmail() == client.getEmail() || c.getPhoneNumber() == client.getPhoneNumber())
-				throw new CommonException(ErrorEnum.EXIST_CLIENT);
-		}
 
-		for (Client c : clientArray) {
-			if (c.getId() == id) {
-
-				c.setEmail(client.getEmail());
-				c.setFirstName(client.getFirstName());
-				c.setLastName(client.getLastName());
-				c.setPhoneNumber(client.getPhoneNumber());
-				c.setPassword(client.getPassword());
-				return c;
-			}
+		if ((clientRepository.findEmailExistNQ(client.getEmail()) != 0)
+				&& !(client.getEmail().equals(clientTemp.getEmail()))) {
+			throw new CommonException(ErrorEnum.EXIST_EMAIL);
 		}
-		return null;
+		if ((clientRepository.findNumberExistNQ(client.getPhoneNumber()) != 0)
+				&& !(client.getPhoneNumber().equals(clientTemp.getPhoneNumber())))
+			throw new CommonException(ErrorEnum.EXIST_PHONE_NUMBER);
+
+		clientTemp.setEmail(client.getEmail());
+		clientTemp.setFirstName(client.getFirstName());
+		clientTemp.setLastName(client.getLastName());
+		clientTemp.setPhoneNumber(client.getPhoneNumber());
+		clientRepository.save(clientTemp);
+
+		return clientTemp;
 	}
 
 	@Override
 	public Client get(int id) {
-		
-		return clientArray.stream().filter(c -> c.getId() == id).findFirst().orElseThrow(() -> new CommonException(ErrorEnum.USER_NOT_FOUND));
+
+		if (clientRepository.findClientExistNQ(id) == 0)
+			throw new CommonException(ErrorEnum.CLIENT_NOT_FOUND);
+		else
+			return clientRepository.findById(id).get();
+
 	}
 
 	@Override
 	public List<Client> getAll(int page, int limit) {
-		
-		return clientArray.stream().skip((long) (page-1)*limit).limit((long) limit).collect(Collectors.toList());
+
+		return clientRepository.findAll();
+
 	}
 
 	@Override
-	public void delete(int id) {
-	
-		if(!clientArray.removeIf(c -> c.getId() == id))
-		throw new CommonException(ErrorEnum.USER_NOT_FOUND);
+	public String delete(int id) {
+		if (clientRepository.findClientExistNQ(id) == 0) {
+			throw new CommonException(ErrorEnum.CLIENT_NOT_FOUND);
+		} else {
+			clientRepository.deleteById(id);
+			return "Deleted sucsessfuly";
+		}
 	}
 
 }
