@@ -6,6 +6,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.exalt.petclinic.model.Client;
 
+
 public interface ClientRepository extends JpaRepository<Client, Integer> {
 	
 	@Query(value = "select count(*) from client where email=:email ",nativeQuery = true)
@@ -17,5 +18,5 @@ public interface ClientRepository extends JpaRepository<Client, Integer> {
 	@Query(value = "select count(*) from client where id=:id ",nativeQuery = true)
 	int findClientExistNQ(@Param("id") int  id);
 	
-
+	
 }

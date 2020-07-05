@@ -1,20 +1,24 @@
 package com.exalt.petclinic.service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.exalt.petclinic.exception.CommonException;
 import com.exalt.petclinic.exception.ErrorEnum;
 import com.exalt.petclinic.model.Pet;
+import com.exalt.petclinic.projection.PetProjection;
 import com.exalt.petclinic.repository.PetRepository;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @Service
 public class PetServiceImpl implements PetService {
 	@Autowired
-	PetRepository petRepository;
+	private PetRepository petRepository;
 
 	@Override
 	public Pet create(Pet pet) {
@@ -34,7 +38,7 @@ public class PetServiceImpl implements PetService {
 		petTemp.setHeight(pet.getHeight());
 		petTemp.setWeight(pet.getWeight());
 		petTemp.setSpecies(pet.getSpecies());
-
+		petRepository.save(petTemp);
 		return petTemp;
 
 	}
@@ -56,16 +60,18 @@ public class PetServiceImpl implements PetService {
 
 	@Override
 	public List<Pet> getAll(int page, int limit) {
-		return petRepository.findAll();
-		// return PetsArray.stream().skip((long) (page - 1) * limit).limit((long)
-		// limit).collect(Collectors.toList());
+
+		Pageable pageable = PageRequest.of(page, limit);
+		Page<Pet> pagedResult = petRepository.findAll(pageable);
+		return pagedResult.toList();
+
 	}
 
+	@JsonPropertyOrder(alphabetic = true)
 	@Override
-	public List<Pet> getClientPets(int id) {
-		// return PetsArray.stream().filter(p -> p.getClientId() ==
-		// id).collect(Collectors.toList());
-		return null;
+	public List<PetProjection> getClientPets(int id) {
+
+		return petRepository.findPetsNQ(id);
 	}
 
 	@Override

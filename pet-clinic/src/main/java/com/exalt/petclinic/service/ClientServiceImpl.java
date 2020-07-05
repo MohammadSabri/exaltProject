@@ -2,10 +2,10 @@ package com.exalt.petclinic.service;
 
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.exalt.petclinic.exception.CommonException;
@@ -17,7 +17,7 @@ import com.exalt.petclinic.repository.ClientRepository;
 public class ClientServiceImpl implements ClientService {
 
 	@Autowired
-	ClientRepository clientRepository;
+	private ClientRepository clientRepository;
 
 	@Override
 	public Client create(Client client) {
@@ -81,7 +81,9 @@ public class ClientServiceImpl implements ClientService {
 	@Override
 	public List<Client> getAll(int page, int limit) {
 
-		return clientRepository.findAll();
+		Pageable pageable = PageRequest.of(page, limit);
+		Page<Client> pagedResult = clientRepository.findAll(pageable);
+		return pagedResult.toList();
 
 	}
 

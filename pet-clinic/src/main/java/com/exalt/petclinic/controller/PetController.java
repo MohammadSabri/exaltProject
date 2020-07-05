@@ -7,7 +7,6 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.exalt.petclinic.model.Pet;
+import com.exalt.petclinic.projection.PetProjection;
 import com.exalt.petclinic.repository.PetRepository;
 import com.exalt.petclinic.service.PetService;
 
@@ -47,14 +47,25 @@ public class PetController {
 	//	return (petService.get(id));
 	}
 
-	@GetMapping("/api/v1/pets/client/{id}")
+	 @GetMapping("/api/v1/pets/client/{id}")
 
-	public List<Pet> getClientPets(
+	public List<PetProjection> getClientPets(
 			@PathVariable @Min(value = 1, message = "there is no client id with value <1") int id) {
-
+		 
 		return (petService.getClientPets(id));
 	}
 
+	
+	
+/*
+	@GetMapping("/api/v1/pets/client/{id}")
+
+	public List<PetProjection> getClientPets(
+			@PathVariable @Min(value = 1, message = "there is no client id with value <1") int id) {
+
+		return (petService.getProjection(id));
+	}
+*/
 	@PostMapping(path = "/api/v1/pets", consumes = "application/json", produces = "application/json")
 
 	public Pet addPet(@Valid @RequestBody Pet pet) {

@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.exalt.petclinic.model.Client;
 import com.exalt.petclinic.model.Pet;
+import com.exalt.petclinic.projection.PetProjection;
 import com.exalt.petclinic.repository.PetRepository;
 
 @SpringBootTest
@@ -28,7 +29,7 @@ public class PetTest {
 		pet.setHeight(1.35);
 		pet.setWeight(23.5);
 		pet.setCreationDate(new Date(2020,4,1));
-		Client client =new Client();
+		Client client = new Client();
 		client.setId(1);// this step to set the id of the client 
 		pet.setClient(client);
 		petRepository.save(pet);
@@ -113,6 +114,11 @@ public class PetTest {
 
 		petRepository.deleteById(2);
 
+	}
+	@Test
+	void testProjection() {
+		PetProjection pt= petRepository.findPetsNQ(1).get(0);
+		System.out.println(pt.getAge());
 	}
 
 }

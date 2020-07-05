@@ -19,17 +19,14 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "pet")
-@JsonIgnoreProperties({"client","schedule"})
-
+@JsonIgnoreProperties({ "client", "schedule" })
 
 public class Pet {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -47,19 +44,18 @@ public class Pet {
 	@Min((long) 1.0)
 	@NotNull()
 	private double weight;
-	@NotNull()
-	//@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyy")
+
+	// @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyy")
 	@Column(name = "creation_date")
 	private Date creationDate;
-	@ManyToOne
+	@ManyToOne()
 	@JoinColumn(name = "client_id")
 	private Client client;
-	@OneToMany(mappedBy = "pet",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	private List<Schedule>schedule =new ArrayList<Schedule>();
+	@OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Schedule> schedule = new ArrayList<Schedule>();
 
 	public Pet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Pet(int id, String name, int age, String species, double height, double weight, Date creationDate) {
@@ -128,6 +124,7 @@ public class Pet {
 	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
 	}
+
 	public Client getClient() {
 		return client;
 	}
@@ -135,7 +132,6 @@ public class Pet {
 	public void setClient(Client client) {
 		this.client = client;
 	}
-	
 
 	public List<Schedule> getSchedule() {
 		return schedule;
@@ -150,7 +146,5 @@ public class Pet {
 		return "Pet [id=" + id + ", name=" + name + ", age=" + age + ", species=" + species + ", height=" + height
 				+ ", weight=" + weight + ", creationDate=" + creationDate + ", client=" + client + "]";
 	}
-
-	
 
 }

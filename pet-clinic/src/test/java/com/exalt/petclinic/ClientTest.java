@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.exalt.petclinic.model.Client;
 import com.exalt.petclinic.model.Pet;
 import com.exalt.petclinic.repository.ClientRepository;
+import com.exalt.petclinic.repository.PetRepository;
 
 @SpringBootTest
 public class ClientTest {
@@ -104,5 +105,6 @@ public class ClientTest {
 		session.evict(client);
 		clientRepository.findById(1);
 	}
+	
 	
 }

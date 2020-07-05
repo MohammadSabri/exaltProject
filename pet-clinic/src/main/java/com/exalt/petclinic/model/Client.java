@@ -16,9 +16,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import com.exalt.petclinic.vallidator.ValidateEmail;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonRawValue;
 @Entity
 @Table(name = "client")
 @JsonIgnoreProperties("pets")
@@ -43,14 +41,14 @@ public class Client {
 	@Column(name="email", unique = true)
 	private String email;
 	@NotNull
-	@Column(name="creation_date")
+	@Column(name="creation_date")	
 	private Date creationDate;
 	@NotNull
 	@Column(name="password")
 	private String password;
 	
 	@OneToMany(mappedBy = "client",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	List<Pet>pets ;
+	private List<Pet>pets ;
 	
 	public Client() {
 		super();
