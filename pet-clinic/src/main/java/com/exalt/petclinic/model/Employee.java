@@ -22,9 +22,12 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import com.exalt.petclinic.vallidator.ValidateEmail;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "employee")
+@JsonIgnoreProperties({"roles","schedule"})
+
 public class Employee {
 	public enum WorkingField {
 		Owner, Admin, Worker
@@ -68,20 +71,16 @@ public class Employee {
 	private String email;
 	@OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Schedule> schedule = new ArrayList<Schedule>();
-	
-	
-	@ManyToMany( cascade = { CascadeType.MERGE})
-    @JoinTable(
-        name = "employee_role", 
-        joinColumns = { @JoinColumn(name = "employee_id",referencedColumnName ="id") }, 
-        inverseJoinColumns = { @JoinColumn(name = "role_id",referencedColumnName ="id") }
-    )
-	private List<Role>roles;
+
+	@ManyToMany(cascade = { CascadeType.MERGE })
+	@JoinTable(name = "employee_role", joinColumns = {
+			@JoinColumn(name = "employee_id", referencedColumnName = "id") }, inverseJoinColumns = {
+					@JoinColumn(name = "role_id", referencedColumnName = "id") })
+	private List<Role> roles;
+
 	public Employee() {
 		super();
 	}
-
-
 
 	public Integer getId() {
 		return id;
@@ -155,19 +154,13 @@ public class Employee {
 		this.yearsOfExperience = yearsOfExperience;
 	}
 
-	
-
 	public Date getCreationDate() {
 		return creationDate;
 	}
 
-
-
 	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
 	}
-
-
 
 	public String getPassword() {
 		return password;
@@ -192,7 +185,6 @@ public class Employee {
 	public void setSchedule(List<Schedule> schedule) {
 		this.schedule = schedule;
 	}
-	
 
 	public List<Role> getRoles() {
 		return roles;
@@ -209,6 +201,5 @@ public class Employee {
 				+ workingField + ", phoneNumber=" + phoneNumber + ", yearsOfExperience=" + yearsOfExperience
 				+ ", creationDate=" + creationDate + ", password=" + password + ", email=" + email + "]";
 	}
-	
 
 }

@@ -12,6 +12,7 @@ import org.hibernate.Session;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.exalt.petclinic.model.Client;
@@ -81,12 +82,13 @@ public class ClientTest {
 		
 	
 	@Test
-	@Transactional
+	@Transactional(isolation = Isolation.READ_COMMITTED)
 	void getClientTransaction() {
-		Client client =clientRepository.findById(1).get();
-		clientRepository.findById(1);
-		clientRepository.findById(1);
-		System.out.println(client.toString());
+		Client client =clientRepository.findById(4).get();
+		clientRepository.deleteById(4);
+
+		clientRepository.findById(4);
+		
 	}
 	
 	@Test

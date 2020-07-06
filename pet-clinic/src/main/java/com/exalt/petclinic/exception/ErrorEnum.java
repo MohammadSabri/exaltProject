@@ -4,11 +4,11 @@ import org.springframework.http.HttpStatus;
 
 public enum ErrorEnum {
 	USER_NOT_FOUND("User not foud",  HttpStatus.NOT_FOUND),
+	WRONG_ID_INTERED("The Id must be >0",  HttpStatus.BAD_REQUEST),
 	CLIENT_NOT_FOUND("No client with this ID",  HttpStatus.NOT_FOUND),
 	PET_NOT_FOUND("No Pet with this ID",  HttpStatus.NOT_FOUND),
-
-	PAGE_INVALID("page must be >1",HttpStatus.BAD_REQUEST),
-	LIMIT_INVALID("limit must be >1",HttpStatus.BAD_REQUEST),
+	PAGE_INVALID("page must be >=1",HttpStatus.BAD_REQUEST),
+	LIMIT_INVALID("limit must be >=1",HttpStatus.BAD_REQUEST),
 	EXIST_EMAIL("email already exist",HttpStatus.CONFLICT),
 	EXIST_PHONE_NUMBER("phone number already exist",HttpStatus.CONFLICT),
 	PHONE_NUMBER_INVALID("phone number must consist of 10 digits",HttpStatus.UNPROCESSABLE_ENTITY),

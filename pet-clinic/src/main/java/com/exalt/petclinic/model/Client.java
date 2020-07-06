@@ -21,8 +21,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name = "client")
 @JsonIgnoreProperties("pets")
 public class Client {
-	//@NotNull
-	//@Min(value=0,message = "the id must by >1")
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;

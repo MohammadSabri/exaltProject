@@ -27,44 +27,64 @@ public class ClientController {
 	private ClientService clientService;
 	@Autowired
 	ClientRepository clientRepository;
-
+	/**	
+	 * get all the client with page and limit restriction 
+	 * 
+	 * @param request
+	 * @param page
+	 * @param limit
+	 * @return
+	 */
 	@GetMapping(path = "/api/v1/clients", params = { "page", "limit" })
 	public List<Client> getClients(HttpServletRequest request, @RequestParam("page") int page,
 			@RequestParam("limit") int limit) {
-		if (page < 0) {
-			throw new CommonException(ErrorEnum.PAGE_INVALID);
-		}
-		if (limit < 0) {
-			throw new CommonException(ErrorEnum.PAGE_INVALID);
-		}
 
 		return (clientService.getAll(page, limit));
 	}
-
+	
+	
+	
+	/**
+	 * get the client with specific id
+	 * 
+	 * @param id
+	 * @return
+	 */
 	@GetMapping(path = "/api/v1/client/{id}", produces = "application/json")
 	public Client getClient(@PathVariable int id) {
-		
-		 return (clientService.get(id));
 
+		return (clientService.get(id));
 	}
-
+	/**
+	 * add client to the data base
+	 * 
+	 * @param client
+	 * @return
+	 */
 	@PostMapping(path = "/api/v1/client", consumes = "application/json", produces = "application/json")
 
 	public Client addClient(@Valid @RequestBody Client client) {
 
 		return clientService.create(client);
 	}
-
+	/**
+	 * 
+	 * @param client
+	 * @param id
+	 * @return
+	 */
 	@PutMapping(path = "/api/v1/client/{id}", consumes = "application/json", produces = "application/json")
-	public void updateClient(@RequestBody Client client, @PathVariable int id) {
-		clientService.update(id, client);
+	public Client updateClient(@RequestBody Client client, @PathVariable int id) {
+		return clientService.update(id, client);
 	}
-
+	/**
+	 * delete the client from the dataBase 
+	 * @param id
+	 * @return
+	 */
 	@DeleteMapping("/api/v1/client/{id}")
 	public String deleteClient(@PathVariable int id) {
 
 		return clientService.delete(id);
-		
-
 	}
 }

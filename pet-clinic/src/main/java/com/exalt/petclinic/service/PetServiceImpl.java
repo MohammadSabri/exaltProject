@@ -8,6 +8,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.exalt.petclinic.DTO.PetDTO;
+import com.exalt.petclinic.DTO.PetMapper;
 import com.exalt.petclinic.exception.CommonException;
 import com.exalt.petclinic.exception.ErrorEnum;
 import com.exalt.petclinic.model.Pet;
@@ -19,6 +21,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class PetServiceImpl implements PetService {
 	@Autowired
 	private PetRepository petRepository;
+	@Autowired
+	private PetMapper petMapper;
 
 	@Override
 	public Pet create(Pet pet) {
@@ -28,7 +32,9 @@ public class PetServiceImpl implements PetService {
 
 	@Override
 	public Pet update(int id, Pet pet) {
-
+		if (id <= 0) {
+			throw new CommonException(ErrorEnum.WRONG_ID_INTERED);
+		}
 		if (petRepository.findPetExistNQ(id) == 0) {
 			throw new CommonException(ErrorEnum.PET_NOT_FOUND);
 		}
@@ -45,6 +51,9 @@ public class PetServiceImpl implements PetService {
 
 	@Override
 	public Pet get(int id) {
+		if (id <= 0) {
+			throw new CommonException(ErrorEnum.WRONG_ID_INTERED);
+		}
 
 		if (petRepository.findPetExistNQ(id) == 0) {
 
@@ -60,8 +69,14 @@ public class PetServiceImpl implements PetService {
 
 	@Override
 	public List<Pet> getAll(int page, int limit) {
+		if (page < 1) {
+			throw new CommonException(ErrorEnum.PAGE_INVALID);
+		}
+		if (limit < 1) {
+			throw new CommonException(ErrorEnum.LIMIT_INVALID);
+		}
 
-		Pageable pageable = PageRequest.of(page, limit);
+		Pageable pageable = PageRequest.of((page - 1) * limit, limit);
 		Page<Pet> pagedResult = petRepository.findAll(pageable);
 		return pagedResult.toList();
 
@@ -70,17 +85,29 @@ public class PetServiceImpl implements PetService {
 	@JsonPropertyOrder(alphabetic = true)
 	@Override
 	public List<PetProjection> getClientPets(int id) {
-
+		if (id <= 0) {
+			throw new CommonException(ErrorEnum.WRONG_ID_INTERED);
+		}
 		return petRepository.findPetsNQ(id);
 	}
 
 	@Override
 	public String delete(int id) {
+		if (id <= 0) {
+			throw new CommonException(ErrorEnum.WRONG_ID_INTERED);
+		}
 		if (petRepository.findPetExistNQ(id) == 0) {
 			throw new CommonException(ErrorEnum.PET_NOT_FOUND);
 		}
 		petRepository.deleteById(id);
 		return "Pet deleted successfully ";
+	}
+
+	@Override
+	public List<PetDTO> getAllDTO() {
+
+		return petMapper.petToPetDto(petRepository.findAll());
+
 	}
 
 }
