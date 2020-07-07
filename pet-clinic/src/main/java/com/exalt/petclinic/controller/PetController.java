@@ -3,8 +3,6 @@ package com.exalt.petclinic.controller;
 import java.util.List;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -18,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.exalt.petclinic.DTO.PetDTO;
+import com.exalt.petclinic.DTO.PetDtoUpdate;
 import com.exalt.petclinic.model.Pet;
 import com.exalt.petclinic.projection.PetProjection;
 import com.exalt.petclinic.repository.PetRepository;
@@ -66,7 +65,7 @@ public class PetController {
 	}
 
 	@PutMapping(path = "/api/v1/pets/{id}", consumes = "application/json", produces = "application/json")
-	public Pet updatePet(@Valid @RequestBody Pet pet, @PathVariable int id) {
+	public Pet updatePet(@Valid @RequestBody PetDtoUpdate pet, @PathVariable int id) {
 		return petService.update(id, pet);
 	}
 

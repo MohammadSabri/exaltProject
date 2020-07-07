@@ -41,7 +41,6 @@ public class Pet {
 	@NotNull()
 	@Min((long) 1.0)
 	private double height;
-	@Min((long) 1.0)
 	@NotNull()
 	private double weight;
 

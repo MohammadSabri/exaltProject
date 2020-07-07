@@ -8,7 +8,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.exalt.petclinic.exception.CommonException;
@@ -48,7 +47,7 @@ public class ClientServiceImpl implements ClientService {
 	@Transactional(isolation = Isolation.SERIALIZABLE)
 	public Client update(int id, Client client) {
 		if (id <= 0) {
-			throw new CommonException(ErrorEnum.WRONG_ID_INTERED);
+			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);
 		}
 
 		if (clientRepository.findClientExistNQ(id) == 0)
@@ -80,7 +79,7 @@ public class ClientServiceImpl implements ClientService {
 	@Transactional
 	public Client get(int id) {
 		if (id <= 0) {
-			throw new CommonException(ErrorEnum.WRONG_ID_INTERED);
+			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);
 		}
 
 		if (clientRepository.findClientExistNQ(id) == 0)
@@ -92,7 +91,7 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	public List<Client> getAll(int page, int limit) {
-		if (page < 0) {
+		if (page < 1) {
 			throw new CommonException(ErrorEnum.PAGE_INVALID);
 		}
 		if (limit < 1) {
@@ -108,7 +107,7 @@ public class ClientServiceImpl implements ClientService {
 	@Transactional
 	public String delete(int id) {
 		if (id <= 0) {
-			throw new CommonException(ErrorEnum.WRONG_ID_INTERED);
+			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);
 		}
 		if (clientRepository.findClientExistNQ(id) == 0) {
 			throw new CommonException(ErrorEnum.CLIENT_NOT_FOUND);

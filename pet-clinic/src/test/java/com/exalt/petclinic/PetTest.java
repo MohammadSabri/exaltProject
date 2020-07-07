@@ -2,6 +2,7 @@ package com.exalt.petclinic;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -22,13 +23,16 @@ public class PetTest {
 
 	@Test
 	void testAddPet() {
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(2012, 1, 2, 2, 13);
+		Date date = calendar.getTime();
 		Pet pet =new Pet();
 		pet.setName("sree");
 		pet.setSpecies("cherasi");
 		pet.setAge(5);
 		pet.setHeight(1.35);
 		pet.setWeight(23.5);
-		pet.setCreationDate(new Date(2020,4,1));
+		pet.setCreationDate(date);
 		Client client = new Client();
 		client.setId(1);// this step to set the id of the client 
 		pet.setClient(client);

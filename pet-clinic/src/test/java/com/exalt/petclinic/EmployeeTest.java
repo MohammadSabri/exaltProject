@@ -1,6 +1,7 @@
 package com.exalt.petclinic;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -20,6 +21,10 @@ public class EmployeeTest {
 	EmployeeRepository employeeRepository;
 	@Test
 	void testCreat() {
+		
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(2002, 1, 2, 2, 13);
+		Date date = calendar.getTime();
 		Employee employee =new Employee();
 		employee.setFirstName("Wesam");
 		employee.setLastName("Mtour");
@@ -31,7 +36,7 @@ public class EmployeeTest {
 		employee.setWorkingField(WorkingField.Owner);
 		employee.setPassword("21342223424342");
 		employee.setYearsOfExperience(3);
-		employee.setCreationDate(new Date(2020, 10, 1));
+		employee.setCreationDate(date);
 		
 		List<Employee> employees =new ArrayList<Employee>();
 		List<Role> roles =new ArrayList<Role>();

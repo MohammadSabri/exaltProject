@@ -4,8 +4,10 @@ import org.springframework.http.HttpStatus;
 
 public enum ErrorEnum {
 	USER_NOT_FOUND("User not foud",  HttpStatus.NOT_FOUND),
-	WRONG_ID_INTERED("The Id must be >0",  HttpStatus.BAD_REQUEST),
+	WRONG_ID_ENTERED("The Id must be >0",  HttpStatus.BAD_REQUEST),
+	WRONG_ID_ENTERED_IN_UPDATE("The Id you updated must be >0",  HttpStatus.BAD_REQUEST),
 	CLIENT_NOT_FOUND("No client with this ID",  HttpStatus.NOT_FOUND),
+	SCHEDULE_NOT_FOUND("No schedule with this ID",  HttpStatus.NOT_FOUND),
 	PET_NOT_FOUND("No Pet with this ID",  HttpStatus.NOT_FOUND),
 	PAGE_INVALID("page must be >=1",HttpStatus.BAD_REQUEST),
 	LIMIT_INVALID("limit must be >=1",HttpStatus.BAD_REQUEST),

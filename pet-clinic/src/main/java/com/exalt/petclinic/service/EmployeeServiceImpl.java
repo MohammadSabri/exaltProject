@@ -3,9 +3,6 @@ package com.exalt.petclinic.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.exalt.petclinic.exception.CommonException;
@@ -23,7 +20,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public Employee getEmployee(int id) {
 		if (id <= 0) {
-			throw new CommonException(ErrorEnum.WRONG_ID_INTERED);
+			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);
 		}
 
 		if (employeeRepository.findEmployeeExistNQ(id) == 0) {
@@ -68,7 +65,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public Employee updateEmployee(int id, Employee employee) {
 
 		if (id <= 0) {
-			throw new CommonException(ErrorEnum.WRONG_ID_INTERED);
+			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);
 		}
 
 		if (employeeRepository.findEmployeeExistNQ(id) == 0)
@@ -103,7 +100,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public String deleteWorker(int id) {
 		if (id <= 0) {
-			throw new CommonException(ErrorEnum.WRONG_ID_INTERED);
+			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);
 		}
 		if (employeeRepository.findEmployeeExistNQ(id) == 0) {
 			throw new CommonException(ErrorEnum.CLIENT_NOT_FOUND);
@@ -145,7 +142,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public String deleteAdmin(int id) {
 		if (id <= 0) {
-			throw new CommonException(ErrorEnum.WRONG_ID_INTERED);
+			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);
 		}
 		if (employeeRepository.findEmployeeExistNQ(id) == 0) {
 			throw new CommonException(ErrorEnum.CLIENT_NOT_FOUND);
@@ -188,7 +185,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public String deleteOwner(int id) {
 		if (id <= 0) {
-			throw new CommonException(ErrorEnum.WRONG_ID_INTERED);
+			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);
 		}
 		if (employeeRepository.findEmployeeExistNQ(id) == 0) {
 			throw new CommonException(ErrorEnum.CLIENT_NOT_FOUND);

@@ -9,11 +9,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.exalt.petclinic.DTO.PetDTO;
+import com.exalt.petclinic.DTO.PetDtoUpdate;
 import com.exalt.petclinic.DTO.PetMapper;
 import com.exalt.petclinic.exception.CommonException;
 import com.exalt.petclinic.exception.ErrorEnum;
+import com.exalt.petclinic.model.Client;
 import com.exalt.petclinic.model.Pet;
 import com.exalt.petclinic.projection.PetProjection;
+import com.exalt.petclinic.repository.ClientRepository;
 import com.exalt.petclinic.repository.PetRepository;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -23,27 +26,49 @@ public class PetServiceImpl implements PetService {
 	private PetRepository petRepository;
 	@Autowired
 	private PetMapper petMapper;
+	@Autowired
+	private ClientRepository clientRepository;
+
 
 	@Override
 	public Pet create(Pet pet) {
+		
 		petRepository.save(pet);
 		return pet;
 	}
 
 	@Override
-	public Pet update(int id, Pet pet) {
+	public Pet update(int id, PetDtoUpdate pet) {
 		if (id <= 0) {
-			throw new CommonException(ErrorEnum.WRONG_ID_INTERED);
 		}
 		if (petRepository.findPetExistNQ(id) == 0) {
 			throw new CommonException(ErrorEnum.PET_NOT_FOUND);
 		}
+		if (pet.getClientId()<0) {
+			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED_IN_UPDATE);
+		}
 		Pet petTemp = petRepository.findById(id).get();
-		petTemp.setName(pet.getName());
-		petTemp.setAge(pet.getAge());
+		if (pet.getClientId()>0 && clientRepository.findClientExistNQ(pet.getClientId())!=0) {
+			Client client =new Client();
+			client.setId(pet.getClientId());
+			petTemp.setClient(client);
+		}
+		if(!(pet.getName().equals(null) && pet.getName().isEmpty())) {
+			petTemp.setName(pet.getName());
+		}
+		if (pet.getAge()>0) {
+			petTemp.setAge(pet.getAge());	
+		}
+		if (pet.getHeight()>0.0) {
 		petTemp.setHeight(pet.getHeight());
-		petTemp.setWeight(pet.getWeight());
-		petTemp.setSpecies(pet.getSpecies());
+		}
+		if (pet.getWeight()>0.0) {
+			petTemp.setWeight(pet.getWeight());
+				
+		}
+		if (!(pet.getSpecies().equals(null)&& pet.getSpecies().isEmpty() )) {
+			petTemp.setSpecies(pet.getSpecies());
+		}
 		petRepository.save(petTemp);
 		return petTemp;
 
@@ -52,7 +77,7 @@ public class PetServiceImpl implements PetService {
 	@Override
 	public Pet get(int id) {
 		if (id <= 0) {
-			throw new CommonException(ErrorEnum.WRONG_ID_INTERED);
+			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);
 		}
 
 		if (petRepository.findPetExistNQ(id) == 0) {
@@ -86,7 +111,7 @@ public class PetServiceImpl implements PetService {
 	@Override
 	public List<PetProjection> getClientPets(int id) {
 		if (id <= 0) {
-			throw new CommonException(ErrorEnum.WRONG_ID_INTERED);
+			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);
 		}
 		return petRepository.findPetsNQ(id);
 	}
@@ -94,7 +119,7 @@ public class PetServiceImpl implements PetService {
 	@Override
 	public String delete(int id) {
 		if (id <= 0) {
-			throw new CommonException(ErrorEnum.WRONG_ID_INTERED);
+			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);
 		}
 		if (petRepository.findPetExistNQ(id) == 0) {
 			throw new CommonException(ErrorEnum.PET_NOT_FOUND);

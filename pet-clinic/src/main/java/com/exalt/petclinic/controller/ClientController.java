@@ -15,18 +15,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.exalt.petclinic.exception.CommonException;
-import com.exalt.petclinic.exception.ErrorEnum;
 import com.exalt.petclinic.model.Client;
-import com.exalt.petclinic.repository.ClientRepository;
 import com.exalt.petclinic.service.ClientService;
 
 @RestController
 public class ClientController {
 	@Autowired
 	private ClientService clientService;
-	@Autowired
-	ClientRepository clientRepository;
 	/**	
 	 * get all the client with page and limit restriction 
 	 * 

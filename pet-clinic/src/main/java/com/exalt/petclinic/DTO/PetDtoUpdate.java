@@ -1,14 +1,26 @@
 package com.exalt.petclinic.DTO;
 
-public class PetDTO {
+public class PetDtoUpdate {
+	private String name;
 	private int age;
 	private String species;
 	private double height;
 	private double weight;
-	public PetDTO() {
+	private int clientId;
+	
+	
+	public PetDtoUpdate() {
 		super();
 	}
 	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public int getAge() {
 		return age;
 	}
@@ -33,5 +45,12 @@ public class PetDTO {
 	public void setWeight(double weight) {
 		this.weight = weight;
 	}
+	public int getClientId() {
+		return clientId;
+	}
+	public void setClientId(int clientId) {
+		this.clientId = clientId;
+	}
+	
 	
 }

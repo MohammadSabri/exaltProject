@@ -3,6 +3,11 @@ package com.exalt.petclinic.exception;
 
 public class CommonException extends RuntimeException {
  
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ErrorEnum error;
 	public CommonException(ErrorEnum error) {
 		super(error.getMessage());
