@@ -6,7 +6,7 @@ import com.exalt.petclinic.DTO.ScheduleDto;
 import com.exalt.petclinic.model.Schedule;
 
 public interface ScheduleService {
-	Schedule create(Schedule schedule);
+	ScheduleDto create(ScheduleDto scheduleDto);
 	Schedule update(int id, Schedule schedule);
 	ScheduleDto get(int id);
 	List<ScheduleDto> getAll(int page, int limit);

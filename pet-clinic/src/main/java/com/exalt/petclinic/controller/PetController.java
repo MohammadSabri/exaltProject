@@ -22,6 +22,8 @@ import com.exalt.petclinic.projection.PetProjection;
 import com.exalt.petclinic.repository.PetRepository;
 import com.exalt.petclinic.service.PetService;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @Validated
 public class PetController {
@@ -32,12 +34,13 @@ public class PetController {
 	@Autowired
 	PetRepository petRepository;
 
+	@ApiOperation(value = "Find all pets", notes = "find all pets with limitation of page and limit parameters")
 	@GetMapping(path = "/api/v1/pets", params = { "page", "limit" })
 	public List<Pet> getPets(@RequestParam("page") int page, @RequestParam("limit") int limit) {
 
 		return (petService.getAll(page, limit));
 	}
-	
+
 	@GetMapping(path = "/api/v1/petsDTO")
 	public List<PetDTO> getPetsDTO() {
 

@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 public enum ErrorEnum {
 	USER_NOT_FOUND("User not foud",  HttpStatus.NOT_FOUND),
 	WRONG_ID_ENTERED("The Id must be >0",  HttpStatus.BAD_REQUEST),
+	WORKER_NOT_FOUND("No worker hold this Id",  HttpStatus.BAD_REQUEST),
 	WRONG_ID_ENTERED_IN_UPDATE("The Id you updated must be >0",  HttpStatus.BAD_REQUEST),
 	CLIENT_NOT_FOUND("No client with this ID",  HttpStatus.NOT_FOUND),
 	SCHEDULE_NOT_FOUND("No schedule with this ID",  HttpStatus.NOT_FOUND),

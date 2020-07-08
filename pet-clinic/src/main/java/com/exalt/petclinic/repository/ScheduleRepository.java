@@ -13,5 +13,8 @@ public interface ScheduleRepository extends JpaRepository<Schedule, Integer> {
 	
 	@Query(value = "select count(*) from schedual where id=:id ",nativeQuery = true)
 	int findScheduleExistNQ(@Param("id") int  id);
+	
+	@Query(value = "select max(id) from schedual ",nativeQuery = true)
+	int findScheduleIdNQ();
 
 }

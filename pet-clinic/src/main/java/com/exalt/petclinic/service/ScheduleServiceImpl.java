@@ -7,12 +7,16 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.exalt.petclinic.DTO.ScheduleDto;
 import com.exalt.petclinic.DTO.ScheduleMapper;
 import com.exalt.petclinic.exception.CommonException;
 import com.exalt.petclinic.exception.ErrorEnum;
 import com.exalt.petclinic.model.Schedule;
+import com.exalt.petclinic.repository.EmployeeRepository;
+import com.exalt.petclinic.repository.PetRepository;
 import com.exalt.petclinic.repository.ScheduleRepository;
 
 @Service
@@ -21,17 +25,29 @@ public class ScheduleServiceImpl implements ScheduleService {
 	private ScheduleRepository scheduleRepository;
 	@Autowired
 	private ScheduleMapper scheduleMapper;
+	@Autowired
+	private PetRepository petRepository;
+	@Autowired
+	private EmployeeRepository employeeRepository;
 
 	@Override
-	public Schedule create(Schedule schedule) {
-		if (schedule.getEmployee().getId() < 1) {
+	public ScheduleDto create(ScheduleDto scheduleDto) {
+		if (scheduleDto.getEmployeeId() < 1) {
 			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);
 		}
-		if (schedule.getPet().getId() < 1) {
+		if (employeeRepository.findWorkerExistNQ(scheduleDto.getEmployeeId()) == 0) {
+			throw new CommonException(ErrorEnum.WORKER_NOT_FOUND);
+		}
+
+		if (scheduleDto.getPetId() < 1) {
 			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);
 		}
-		scheduleRepository.save(schedule);
-		return schedule;
+		if (petRepository.findPetExistNQ(scheduleDto.getPetId())==0){
+			throw new CommonException(ErrorEnum.PET_NOT_FOUND);
+		}
+		scheduleRepository.save(scheduleMapper.dtoToSchedule(scheduleDto));
+		scheduleDto.setId(scheduleRepository.findScheduleIdNQ());
+		return scheduleDto;
 	}
 
 	@Override
@@ -42,10 +58,10 @@ public class ScheduleServiceImpl implements ScheduleService {
 
 	@Override
 	public ScheduleDto get(int id) {
-		if (id< 1) {
+		if (id < 1) {
 			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);
-		}		
-		if (scheduleRepository.findScheduleExistNQ(id)==0) {
+		}
+		if (scheduleRepository.findScheduleExistNQ(id) == 0) {
 			throw new CommonException(ErrorEnum.SCHEDULE_NOT_FOUND);
 		}
 		return scheduleMapper.scheduleToDto(scheduleRepository.findById(id).get());
@@ -59,17 +75,17 @@ public class ScheduleServiceImpl implements ScheduleService {
 		if (limit < 1) {
 			throw new CommonException(ErrorEnum.LIMIT_INVALID);
 		}
-		Pageable pageable = PageRequest.of((page-1)*limit, limit);
+		Pageable pageable = PageRequest.of((page - 1) * limit, limit);
 		Page<Schedule> pagedResult = scheduleRepository.findAll(pageable);
 		return scheduleMapper.scheduleToDto(pagedResult.toList());
 	}
 
 	@Override
 	public String delete(int id) {
-		if (id< 1) {
+		if (id < 1) {
 			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);
-		}		
-		if (scheduleRepository.findScheduleExistNQ(id)==0) {
+		}
+		if (scheduleRepository.findScheduleExistNQ(id) == 0) {
 			throw new CommonException(ErrorEnum.SCHEDULE_NOT_FOUND);
 		}
 		scheduleRepository.deleteById(id);

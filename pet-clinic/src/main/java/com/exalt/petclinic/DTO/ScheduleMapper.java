@@ -12,25 +12,27 @@ import com.exalt.petclinic.model.Schedule;
 @Component
 public class ScheduleMapper {
 	public Schedule dtoToSchedule(ScheduleDto scheduleDto) {
-	Pet pet =new Pet();
-	Employee employee =new Employee();
-	employee.setId(scheduleDto.getEmployeeId());
-	Schedule schedule =new Schedule();
-	schedule.setDate(scheduleDto.getDate());
-	schedule.setPrice(scheduleDto.getPrice());
-	schedule.setMedicalDescribtion(scheduleDto.getMedicalDescribtion());
-	schedule.setProblemDescribtion(scheduleDto.getProblemDescribtion());
-	schedule.setEmployee(employee);
-	schedule.setPet(pet);
-	return schedule;
+		Pet pet = new Pet();
+		Employee employee = new Employee();
+		employee.setId(scheduleDto.getEmployeeId());
+		pet.setId(scheduleDto.getPetId());
+		Schedule schedule = new Schedule();
+		schedule.setDate(scheduleDto.getDate());
+		schedule.setPrice(scheduleDto.getPrice());
+		schedule.setMedicalDescribtion(scheduleDto.getMedicalDescribtion());
+		schedule.setProblemDescribtion(scheduleDto.getProblemDescribtion());
+		schedule.setEmployee(employee);
+		schedule.setPet(pet);
+		return schedule;
 	}
+
 	public List<Schedule> dtoToSchedule(List<ScheduleDto> scheduleDto) {
 		return scheduleDto.stream().map(d -> dtoToSchedule(d)).collect(Collectors.toList());
 	}
-	
-	public ScheduleDto scheduleToDto (Schedule schedule) {
-		
-		ScheduleDto scheduleDto=new ScheduleDto();
+
+	public ScheduleDto scheduleToDto(Schedule schedule) {
+
+		ScheduleDto scheduleDto = new ScheduleDto();
 		scheduleDto.setId(schedule.getId());
 		scheduleDto.setDate(schedule.getDate());
 		scheduleDto.setPrice(schedule.getPrice());
@@ -40,9 +42,10 @@ public class ScheduleMapper {
 		scheduleDto.setPetId(schedule.getPet().getId());
 		return scheduleDto;
 	}
+
 	public List<ScheduleDto> scheduleToDto(List<Schedule> schedules) {
 		return schedules.stream().map(d -> scheduleToDto(d)).collect(Collectors.toList());
 
 	}
-	
+
 }
