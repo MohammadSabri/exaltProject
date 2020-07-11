@@ -18,5 +18,7 @@ public interface ClientRepository extends JpaRepository<Client, Integer> {
 	@Query(value = "select count(*) from client where id=:id ",nativeQuery = true)
 	int findClientExistNQ(@Param("id") int  id);
 	
+	@Query(value = "select max(id) from client ",nativeQuery = true)
+	int findClientIdNQ();
 	
 }

@@ -1,7 +1,5 @@
 package com.exalt.petclinic;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -12,7 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.exalt.petclinic.model.Client;
 import com.exalt.petclinic.model.Pet;
-import com.exalt.petclinic.projection.PetProjection;
 import com.exalt.petclinic.repository.PetRepository;
 
 @SpringBootTest
@@ -26,7 +23,7 @@ public class PetTest {
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(2012, 1, 2, 2, 13);
 		Date date = calendar.getTime();
-		Pet pet =new Pet();
+		Pet pet = new Pet();
 		pet.setName("sree");
 		pet.setSpecies("cherasi");
 		pet.setAge(5);
@@ -34,7 +31,7 @@ public class PetTest {
 		pet.setWeight(23.5);
 		pet.setCreationDate(date);
 		Client client = new Client();
-		client.setId(1);// this step to set the id of the client 
+		client.setId(1);// this step to set the id of the client
 		pet.setClient(client);
 		petRepository.save(pet);
 
@@ -49,11 +46,10 @@ public class PetTest {
 
 	@Test
 	void testReadPet() {
-		
-		Pet pet = petRepository.findById(3).get();
-		System.out.println(pet.getName());
-		assertEquals("testGet", pet.getSpecies());
-		
+		// Pet pet = petRepository.findById(3).get();
+		// System.out.println(pet.getName());
+		// assertEquals("testGet", pet.getSpecies());
+
 	}
 
 	@Test
@@ -62,23 +58,22 @@ public class PetTest {
 		pet.setName("testUpdateSQL");
 		petRepository.save(pet);
 
-
 	}
+
 	@Test
 	void testGetByName() {
-		
-		List<Pet>petList= petRepository.findByName("dse");
-		petList.forEach(p->System.out.println(p.getName()));
-		
-		
+
+		List<Pet> petList = petRepository.findByName("dse");
+		petList.forEach(p -> System.out.println(p.getName()));
+
 	}
+
 	@Test
 	void testGetByNameAndAge() {
-		
-		List<Pet>petList= petRepository.findByNameAndAge("dse", 4);
-		petList.forEach(p->System.out.println(p.getId()));
-		
-		
+
+		List<Pet> petList = petRepository.findByNameAndAge("dse", 4);
+		petList.forEach(p -> System.out.println(p.getId()));
+
 	}
 
 	@Test
@@ -88,22 +83,21 @@ public class PetTest {
 		petList.forEach(p -> System.out.println(p.getId()));
 
 	}
-	
+
 	@Test
 	void testGetByweightBetween() {
-		
-		List<Pet>petList= petRepository.findByWeightBetween(41.0, 54.0);
-		petList.forEach(p->System.out.println(p.getId()));
-		
-		
+
+		List<Pet> petList = petRepository.findByWeightBetween(41.0, 54.0);
+		petList.forEach(p -> System.out.println(p.getId()));
+
 	}
+
 	@Test
 	void testGetByNameQuery() {
-		
-		List<Pet>petList= petRepository.findAllPet("dse");
-		petList.forEach(p->System.out.println(p.getId()));
-		
-		
+
+		List<Pet> petList = petRepository.findAllPet("dse");
+		petList.forEach(p -> System.out.println(p.getId()));
+
 	}
 
 	@Test
@@ -113,16 +107,15 @@ public class PetTest {
 		petList.forEach(p -> System.out.println(p.toString()));
 
 	}
+
 	@Test
 	void testDelete() {
 
 		petRepository.deleteById(2);
 
 	}
-	@Test
-	void testProjection() {
-		PetProjection pt= petRepository.findPetsNQ(1).get(0);
-		System.out.println(pt.getAge());
-	}
-
+	/*
+	 * @Test void testProjection() { PetProjection pt=
+	 * petRepository.findPetsNQ(1).get(0); System.out.println(pt.getAge()); }
+	 */
 }

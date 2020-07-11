@@ -9,7 +9,6 @@ import javax.persistence.EntityManager;
 
 import org.hibernate.Session;
 import org.junit.jupiter.api.Test;
-import org.modelmapper.PropertyMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Isolation;
@@ -30,7 +29,6 @@ public class ClientTest {
 	void contextLoads() {
 
 	}
-
 	@Test
 	void addClient() {
 
@@ -113,8 +111,11 @@ public class ClientTest {
 	@Test
 	void testBCrypt() {
 
-		
-		
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(2020, 4, 2, 4, 13);
+		Date date = calendar.getTime();
+		System.out.println(date.toString());
+		System.out.println(Calendar.getInstance().getTime());
 		// String s = "123456789";
 		// BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(10);
 

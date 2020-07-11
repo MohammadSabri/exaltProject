@@ -1,7 +1,9 @@
 package com.exalt.petclinic.service;
 
+import java.util.Calendar;
 import java.util.List;
 
+import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -10,6 +12,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.exalt.petclinic.DTO.ClientDto;
+import com.exalt.petclinic.DTO.ClientMapper;
+import com.exalt.petclinic.DTO.ClientUpdateDto;
 import com.exalt.petclinic.exception.CommonException;
 import com.exalt.petclinic.exception.ErrorEnum;
 import com.exalt.petclinic.model.Client;
@@ -21,31 +26,33 @@ public class ClientServiceImpl implements ClientService {
 	@Autowired
 	private ClientRepository clientRepository;
 
+	private ClientMapper clientMapper = Mappers.getMapper(ClientMapper.class);
+
 	@Override
 	@Transactional
-	public Client create(Client client) {
+	public Client create(ClientUpdateDto clientUpdateDto) {
 
-		// client.setPets(null);
-
-		if (client.getPhoneNumber().length() != 10) {
+		if (clientUpdateDto.getPhoneNumber().length() != 10) {
 			throw new CommonException(ErrorEnum.PHONE_NUMBER_INVALID);
 		}
 
-		if (clientRepository.findEmailExistNQ(client.getEmail()) != 0) {
+		if (clientRepository.findEmailExistNQ(clientUpdateDto.getEmail()) != 0) {
 			throw new CommonException(ErrorEnum.EXIST_EMAIL);
 		}
-		if (clientRepository.findNumberExistNQ(client.getPhoneNumber()) != 0)
+		if (clientRepository.findNumberExistNQ(clientUpdateDto.getPhoneNumber()) != 0)
 			throw new CommonException(ErrorEnum.EXIST_PHONE_NUMBER);
 
+		Client client = clientMapper.updateDtoToClient(clientUpdateDto);
+		client.setCreationDate(Calendar.getInstance().getTime());
 		clientRepository.save(client);
-
+		client.setId(clientRepository.findClientIdNQ());
 		return client;
 
 	}
 
 	@Override
 	@Transactional(isolation = Isolation.SERIALIZABLE)
-	public Client update(int id, Client client) {
+	public ClientUpdateDto update(int id, ClientUpdateDto clientUpdateDto) {
 		if (id <= 0) {
 			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);
 		}
@@ -53,31 +60,32 @@ public class ClientServiceImpl implements ClientService {
 		if (clientRepository.findClientExistNQ(id) == 0)
 			throw new CommonException(ErrorEnum.CLIENT_NOT_FOUND);
 
-		Client clientTemp = clientRepository.findById(id).get();
+		Client client = clientRepository.findById(id).get();
 
-		if (client.getPhoneNumber().length() != 10)
+		if (clientUpdateDto.getPhoneNumber().length() != 10)
 			throw new CommonException(ErrorEnum.PHONE_NUMBER_INVALID);
 
-		if ((clientRepository.findEmailExistNQ(client.getEmail()) != 0)
-				&& !(client.getEmail().equals(clientTemp.getEmail()))) {
+		if ((clientRepository.findEmailExistNQ(clientUpdateDto.getEmail()) != 0)
+				&& !(clientUpdateDto.getEmail().equals(client.getEmail()))) {
 			throw new CommonException(ErrorEnum.EXIST_EMAIL);
 		}
-		if ((clientRepository.findNumberExistNQ(client.getPhoneNumber()) != 0)
-				&& !(client.getPhoneNumber().equals(clientTemp.getPhoneNumber())))
+		if ((clientRepository.findNumberExistNQ(clientUpdateDto.getPhoneNumber()) != 0)
+				&& !(clientUpdateDto.getPhoneNumber().equals(client.getPhoneNumber())))
 			throw new CommonException(ErrorEnum.EXIST_PHONE_NUMBER);
 
-		clientTemp.setEmail(client.getEmail());
-		clientTemp.setFirstName(client.getFirstName());
-		clientTemp.setLastName(client.getLastName());
-		clientTemp.setPhoneNumber(client.getPhoneNumber());
-		clientRepository.save(clientTemp);
+		client.setEmail(clientUpdateDto.getEmail());
+		client.setFirstName(clientUpdateDto.getFirstName());
+		client.setLastName(clientUpdateDto.getLastName());
+		client.setPhoneNumber(clientUpdateDto.getPhoneNumber());
+		client.setPassword(clientUpdateDto.getPassword());
+		clientRepository.save(client);
 
-		return clientTemp;
+		return clientMapper.clientToUpdateDto(client);
 	}
 
 	@Override
 	@Transactional
-	public Client get(int id) {
+	public ClientDto get(int id) {
 		if (id <= 0) {
 			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);
 		}
@@ -85,21 +93,21 @@ public class ClientServiceImpl implements ClientService {
 		if (clientRepository.findClientExistNQ(id) == 0)
 			throw new CommonException(ErrorEnum.CLIENT_NOT_FOUND);
 		else
-			return clientRepository.findById(id).get();
+			return clientMapper.clientToDto(clientRepository.findById(id).get());
 
 	}
 
 	@Override
-	public List<Client> getAll(int page, int limit) {
+	public List<ClientDto> getAll(int page, int limit) {
 		if (page < 1) {
 			throw new CommonException(ErrorEnum.PAGE_INVALID);
 		}
 		if (limit < 1) {
 			throw new CommonException(ErrorEnum.LIMIT_INVALID);
 		}
-		Pageable pageable = PageRequest.of((page-1)*limit, limit);
+		Pageable pageable = PageRequest.of((page - 1) * limit, limit);
 		Page<Client> pagedResult = clientRepository.findAll(pageable);
-		return pagedResult.toList();
+		return clientMapper.clientToDto(pagedResult.toList());
 
 	}
 

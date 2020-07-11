@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.exalt.petclinic.DTO.ClientDto;
+import com.exalt.petclinic.DTO.ClientUpdateDto;
 import com.exalt.petclinic.model.Client;
 import com.exalt.petclinic.service.ClientService;
 
@@ -22,8 +24,9 @@ import com.exalt.petclinic.service.ClientService;
 public class ClientController {
 	@Autowired
 	private ClientService clientService;
-	/**	
-	 * get all the client with page and limit restriction 
+
+	/**
+	 * get all the client with page and limit restriction
 	 * 
 	 * @param request
 	 * @param page
@@ -31,14 +34,12 @@ public class ClientController {
 	 * @return
 	 */
 	@GetMapping(path = "/api/v1/clients", params = { "page", "limit" })
-	public List<Client> getClients(HttpServletRequest request, @RequestParam("page") int page,
+	public List<ClientDto> getClients(HttpServletRequest request, @RequestParam("page") int page,
 			@RequestParam("limit") int limit) {
 
 		return (clientService.getAll(page, limit));
 	}
-	
-	
-	
+
 	/**
 	 * get the client with specific id
 	 * 
@@ -46,10 +47,11 @@ public class ClientController {
 	 * @return
 	 */
 	@GetMapping(path = "/api/v1/client/{id}", produces = "application/json")
-	public Client getClient(@PathVariable int id) {
+	public ClientDto getClient(@PathVariable int id) {
 
 		return (clientService.get(id));
 	}
+
 	/**
 	 * add client to the data base
 	 * 
@@ -58,10 +60,11 @@ public class ClientController {
 	 */
 	@PostMapping(path = "/api/v1/client", consumes = "application/json", produces = "application/json")
 
-	public Client addClient(@Valid @RequestBody Client client) {
+	public Client addClient(@Valid @RequestBody ClientUpdateDto clientUpdateDto) {
 
-		return clientService.create(client);
+		return clientService.create(clientUpdateDto);
 	}
+
 	/**
 	 * 
 	 * @param client
@@ -69,11 +72,13 @@ public class ClientController {
 	 * @return
 	 */
 	@PutMapping(path = "/api/v1/client/{id}", consumes = "application/json", produces = "application/json")
-	public Client updateClient(@RequestBody Client client, @PathVariable int id) {
-		return clientService.update(id, client);
+	public ClientUpdateDto updateClient(@Valid @RequestBody ClientUpdateDto clientUpdateDto, @PathVariable int id) {
+		return clientService.update(id, clientUpdateDto);
 	}
+
 	/**
-	 * delete the client from the dataBase 
+	 * delete the client from the dataBase
+	 * 
 	 * @param id
 	 * @return
 	 */

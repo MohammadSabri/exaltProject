@@ -15,10 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.exalt.petclinic.DTO.PetDTO;
-import com.exalt.petclinic.DTO.PetDtoUpdate;
+import com.exalt.petclinic.DTO.PetDto;
+import com.exalt.petclinic.DTO.PetUpdateDto;
 import com.exalt.petclinic.model.Pet;
-import com.exalt.petclinic.projection.PetProjection;
 import com.exalt.petclinic.repository.PetRepository;
 import com.exalt.petclinic.service.PetService;
 
@@ -34,41 +33,37 @@ public class PetController {
 	@Autowired
 	PetRepository petRepository;
 
+	@PostMapping(path = "/api/v1/pets", consumes = "application/json", produces = "application/json")
+
+	public PetDto addPet(@Valid @RequestBody PetUpdateDto petUpdateDto) {
+		return petService.create(petUpdateDto);
+	}
+
 	@ApiOperation(value = "Find all pets", notes = "find all pets with limitation of page and limit parameters")
 	@GetMapping(path = "/api/v1/pets", params = { "page", "limit" })
-	public List<Pet> getPets(@RequestParam("page") int page, @RequestParam("limit") int limit) {
+	public List<PetDto> getPets(@RequestParam("page") int page, @RequestParam("limit") int limit) {
 
 		return (petService.getAll(page, limit));
 	}
 
-	@GetMapping(path = "/api/v1/petsDTO")
-	public List<PetDTO> getPetsDTO() {
-
-		return petService.getAllDTO();
-	}
+	
 
 	@GetMapping("/api/v1/pets/{id}")
 
-	public Pet getOnePet(@PathVariable int id) {
+	public PetDto getOnePet(@PathVariable int id) {
 
 		return petService.get(id);
 	}
 
-	@GetMapping("/api/v1/pets/client/{id}")
+	@GetMapping(path = "/api/v1/pets/client/{id}", params = { "page", "limit" })
 
-	public List<PetProjection> getClientPets(@PathVariable int id) {
+	public List<PetDto> getClientPets(@PathVariable int id,@RequestParam("page") int page, @RequestParam("limit") int limit) {
 
-		return (petService.getClientPets(id));
-	}
-
-	@PostMapping(path = "/api/v1/pets", consumes = "application/json", produces = "application/json")
-
-	public Pet addPet(@Valid @RequestBody Pet pet) {
-		return petService.create(pet);
+		return (petService.getClientPets(id,page,limit));
 	}
 
 	@PutMapping(path = "/api/v1/pets/{id}", consumes = "application/json", produces = "application/json")
-	public Pet updatePet(@Valid @RequestBody PetDtoUpdate pet, @PathVariable int id) {
+	public Pet updatePet(@Valid @RequestBody PetUpdateDto pet, @PathVariable int id) {
 		return petService.update(id, pet);
 	}
 
