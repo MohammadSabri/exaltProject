@@ -43,6 +43,13 @@ public class ScheduleController {
 
 	}
 
+	@GetMapping(path = "/api/v1/schedule/client/{id}", params = { "page", "limit" })
+	public List<ScheduleDto> getAllByClientId(@PathVariable("id") int id, @RequestParam("page") int page,
+			@RequestParam("limit") int limit) {
+		return scheduleService.getAllByClientId(id, page, limit);
+
+	}
+
 	@GetMapping(path = "/api/v1/schedule/{id}", produces = "application/json")
 	public ScheduleDto get(@PathVariable int id) {
 

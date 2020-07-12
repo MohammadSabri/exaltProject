@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.exalt.petclinic.model.Pet;
-import com.exalt.petclinic.projection.PetProjection;
 
 public interface PetRepository extends JpaRepository<Pet, Integer> {
 	// find by id
@@ -28,9 +27,6 @@ public interface PetRepository extends JpaRepository<Pet, Integer> {
 
 	@Query(value = "select count(*) from pet where id=:id ", nativeQuery = true)
 	int findPetExistNQ(@Param("id") int id);
-
-	@Query(value = "select p.id,p.name,p.age,p.species,p.height,p.weight,p.creation_date as creationDate from client c join pet p where c.id =p.client_id and c.id=:id ", nativeQuery = true)
-	List<PetProjection> findPetsNQ(@Param("id") int id);
 
 	List<Pet> findByClientId(int id);
 

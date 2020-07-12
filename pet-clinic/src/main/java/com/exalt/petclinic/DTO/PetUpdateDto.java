@@ -7,13 +7,13 @@ import javax.validation.constraints.NotNull;
 public class PetUpdateDto {
 	@NotNull(message = "The name must not be null")
 	private String name;
-	@Min(value = 1,message = "age must be >=1")
+	@Min(value = 1, message = "age must be >=1")
 	private int age;
 	@NotNull(message = "The Species field must be writen")
 	private String species;
-	@DecimalMin(value = "0.1",message = "The min height is 0.1 meter")
+	@DecimalMin(value = "0.1", message = "The min height is 0.1 meter")
 	private double height;
-	@DecimalMin(value =  "0.1",message = "The min Weight is 0.1 Kg")
+	@DecimalMin(value = "0.1", message = "The min Weight is 0.1 Kg")
 	private double weight;
 	private int clientId;
 

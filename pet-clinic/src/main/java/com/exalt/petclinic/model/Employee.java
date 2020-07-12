@@ -26,8 +26,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "employee")
-@JsonIgnoreProperties({"roles","schedule"})
-
+@JsonIgnoreProperties({ "roles", "schedule" })
+//TODO: make DTO for employee
 public class Employee {
 	public enum WorkingField {
 		Owner, Admin, Worker
@@ -36,36 +36,36 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@Column(name = "first_name")
 	private String firstName;
-	
+
 	@Column(name = "last_name")
 	private String lastName;
-	
+
 	@Column(name = "house_location")
 	private String houseLocation;
-	
+
 	@Min(value = 200, message = "no salary less than 200")
 	private Double salary;
-	
+
 	@Column(name = "college_degree")
 	private String collegeDegree;
-	
+
 	@Column(name = "working_field")
 	@Enumerated(EnumType.STRING)
 	private WorkingField workingField;
-	
+
 	@Column(name = "phone_number")
 	private String phoneNumber;
-	
+
 	@Column(name = "years_of_experience")
 	private Integer yearsOfExperience;
 	@Column(name = "creation_date")
 	private Date creationDate;
 	@NotNull
 	private String password;
-	
+
 	@ValidateEmail
 	private String email;
 	@OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.EAGER)

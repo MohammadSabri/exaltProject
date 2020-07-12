@@ -37,18 +37,18 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 		return new ResponseEntity<>(apiError, new HttpHeaders(), HttpStatus.BAD_REQUEST);
 
 	}
-	
-@Override
 
-	protected ResponseEntity<Object> handleMethodArgumentNotValid(
-			MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-		ArrayList<String >errorList =new ArrayList<>();
-		for (ObjectError e:ex.getBindingResult().getFieldErrors())
-		{System.out.println(e.getDefaultMessage());
+	@Override
+
+	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
+			HttpHeaders headers, HttpStatus status, WebRequest request) {
+		ArrayList<String> errorList = new ArrayList<>();
+		for (ObjectError e : ex.getBindingResult().getFieldErrors()) {
+			System.out.println(e.getDefaultMessage());
 			errorList.add(e.getDefaultMessage());
 		}
-	ApiError apiError = new ApiError(errorList.toString(), new Date(), request.getDescription(false));
-	return new ResponseEntity<>(apiError, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+		ApiError apiError = new ApiError(errorList.toString(), new Date(), request.getDescription(false));
+		return new ResponseEntity<>(apiError, new HttpHeaders(), HttpStatus.BAD_REQUEST);
 	}
 
 	@ExceptionHandler(value = { RuntimeException.class })
@@ -62,5 +62,4 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
 	}
 
-//MethodArgumentNotValidException
 }

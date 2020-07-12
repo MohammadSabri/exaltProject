@@ -13,5 +13,6 @@ public interface ScheduleService {
 	String delete (int id);
 	List<ScheduleDto> getAllByWorkerId(int id,int page, int limit);
 	List<ScheduleDto> getAllByPetId(int id,int page, int limit);
+	List<ScheduleDto> getAllByClientId(int id,int page, int limit);
 
 }

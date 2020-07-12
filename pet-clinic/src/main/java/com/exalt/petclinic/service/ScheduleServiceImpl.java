@@ -19,6 +19,7 @@ import com.exalt.petclinic.DTO.ScheduleUpdateDto;
 import com.exalt.petclinic.exception.CommonException;
 import com.exalt.petclinic.exception.ErrorEnum;
 import com.exalt.petclinic.model.Schedule;
+import com.exalt.petclinic.repository.ClientRepository;
 import com.exalt.petclinic.repository.EmployeeRepository;
 import com.exalt.petclinic.repository.PetRepository;
 import com.exalt.petclinic.repository.ScheduleRepository;
@@ -27,7 +28,8 @@ import com.exalt.petclinic.repository.ScheduleRepository;
 public class ScheduleServiceImpl implements ScheduleService {
 	@Autowired
 	private ScheduleRepository scheduleRepository;
-
+	@Autowired
+	private ClientRepository clientRepository;
 	@Autowired
 	private PetRepository petRepository;
 	@Autowired
@@ -103,6 +105,20 @@ public class ScheduleServiceImpl implements ScheduleService {
 			throw new CommonException(ErrorEnum.LIMIT_INVALID);
 		}
 		return scheduleMapper.scheduleToDto(scheduleRepository.findScheduleByPetIdNQ(id, (page - 1) * limit, limit));
+	}
+
+	@Override
+	public List<ScheduleDto> getAllByClientId(int id, int page, int limit) {
+		if (clientRepository.findClientExistNQ(id) == 0) {
+			throw new CommonException(ErrorEnum.CLIENT_NOT_FOUND);
+		}
+		if (page < 1) {
+			throw new CommonException(ErrorEnum.PAGE_INVALID);
+		}
+		if (limit < 1) {
+			throw new CommonException(ErrorEnum.LIMIT_INVALID);
+		}
+		return scheduleMapper.scheduleToDto(scheduleRepository.findScheduleByClientIdNQ(id, (page - 1) * limit, limit));
 	}
 
 	@Override

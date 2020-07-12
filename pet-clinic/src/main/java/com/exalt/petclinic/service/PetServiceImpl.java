@@ -105,13 +105,13 @@ public class PetServiceImpl implements PetService {
 		if ((petUpdateDto.getClientId() < 0 || clientRepository.findClientExistNQ(petUpdateDto.getClientId()) == 0)) {
 			throw new CommonException(ErrorEnum.CLIENT_NOT_FOUND);
 		}
-		
+
 		pet = petMapper.updateDtoToPet(petUpdateDto);
 		pet.setId(id);
 		pet.setCreationDate(date);
 		petRepository.save(pet);
 		return petMapper.petToUpdateDto(pet);
-		
+
 	}
 
 	@Override

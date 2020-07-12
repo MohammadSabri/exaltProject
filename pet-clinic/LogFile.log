@@ -438,3 +438,95 @@ com.exalt.petclinic.exception.CommonException: No worker hold this Id
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.36.jar:9.0.36]
 	at java.lang.Thread.run(Unknown Source) [na:1.8.0_251]
 
+2020-07-12 09:11:02.552  INFO 15996 --- [RMI TCP Connection(38)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2020-07-12 09:11:02.854  INFO 15996 --- [RMI TCP Connection(38)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 09:11:02.855  INFO 15996 --- [RMI TCP Connection(38)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-12 09:11:02.856  INFO 15996 --- [RMI TCP Connection(38)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-12 09:11:02.858  INFO 15996 --- [RMI TCP Connection(38)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-07-12 09:11:06.526  INFO 14032 --- [main] c.exalt.petclinic.PetClinicApplication   : Starting PetClinicApplication on MohammadSabri with PID 14032 (C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic\target\classes started by Moham in C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic)
+2020-07-12 09:11:06.528 DEBUG 14032 --- [main] c.exalt.petclinic.PetClinicApplication   : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-12 09:11:06.528  INFO 14032 --- [main] c.exalt.petclinic.PetClinicApplication   : No active profile set, falling back to default profiles: default
+2020-07-12 09:11:07.144  INFO 14032 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-12 09:11:07.206  INFO 14032 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56ms. Found 4 JPA repository interfaces.
+2020-07-12 09:11:07.561  INFO 14032 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+2020-07-12 09:11:07.566  INFO 14032 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-12 09:11:07.567  INFO 14032 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-12 09:11:07.634  INFO 14032 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-12 09:11:07.634  INFO 14032 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1080 ms
+2020-07-12 09:11:07.728  INFO 14032 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 09:11:07.759  INFO 14032 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 09:11:07.797  INFO 14032 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 09:11:07.935  INFO 14032 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 09:11:07.970  WARN 14032 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 09:11:08.011  INFO 14032 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-12 09:11:08.063  INFO 14032 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-12 09:11:08.271  INFO 14032 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path ''
+2020-07-12 09:11:08.273  INFO 14032 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-07-12 09:11:08.284  INFO 14032 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-07-12 09:11:08.316  INFO 14032 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-07-12 09:11:08.451  INFO 14032 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: creatWorkerUsingPOST_1
+2020-07-12 09:11:08.454  INFO 14032 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteWorkerUsingDELETE_1
+2020-07-12 09:11:08.457  INFO 14032 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminUsingGET_1
+2020-07-12 09:11:08.460  INFO 14032 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllOwnerUsingGET_1
+2020-07-12 09:11:08.462  INFO 14032 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllWorkerUsingGET_1
+2020-07-12 09:11:08.465  INFO 14032 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeUsingGET_1
+2020-07-12 09:11:08.470  INFO 14032 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateByOwnerUsingPUT_1
+2020-07-12 09:11:08.482  INFO 14032 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updatePetUsingPUT_1
+2020-07-12 09:11:08.487  INFO 14032 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addClientUsingPOST_1
+2020-07-12 09:11:08.488  INFO 14032 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteClientUsingDELETE_1
+2020-07-12 09:11:08.500  INFO 14032 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-12 09:11:08.608  INFO 14032 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-12 09:11:08.623  INFO 14032 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-07-12 09:11:09.245  INFO 14032 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 09:11:09.251  INFO 14032 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 09:11:09.690  INFO 14032 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-12 09:11:09.694  INFO 14032 --- [main] c.exalt.petclinic.PetClinicApplication   : Started PetClinicApplication in 3.412 seconds (JVM running for 4.134)
+2020-07-12 09:11:47.154  INFO 14032 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-12 09:11:47.155  INFO 14032 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-12 09:11:47.159  INFO 14032 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2020-07-12 09:13:39.561  INFO 14032 --- [RMI TCP Connection(12)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2020-07-12 09:13:39.855  INFO 14032 --- [RMI TCP Connection(12)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 09:13:39.856  INFO 14032 --- [RMI TCP Connection(12)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-12 09:13:39.857  INFO 14032 --- [RMI TCP Connection(12)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-12 09:13:39.859  INFO 14032 --- [RMI TCP Connection(12)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-07-12 09:13:43.503  INFO 10012 --- [main] c.exalt.petclinic.PetClinicApplication   : Starting PetClinicApplication on MohammadSabri with PID 10012 (C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic\target\classes started by Moham in C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic)
+2020-07-12 09:13:43.505 DEBUG 10012 --- [main] c.exalt.petclinic.PetClinicApplication   : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-12 09:13:43.505  INFO 10012 --- [main] c.exalt.petclinic.PetClinicApplication   : No active profile set, falling back to default profiles: default
+2020-07-12 09:13:44.144  INFO 10012 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-12 09:13:44.211  INFO 10012 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61ms. Found 4 JPA repository interfaces.
+2020-07-12 09:13:44.594  INFO 10012 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+2020-07-12 09:13:44.600  INFO 10012 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-12 09:13:44.600  INFO 10012 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-12 09:13:44.665  INFO 10012 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-12 09:13:44.665  INFO 10012 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1135 ms
+2020-07-12 09:13:44.754  INFO 10012 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 09:13:44.786  INFO 10012 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 09:13:44.824  INFO 10012 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 09:13:44.957  INFO 10012 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 09:13:44.991  WARN 10012 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 09:13:45.031  INFO 10012 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-12 09:13:45.084  INFO 10012 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-12 09:13:45.279  INFO 10012 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path ''
+2020-07-12 09:13:45.280  INFO 10012 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-07-12 09:13:45.292  INFO 10012 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-07-12 09:13:45.323  INFO 10012 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-07-12 09:13:45.454  INFO 10012 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: creatWorkerUsingPOST_1
+2020-07-12 09:13:45.457  INFO 10012 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteWorkerUsingDELETE_1
+2020-07-12 09:13:45.461  INFO 10012 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminUsingGET_1
+2020-07-12 09:13:45.464  INFO 10012 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllOwnerUsingGET_1
+2020-07-12 09:13:45.466  INFO 10012 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllWorkerUsingGET_1
+2020-07-12 09:13:45.468  INFO 10012 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeUsingGET_1
+2020-07-12 09:13:45.473  INFO 10012 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateByOwnerUsingPUT_1
+2020-07-12 09:13:45.487  INFO 10012 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updatePetUsingPUT_1
+2020-07-12 09:13:45.490  INFO 10012 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addClientUsingPOST_1
+2020-07-12 09:13:45.491  INFO 10012 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteClientUsingDELETE_1
+2020-07-12 09:13:45.505  INFO 10012 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-12 09:13:45.608  INFO 10012 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-12 09:13:45.623  INFO 10012 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-07-12 09:13:46.259  INFO 10012 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 09:13:46.263  INFO 10012 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 09:13:46.699  INFO 10012 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-12 09:13:46.704  INFO 10012 --- [main] c.exalt.petclinic.PetClinicApplication   : Started PetClinicApplication in 3.442 seconds (JVM running for 4.157)
+2020-07-12 09:13:50.918  INFO 10012 --- [http-nio-8000-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-12 09:13:50.918  INFO 10012 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-12 09:13:50.923  INFO 10012 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms

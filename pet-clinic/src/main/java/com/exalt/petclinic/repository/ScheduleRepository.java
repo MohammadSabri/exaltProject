@@ -26,8 +26,14 @@ public interface ScheduleRepository extends JpaRepository<Schedule, Integer> {
 	int findScheduleIdNQ();
 
 	@Query(value = "select * from schedual where employee_id=:id limit :limit offset :offset", nativeQuery = true)
-	List<Schedule> findScheduleByWorkerIdNQ(@Param("id") int id, @Param("offset") int offset, @Param("limit") int limit);
-	
+	List<Schedule> findScheduleByWorkerIdNQ(@Param("id") int id, @Param("offset") int offset,
+			@Param("limit") int limit);
+
 	@Query(value = "select * from schedual where pet_id=:id limit :limit offset :offset", nativeQuery = true)
 	List<Schedule> findScheduleByPetIdNQ(@Param("id") int id, @Param("offset") int offset, @Param("limit") int limit);
+
+	@Query(value = "select * from schedual s where pet_id in(select id from pet where client_id =:id) limit :limit offset :offset", nativeQuery = true)
+	List<Schedule> findScheduleByClientIdNQ(@Param("id") int id, @Param("offset") int offset,
+			@Param("limit") int limit);
+
 }

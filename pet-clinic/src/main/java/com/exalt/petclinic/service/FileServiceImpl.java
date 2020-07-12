@@ -38,16 +38,16 @@ public class FileServiceImpl implements FileService {
 	public String update(String data, String fileName) {
 		String fileDir = Paths.get("").toAbsolutePath().toString() + "\\" + fileName;
 		FileWriter myWriter;
-		File file =new File(fileDir);
-		if(!file.exists()) {
+		File file = new File(fileDir);
+		if (!file.exists()) {
 			throw new CommonException(ErrorEnum.FILE_NOT_FOUND);
 		}
 		try {
 			myWriter = new FileWriter(fileDir);
-			
+
 			myWriter.write(data);
 			myWriter.close();
-			return"sucsessful write to file ";
+			return "sucsessful write to file ";
 		} catch (IOException e) {
 			throw new CommonException(ErrorEnum.CAN_NOT_WRITE_TO_FILE);
 		}

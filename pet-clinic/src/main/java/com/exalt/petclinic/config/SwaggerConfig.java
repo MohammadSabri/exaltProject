@@ -23,10 +23,7 @@ public class SwaggerConfig {
 	}
 
 	private ApiInfo apiInfo() {
-		return new ApiInfo("Pet Clinic APIs", 
-				"APIs costumed for pet cliniic application", 
-				"1.0.0", 
-				"pricate API",
-				new Contact("Pet Clinic API", "*-*", "*-*"), "privat", "*-^",Collections.emptyList());
+		return new ApiInfo("Pet Clinic APIs", "APIs costumed for pet cliniic application", "1.0.0", "pricate API",
+				new Contact("Pet Clinic API", "*-*", "*-*"), "privat", "*-^", Collections.emptyList());
 	}
 }
