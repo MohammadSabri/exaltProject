@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.exalt.petclinic.DTO.ClientDto;
-import com.exalt.petclinic.DTO.ClientUpdateDto;
+import com.exalt.petclinic.dto.ClientDto;
+import com.exalt.petclinic.dto.ClientUpdateDto;
 import com.exalt.petclinic.model.Client;
 import com.exalt.petclinic.service.ClientService;
 

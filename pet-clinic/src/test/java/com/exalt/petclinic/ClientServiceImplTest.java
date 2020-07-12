@@ -1,69 +1,129 @@
 package com.exalt.petclinic;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.Calendar;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.exalt.petclinic.service.ClientServiceImpl;
+import com.exalt.petclinic.dto.ClientDto;
+import com.exalt.petclinic.dto.ClientMapper;
+import com.exalt.petclinic.dto.ClientUpdateDto;
+import com.exalt.petclinic.model.Client;
+import com.exalt.petclinic.service.ClientService;
 
 @SpringBootTest
 public class ClientServiceImplTest {
 	@Autowired
-	private ClientServiceImpl clientServiceImpl;
-/*
+	ClientService clientService;
+	@Autowired
+	EntityManager entityManager;
+	private ClientMapper clientMapper = Mappers.getMapper(ClientMapper.class);
+
 	@Test
 	@DisplayName(value = "testClientCreate_AddNewClient_successfull")
-	void testCreat() {
-		int id=8;
-		Calendar calendar = Calendar.getInstance();
-		calendar.set(2010, 1, 2, 5, 13);
-		Date date = calendar.getTime();
-		
-		Clientd client = new Client(id, "test", "class", "1234567890", "test@class",date, "123456789");
-		clientServiceImpl.create(client);
-		Client testClient =clientServiceImpl.get(id);
-		assertAll(
-				() -> assertEquals(testClient.getId(), client.getId()),
+	void addClientTest() {
+
+		ClientUpdateDto clientUpdateDto = new ClientUpdateDto();
+		clientUpdateDto.setFirstName("Test Create First Name");
+		clientUpdateDto.setLastName("Test Create Last Name");
+		clientUpdateDto.setEmail("Test@CreateMail.com");
+		clientUpdateDto.setPhoneNumber("0599123765");
+		clientUpdateDto.setPassword("TestPaswword");
+
+		Client client = clientMapper.updateDtoToClient(clientUpdateDto);
+		client.setCreationDate(Calendar.getInstance().getTime());
+		Client testClient = clientService.create(clientUpdateDto);
+
+		assertAll(() -> assertNotNull(testClient.getId()), () -> assertNotNull(testClient.getCreationDate()),
 				() -> assertEquals(testClient.getFirstName(), client.getFirstName()),
-				() -> assertEquals(testClient.getLastName(), client.getLastName()),
-				() -> assertEquals(testClient.getPhoneNumber(), client.getPhoneNumber()),
 				() -> assertEquals(testClient.getEmail(), client.getEmail()),
-				() -> assertEquals(testClient.getCreationDate(), client.getCreationDate()),
-				() -> assertEquals(testClient.getPassword(), client.getPassword())
-		);	
-		
+				() -> assertEquals(testClient.getLastName(), client.getLastName()),
+				() -> assertEquals(testClient.getPassword(), client.getPassword()),
+				() -> assertEquals(testClient.getPhoneNumber(), client.getPhoneNumber())
+
+		);
+
 	}
 
 	@Test
-	void testDelete() {
-		int id = 2;
-		boolean testExist = false;
-		clientServiceImpl.delete(id);
-		for (Client c : clientServiceImpl.getAll(0, 10)) {
-			if (c.getId() == id) {
-				testExist = true;
-				break;
-			}
-
-		}
-		assertFalse(testExist);
-	}
-
-	@Test
-	void testUpdate() {
-		Calendar calendar = Calendar.getInstance();
-		calendar.set(2002, 1, 2, 2, 13);
-		Date date = calendar.getTime();
+	@DisplayName(value = "testClientGet_GetClientById_successfull")
+	void getClientTest() {
 		int id = 1;
-		Client client = new Client(id, "moh", "sab", "3343113132", "ewwew@fsdfs.com", date, "123456789");
-		clientServiceImpl.update(id, client);
-		Client test = clientServiceImpl.get(id);
-		
-		assertAll(() -> assertEquals(test.getFirstName(), client.getFirstName()),
-				() -> assertEquals(test.getLastName(), client.getLastName()),
-				() -> assertEquals(test.getPhoneNumber(), client.getPhoneNumber()),
-				() -> assertEquals(test.getEmail(), client.getEmail()),
-				() -> assertEquals(test.getPassword(), client.getPassword())
+		ClientDto clientDto = new ClientDto();
+		clientDto.setFirstName("mohammad");
+		clientDto.setLastName("sabri");
+		clientDto.setEmail("mohammdad.khaledsabri@outlook.com");
+		clientDto.setPhoneNumber("0592770916");
+		clientDto.setPassword("mm32k4");
+		clientDto.setId(id);
+		ClientDto clientDtoTest = clientService.get(id);
+		assertAll(() -> assertEquals(clientDtoTest.getId(), id), () -> assertNotNull(clientDtoTest.getCreationDate()),
+				() -> assertEquals(clientDtoTest.getFirstName(), clientDto.getFirstName()),
+				() -> assertEquals(clientDtoTest.getEmail(), clientDto.getEmail()),
+				() -> assertEquals(clientDtoTest.getLastName(), clientDto.getLastName()),
+				() -> assertEquals(clientDtoTest.getPassword(), clientDto.getPassword()),
+				() -> assertEquals(clientDtoTest.getPhoneNumber(), clientDto.getPhoneNumber())
+
 		);
 	}
-	*/
+
+	@Test
+	@DisplayName(value = "testClientGetAll_GetAllClient_successfull")
+	void getAllClientTest() {
+		int page = 100;
+		int limit = 100;
+		List<ClientDto> clientDtos = clientService.getAll(page, limit);
+		assertTrue(clientDtos.isEmpty());
+		clientDtos.clear();
+		page = 1;
+		limit = 2;
+		clientDtos = clientService.getAll(page, limit);
+		assertTrue(clientDtos.size() == 2);
+		clientDtos.clear();
+		page = 1;
+		limit = 1;
+		clientDtos = clientService.getAll(page, limit);
+
+		ClientDto clientDto = new ClientDto();
+		clientDto.setFirstName("mohammad");
+		clientDto.setLastName("sabri");
+		clientDto.setEmail("mohammdad.khaledsabri@outlook.com");
+		clientDto.setPhoneNumber("0592770916");
+		clientDto.setPassword("mm32k4");
+		clientDto.setId(1);
+		ClientDto clientDtoTest = clientDtos.get(0);
+
+		assertAll(() -> assertEquals(clientDtoTest.getId(), 1), () -> assertNotNull(clientDtoTest.getCreationDate()),
+				() -> assertEquals(clientDtoTest.getFirstName(), clientDto.getFirstName()),
+				() -> assertEquals(clientDtoTest.getEmail(), clientDto.getEmail()),
+				() -> assertEquals(clientDtoTest.getLastName(), clientDto.getLastName()),
+				() -> assertEquals(clientDtoTest.getPassword(), clientDto.getPassword()),
+				() -> assertEquals(clientDtoTest.getPhoneNumber(), clientDto.getPhoneNumber())
+
+		);
+	}
+
+	@Test
+	@DisplayName(value = "testClientUpdate_UpdateClientById_successfull")
+	void updateClientTest() {
+
+	}
+
+	@Test
+	@DisplayName(value = "testClientDelete_DeleteClientById_successfull")
+	void delteClientTest() {
+		int id = 12;
+		assertEquals("Client Deleted sucsessfuly", clientService.delete(id));
+	}
 }

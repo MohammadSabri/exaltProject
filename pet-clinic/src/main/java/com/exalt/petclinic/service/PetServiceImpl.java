@@ -11,9 +11,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.exalt.petclinic.DTO.PetDto;
-import com.exalt.petclinic.DTO.PetMapper;
-import com.exalt.petclinic.DTO.PetUpdateDto;
+import com.exalt.petclinic.dto.PetDto;
+import com.exalt.petclinic.dto.PetMapper;
+import com.exalt.petclinic.dto.PetUpdateDto;
 import com.exalt.petclinic.exception.CommonException;
 import com.exalt.petclinic.exception.ErrorEnum;
 import com.exalt.petclinic.model.Pet;
@@ -43,9 +43,7 @@ public class PetServiceImpl implements PetService {
 		}
 		Pet pet = petMapper.updateDtoToPet(petUpdateDto);
 		pet.setCreationDate(Calendar.getInstance().getTime());
-		petRepository.save(pet);
-		pet.setId(petRepository.findPetIdNQ());
-		return petMapper.petToDto(pet);
+		return petMapper.petToDto(petRepository.save(pet));
 	}
 
 	@Override
@@ -123,7 +121,11 @@ public class PetServiceImpl implements PetService {
 			throw new CommonException(ErrorEnum.PET_NOT_FOUND);
 		}
 		petRepository.deleteById(id);
-		return "Pet deleted successfully ";
+		if (petRepository.findPetExistNQ(id) == 0) {
+			return "Pet deleted successfully ";
+		} else {
+			return "Pet not deleted ";
+		}
 	}
 
 }

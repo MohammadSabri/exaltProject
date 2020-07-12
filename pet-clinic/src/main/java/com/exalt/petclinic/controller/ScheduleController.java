@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.exalt.petclinic.DTO.ScheduleDto;
-import com.exalt.petclinic.DTO.ScheduleUpdateDto;
+import com.exalt.petclinic.dto.ScheduleDto;
+import com.exalt.petclinic.dto.ScheduleUpdateDto;
 import com.exalt.petclinic.service.ScheduleService;
 
 @RestController

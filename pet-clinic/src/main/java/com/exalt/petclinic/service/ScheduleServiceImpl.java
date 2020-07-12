@@ -13,9 +13,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.exalt.petclinic.DTO.ScheduleDto;
-import com.exalt.petclinic.DTO.ScheduleMapper;
-import com.exalt.petclinic.DTO.ScheduleUpdateDto;
+import com.exalt.petclinic.dto.ScheduleDto;
+import com.exalt.petclinic.dto.ScheduleMapper;
+import com.exalt.petclinic.dto.ScheduleUpdateDto;
 import com.exalt.petclinic.exception.CommonException;
 import com.exalt.petclinic.exception.ErrorEnum;
 import com.exalt.petclinic.model.Schedule;
@@ -48,10 +48,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 		}
 		Schedule schedule = scheduleMapper.updateDtoToSchedule(scheduleUpdateDto);
 		schedule.setCreationDate(Calendar.getInstance().getTime());
-		System.out.println(schedule);
-		scheduleRepository.save(schedule);
-		schedule.setId(scheduleRepository.findScheduleIdNQ());
-		return scheduleMapper.scheduleToDto(schedule);
+		return scheduleMapper.scheduleToDto(scheduleRepository.save(schedule));
 	}
 
 	@Override
@@ -155,7 +152,11 @@ public class ScheduleServiceImpl implements ScheduleService {
 			throw new CommonException(ErrorEnum.SCHEDULE_NOT_FOUND);
 		}
 		scheduleRepository.deleteScheduleByIdNQ(id);
-		return "Deleted Sucsessfuly";
+		if (scheduleRepository.findScheduleExistNQ(id) == 0) {
+			return "Deleted sucsessfuly";
+		} else {
+			return "Schedule Not Deleted";
+		}
 	}
 
 }

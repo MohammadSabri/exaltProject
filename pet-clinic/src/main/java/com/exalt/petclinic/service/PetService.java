@@ -2,8 +2,8 @@ package com.exalt.petclinic.service;
 
 import java.util.List;
 
-import com.exalt.petclinic.DTO.PetDto;
-import com.exalt.petclinic.DTO.PetUpdateDto;
+import com.exalt.petclinic.dto.PetDto;
+import com.exalt.petclinic.dto.PetUpdateDto;
 
 public interface PetService {
 	PetDto create(PetUpdateDto petUpdateDto);

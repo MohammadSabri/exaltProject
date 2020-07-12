@@ -1,23 +1,23 @@
-package com.exalt.petclinic.DTO;
+package com.exalt.petclinic.dto;
 
-import java.util.Date;
+import javax.validation.constraints.NotNull;
 
-public class ClientDto {
-	private int id;
+import com.exalt.petclinic.vallidator.ValidateEmail;
+import com.exalt.petclinic.vallidator.ValidatePhoneNumber;
+
+public class ClientUpdateDto {
+	@NotNull
 	private String firstName;
+	@NotNull
 	private String lastName;
+	@NotNull
+	@ValidatePhoneNumber()
 	private String phoneNumber;
+	@ValidateEmail()
+	@NotNull
 	private String email;
-	private Date creationDate;
+	@NotNull
 	private String password;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getFirstName() {
 		return firstName;
@@ -49,14 +49,6 @@ public class ClientDto {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public Date getCreationDate() {
-		return creationDate;
-	}
-
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
 	}
 
 	public String getPassword() {

@@ -1,4 +1,4 @@
-package com.exalt.petclinic.DTO;
+package com.exalt.petclinic.dto;
 
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Min;

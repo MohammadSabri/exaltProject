@@ -1,4 +1,4 @@
-package com.exalt.petclinic.DTO;
+package com.exalt.petclinic.dto;
 
 import java.util.List;
 

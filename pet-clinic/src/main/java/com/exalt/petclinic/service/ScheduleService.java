@@ -2,8 +2,8 @@ package com.exalt.petclinic.service;
 
 import java.util.List;
 
-import com.exalt.petclinic.DTO.ScheduleDto;
-import com.exalt.petclinic.DTO.ScheduleUpdateDto;
+import com.exalt.petclinic.dto.ScheduleDto;
+import com.exalt.petclinic.dto.ScheduleUpdateDto;
 
 public interface ScheduleService {
 	ScheduleDto create(ScheduleUpdateDto scheduleUpdateDto);

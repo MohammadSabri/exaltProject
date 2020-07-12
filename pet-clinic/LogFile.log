@@ -530,3 +530,866 @@ com.exalt.petclinic.exception.CommonException: No worker hold this Id
 2020-07-12 09:13:50.918  INFO 10012 --- [http-nio-8000-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2020-07-12 09:13:50.918  INFO 10012 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2020-07-12 09:13:50.923  INFO 10012 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-07-12 10:07:20.273  INFO 10304 --- [main] com.exalt.petclinic.ClientTest           : Starting ClientTest on MohammadSabri with PID 10304 (started by Moham in C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic)
+2020-07-12 10:07:20.274 DEBUG 10304 --- [main] com.exalt.petclinic.ClientTest           : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-12 10:07:20.274  INFO 10304 --- [main] com.exalt.petclinic.ClientTest           : No active profile set, falling back to default profiles: default
+2020-07-12 10:07:21.038  INFO 10304 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-12 10:07:21.116  INFO 10304 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69ms. Found 4 JPA repository interfaces.
+2020-07-12 10:07:21.625  INFO 10304 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 10:07:21.684  INFO 10304 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 10:07:21.778  INFO 10304 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 10:07:21.920  INFO 10304 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 10:07:22.094  WARN 10304 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 10:07:22.418  INFO 10304 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-12 10:07:22.443  INFO 10304 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-12 10:07:22.997  INFO 10304 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-07-12 10:07:23.020  INFO 10304 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-07-12 10:07:23.073  INFO 10304 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-07-12 10:07:23.197  INFO 10304 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-12 10:07:23.236  INFO 10304 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-07-12 10:07:23.271  INFO 10304 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: creatWorkerUsingPOST_1
+2020-07-12 10:07:23.275  INFO 10304 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteWorkerUsingDELETE_1
+2020-07-12 10:07:23.279  INFO 10304 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminUsingGET_1
+2020-07-12 10:07:23.282  INFO 10304 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllOwnerUsingGET_1
+2020-07-12 10:07:23.285  INFO 10304 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllWorkerUsingGET_1
+2020-07-12 10:07:23.287  INFO 10304 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeUsingGET_1
+2020-07-12 10:07:23.293  INFO 10304 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateByOwnerUsingPUT_1
+2020-07-12 10:07:23.312  INFO 10304 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updatePetUsingPUT_1
+2020-07-12 10:07:23.318  INFO 10304 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addClientUsingPOST_1
+2020-07-12 10:07:23.320  INFO 10304 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteClientUsingDELETE_1
+2020-07-12 10:07:23.340  INFO 10304 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-12 10:07:24.354  INFO 10304 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 10:07:24.362  INFO 10304 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 10:07:24.813  INFO 10304 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-12 10:07:24.820  INFO 10304 --- [main] com.exalt.petclinic.ClientTest           : Started ClientTest in 4.748 seconds (JVM running for 5.84)
+2020-07-12 10:07:24.988  INFO 10304 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 10:07:24.990  INFO 10304 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-12 10:07:24.991  INFO 10304 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-12 10:07:25.001  INFO 10304 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-07-12 10:10:56.884  INFO 4308 --- [main] com.exalt.petclinic.ClientTest           : Starting ClientTest on MohammadSabri with PID 4308 (started by Moham in C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic)
+2020-07-12 10:10:56.885 DEBUG 4308 --- [main] com.exalt.petclinic.ClientTest           : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-12 10:10:56.885  INFO 4308 --- [main] com.exalt.petclinic.ClientTest           : No active profile set, falling back to default profiles: default
+2020-07-12 10:10:57.617  INFO 4308 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-12 10:10:57.695  INFO 4308 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70ms. Found 4 JPA repository interfaces.
+2020-07-12 10:10:58.184  INFO 4308 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 10:10:58.240  INFO 4308 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 10:10:58.373  INFO 4308 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 10:10:58.515  INFO 4308 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 10:10:58.678  WARN 4308 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 10:10:59.038  INFO 4308 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-12 10:10:59.062  INFO 4308 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-12 10:10:59.623  INFO 4308 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-07-12 10:10:59.648  INFO 4308 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-07-12 10:10:59.689  INFO 4308 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-07-12 10:10:59.793  INFO 4308 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-12 10:10:59.832  INFO 4308 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-07-12 10:10:59.870  INFO 4308 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: creatWorkerUsingPOST_1
+2020-07-12 10:10:59.874  INFO 4308 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteWorkerUsingDELETE_1
+2020-07-12 10:10:59.878  INFO 4308 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminUsingGET_1
+2020-07-12 10:10:59.882  INFO 4308 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllOwnerUsingGET_1
+2020-07-12 10:10:59.885  INFO 4308 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllWorkerUsingGET_1
+2020-07-12 10:10:59.887  INFO 4308 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeUsingGET_1
+2020-07-12 10:10:59.893  INFO 4308 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateByOwnerUsingPUT_1
+2020-07-12 10:10:59.919  INFO 4308 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updatePetUsingPUT_1
+2020-07-12 10:10:59.926  INFO 4308 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addClientUsingPOST_1
+2020-07-12 10:10:59.927  INFO 4308 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteClientUsingDELETE_1
+2020-07-12 10:10:59.953  INFO 4308 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-12 10:11:00.861  INFO 4308 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 10:11:00.869  INFO 4308 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 10:11:01.283  INFO 4308 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-12 10:11:01.289  INFO 4308 --- [main] com.exalt.petclinic.ClientTest           : Started ClientTest in 4.604 seconds (JVM running for 5.408)
+2020-07-12 10:11:01.496  INFO 4308 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 10:11:01.498  INFO 4308 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-12 10:11:01.498  INFO 4308 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-12 10:11:01.501  INFO 4308 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-07-12 10:13:07.295  INFO 8888 --- [main] c.exalt.petclinic.PetClinicApplication   : Starting PetClinicApplication on MohammadSabri with PID 8888 (C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic\target\classes started by Moham in C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic)
+2020-07-12 10:13:07.297 DEBUG 8888 --- [main] c.exalt.petclinic.PetClinicApplication   : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-12 10:13:07.297  INFO 8888 --- [main] c.exalt.petclinic.PetClinicApplication   : No active profile set, falling back to default profiles: default
+2020-07-12 10:13:07.912  INFO 8888 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-12 10:13:07.971  INFO 8888 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53ms. Found 4 JPA repository interfaces.
+2020-07-12 10:13:08.296  INFO 8888 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+2020-07-12 10:13:08.301  INFO 8888 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-12 10:13:08.301  INFO 8888 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-12 10:13:08.383  INFO 8888 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-12 10:13:08.383  INFO 8888 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1061 ms
+2020-07-12 10:13:08.487  INFO 8888 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 10:13:08.518  INFO 8888 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 10:13:08.554  INFO 8888 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 10:13:08.682  INFO 8888 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 10:13:08.721  WARN 8888 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 10:13:08.755  INFO 8888 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-12 10:13:08.812  INFO 8888 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-12 10:13:09.003  WARN 8888 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8000 is already in use
+2020-07-12 10:13:09.005  INFO 8888 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 10:13:09.365  INFO 8888 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-12 10:13:09.379  INFO 8888 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-07-12 10:13:10.022  INFO 8888 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 10:13:10.028  INFO 8888 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 10:13:10.029  INFO 8888 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-12 10:13:10.030  INFO 8888 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-12 10:13:10.032  INFO 8888 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-07-12 10:13:10.033  INFO 8888 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-07-12 10:13:10.041  INFO 8888 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-07-12 10:13:10.044 ERROR 8888 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8000 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8000 or configure this application to listen on another port.
+
+2020-07-12 10:14:45.756  INFO 10012 --- [RMI TCP Connection(69)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2020-07-12 10:14:46.048  INFO 10012 --- [RMI TCP Connection(69)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 10:14:46.050  INFO 10012 --- [RMI TCP Connection(69)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-12 10:14:46.050  INFO 10012 --- [RMI TCP Connection(69)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-12 10:14:46.056  INFO 10012 --- [RMI TCP Connection(69)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-07-12 10:14:49.792  INFO 6100 --- [main] c.exalt.petclinic.PetClinicApplication   : Starting PetClinicApplication on MohammadSabri with PID 6100 (C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic\target\classes started by Moham in C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic)
+2020-07-12 10:14:49.794 DEBUG 6100 --- [main] c.exalt.petclinic.PetClinicApplication   : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-12 10:14:49.795  INFO 6100 --- [main] c.exalt.petclinic.PetClinicApplication   : No active profile set, falling back to default profiles: default
+2020-07-12 10:14:50.398  INFO 6100 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-12 10:14:50.458  INFO 6100 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54ms. Found 4 JPA repository interfaces.
+2020-07-12 10:14:50.792  INFO 6100 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+2020-07-12 10:14:50.797  INFO 6100 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-12 10:14:50.797  INFO 6100 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-12 10:14:50.859  INFO 6100 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-12 10:14:50.859  INFO 6100 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1039 ms
+2020-07-12 10:14:50.947  INFO 6100 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 10:14:50.977  INFO 6100 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 10:14:51.013  INFO 6100 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 10:14:51.145  INFO 6100 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 10:14:51.179  WARN 6100 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 10:14:51.220  INFO 6100 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-12 10:14:51.268  INFO 6100 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-12 10:14:51.457  INFO 6100 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path ''
+2020-07-12 10:14:51.458  INFO 6100 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-07-12 10:14:51.470  INFO 6100 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-07-12 10:14:51.499  INFO 6100 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-07-12 10:14:51.624  INFO 6100 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: creatWorkerUsingPOST_1
+2020-07-12 10:14:51.627  INFO 6100 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteWorkerUsingDELETE_1
+2020-07-12 10:14:51.631  INFO 6100 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminUsingGET_1
+2020-07-12 10:14:51.634  INFO 6100 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllOwnerUsingGET_1
+2020-07-12 10:14:51.637  INFO 6100 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllWorkerUsingGET_1
+2020-07-12 10:14:51.639  INFO 6100 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeUsingGET_1
+2020-07-12 10:14:51.643  INFO 6100 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateByOwnerUsingPUT_1
+2020-07-12 10:14:51.658  INFO 6100 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updatePetUsingPUT_1
+2020-07-12 10:14:51.661  INFO 6100 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addClientUsingPOST_1
+2020-07-12 10:14:51.662  INFO 6100 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteClientUsingDELETE_1
+2020-07-12 10:14:51.675  INFO 6100 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-12 10:14:51.782  INFO 6100 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-12 10:14:51.797  INFO 6100 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-07-12 10:14:52.410  INFO 6100 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 10:14:52.415  INFO 6100 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 10:14:52.831  INFO 6100 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-12 10:14:52.836  INFO 6100 --- [main] c.exalt.petclinic.PetClinicApplication   : Started PetClinicApplication in 3.283 seconds (JVM running for 3.992)
+2020-07-12 10:14:57.958  INFO 6100 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-12 10:14:57.959  INFO 6100 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-12 10:14:57.962  INFO 6100 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2020-07-12 10:17:06.312  INFO 6100 --- [RMI TCP Connection(13)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2020-07-12 10:17:06.608  INFO 6100 --- [RMI TCP Connection(13)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 10:17:06.610  INFO 6100 --- [RMI TCP Connection(13)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-12 10:17:06.610  INFO 6100 --- [RMI TCP Connection(13)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-12 10:17:06.613  INFO 6100 --- [RMI TCP Connection(13)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-07-12 10:17:10.243  INFO 4560 --- [main] c.exalt.petclinic.PetClinicApplication   : Starting PetClinicApplication on MohammadSabri with PID 4560 (C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic\target\classes started by Moham in C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic)
+2020-07-12 10:17:10.245 DEBUG 4560 --- [main] c.exalt.petclinic.PetClinicApplication   : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-12 10:17:10.246  INFO 4560 --- [main] c.exalt.petclinic.PetClinicApplication   : No active profile set, falling back to default profiles: default
+2020-07-12 10:17:10.836  INFO 4560 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-12 10:17:10.894  INFO 4560 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51ms. Found 4 JPA repository interfaces.
+2020-07-12 10:17:11.219  INFO 4560 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+2020-07-12 10:17:11.225  INFO 4560 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-12 10:17:11.225  INFO 4560 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-12 10:17:11.284  INFO 4560 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-12 10:17:11.284  INFO 4560 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1014 ms
+2020-07-12 10:17:11.371  INFO 4560 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 10:17:11.400  INFO 4560 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 10:17:11.436  INFO 4560 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 10:17:11.567  INFO 4560 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 10:17:11.598  WARN 4560 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 10:17:11.639  INFO 4560 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-12 10:17:11.686  INFO 4560 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-12 10:17:11.876  INFO 4560 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path ''
+2020-07-12 10:17:11.877  INFO 4560 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-07-12 10:17:11.889  INFO 4560 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-07-12 10:17:11.919  INFO 4560 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-07-12 10:17:12.045  INFO 4560 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: creatWorkerUsingPOST_1
+2020-07-12 10:17:12.048  INFO 4560 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteWorkerUsingDELETE_1
+2020-07-12 10:17:12.051  INFO 4560 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminUsingGET_1
+2020-07-12 10:17:12.054  INFO 4560 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllOwnerUsingGET_1
+2020-07-12 10:17:12.056  INFO 4560 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllWorkerUsingGET_1
+2020-07-12 10:17:12.058  INFO 4560 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeUsingGET_1
+2020-07-12 10:17:12.063  INFO 4560 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateByOwnerUsingPUT_1
+2020-07-12 10:17:12.076  INFO 4560 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updatePetUsingPUT_1
+2020-07-12 10:17:12.080  INFO 4560 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addClientUsingPOST_1
+2020-07-12 10:17:12.081  INFO 4560 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteClientUsingDELETE_1
+2020-07-12 10:17:12.093  INFO 4560 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-12 10:17:12.202  INFO 4560 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-12 10:17:12.217  INFO 4560 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-07-12 10:17:12.843  INFO 4560 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 10:17:12.848  INFO 4560 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 10:17:13.271  INFO 4560 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-12 10:17:13.276  INFO 4560 --- [main] c.exalt.petclinic.PetClinicApplication   : Started PetClinicApplication in 3.268 seconds (JVM running for 3.973)
+2020-07-12 10:35:02.182  INFO 1016 --- [main] com.exalt.petclinic.ClientTest           : Starting ClientTest on MohammadSabri with PID 1016 (started by Moham in C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic)
+2020-07-12 10:35:02.183 DEBUG 1016 --- [main] com.exalt.petclinic.ClientTest           : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-12 10:35:02.183  INFO 1016 --- [main] com.exalt.petclinic.ClientTest           : No active profile set, falling back to default profiles: default
+2020-07-12 10:35:02.944  INFO 1016 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-12 10:35:03.035  INFO 1016 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 81ms. Found 4 JPA repository interfaces.
+2020-07-12 10:35:03.539  INFO 1016 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 10:35:03.596  INFO 1016 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 10:35:03.730  INFO 1016 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 10:35:03.874  INFO 1016 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 10:35:04.054  WARN 1016 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 10:35:04.370  INFO 1016 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-12 10:35:04.370  INFO 1016 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-12 10:35:04.985  INFO 1016 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-07-12 10:35:05.010  INFO 1016 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-07-12 10:35:05.051  INFO 1016 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-07-12 10:35:05.112  INFO 1016 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-12 10:35:05.150  INFO 1016 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-07-12 10:35:05.227  INFO 1016 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: creatWorkerUsingPOST_1
+2020-07-12 10:35:05.231  INFO 1016 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteWorkerUsingDELETE_1
+2020-07-12 10:35:05.236  INFO 1016 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminUsingGET_1
+2020-07-12 10:35:05.240  INFO 1016 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllOwnerUsingGET_1
+2020-07-12 10:35:05.244  INFO 1016 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllWorkerUsingGET_1
+2020-07-12 10:35:05.247  INFO 1016 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeUsingGET_1
+2020-07-12 10:35:05.254  INFO 1016 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateByOwnerUsingPUT_1
+2020-07-12 10:35:05.274  INFO 1016 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updatePetUsingPUT_1
+2020-07-12 10:35:05.280  INFO 1016 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addClientUsingPOST_1
+2020-07-12 10:35:05.282  INFO 1016 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteClientUsingDELETE_1
+2020-07-12 10:35:05.304  INFO 1016 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-12 10:35:06.209  INFO 1016 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 10:35:06.217  INFO 1016 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 10:35:06.653  INFO 1016 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-12 10:35:06.658  INFO 1016 --- [main] com.exalt.petclinic.ClientTest           : Started ClientTest in 4.675 seconds (JVM running for 5.491)
+2020-07-12 10:35:06.904  INFO 1016 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 10:35:06.906  INFO 1016 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-12 10:35:06.907  INFO 1016 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-12 10:35:06.912  INFO 1016 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-07-12 11:32:17.953  INFO 14480 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Starting ClientServiceImplTest on MohammadSabri with PID 14480 (started by Moham in C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic)
+2020-07-12 11:32:17.953 DEBUG 14480 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-12 11:32:17.954  INFO 14480 --- [main] c.exalt.petclinic.ClientServiceImplTest  : No active profile set, falling back to default profiles: default
+2020-07-12 11:32:18.731  INFO 14480 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-12 11:32:18.808  INFO 14480 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69ms. Found 4 JPA repository interfaces.
+2020-07-12 11:32:19.308  INFO 14480 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 11:32:19.366  INFO 14480 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 11:32:19.506  INFO 14480 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 11:32:19.647  INFO 14480 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 11:32:19.823  WARN 14480 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 11:32:20.126  INFO 14480 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-12 11:32:20.142  INFO 14480 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-12 11:32:20.726  INFO 14480 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-07-12 11:32:20.752  INFO 14480 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-07-12 11:32:20.793  INFO 14480 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-07-12 11:32:20.871  INFO 14480 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-12 11:32:20.907  INFO 14480 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-07-12 11:32:20.965  INFO 14480 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: creatWorkerUsingPOST_1
+2020-07-12 11:32:20.968  INFO 14480 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteWorkerUsingDELETE_1
+2020-07-12 11:32:20.973  INFO 14480 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminUsingGET_1
+2020-07-12 11:32:20.977  INFO 14480 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllOwnerUsingGET_1
+2020-07-12 11:32:20.980  INFO 14480 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllWorkerUsingGET_1
+2020-07-12 11:32:20.983  INFO 14480 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeUsingGET_1
+2020-07-12 11:32:20.989  INFO 14480 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateByOwnerUsingPUT_1
+2020-07-12 11:32:21.009  INFO 14480 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updatePetUsingPUT_1
+2020-07-12 11:32:21.015  INFO 14480 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addClientUsingPOST_1
+2020-07-12 11:32:21.016  INFO 14480 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteClientUsingDELETE_1
+2020-07-12 11:32:21.041  INFO 14480 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-12 11:32:21.973  INFO 14480 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 11:32:21.980  INFO 14480 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 11:32:22.400  INFO 14480 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-12 11:32:22.407  INFO 14480 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Started ClientServiceImplTest in 4.653 seconds (JVM running for 5.46)
+2020-07-12 11:32:22.597  INFO 14480 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 11:32:22.599  INFO 14480 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-12 11:32:22.600  INFO 14480 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-12 11:32:22.604  INFO 14480 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-07-12 11:37:51.971  INFO 14236 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Starting ClientServiceImplTest on MohammadSabri with PID 14236 (started by Moham in C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic)
+2020-07-12 11:37:51.971 DEBUG 14236 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-12 11:37:51.972  INFO 14236 --- [main] c.exalt.petclinic.ClientServiceImplTest  : No active profile set, falling back to default profiles: default
+2020-07-12 11:37:52.721  INFO 14236 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-12 11:37:52.800  INFO 14236 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 72ms. Found 4 JPA repository interfaces.
+2020-07-12 11:37:53.308  INFO 14236 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 11:37:53.370  INFO 14236 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 11:37:53.503  INFO 14236 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 11:37:53.673  INFO 14236 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 11:37:53.891  WARN 14236 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 11:37:54.232  INFO 14236 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-12 11:37:54.348  INFO 14236 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-12 11:37:54.995  INFO 14236 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-07-12 11:37:55.030  INFO 14236 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-07-12 11:37:55.081  INFO 14236 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-07-12 11:37:55.213  INFO 14236 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-12 11:37:55.262  INFO 14236 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-07-12 11:37:55.295  INFO 14236 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: creatWorkerUsingPOST_1
+2020-07-12 11:37:55.299  INFO 14236 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteWorkerUsingDELETE_1
+2020-07-12 11:37:55.305  INFO 14236 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminUsingGET_1
+2020-07-12 11:37:55.310  INFO 14236 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllOwnerUsingGET_1
+2020-07-12 11:37:55.313  INFO 14236 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllWorkerUsingGET_1
+2020-07-12 11:37:55.316  INFO 14236 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeUsingGET_1
+2020-07-12 11:37:55.323  INFO 14236 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateByOwnerUsingPUT_1
+2020-07-12 11:37:55.356  INFO 14236 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updatePetUsingPUT_1
+2020-07-12 11:37:55.363  INFO 14236 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addClientUsingPOST_1
+2020-07-12 11:37:55.365  INFO 14236 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteClientUsingDELETE_1
+2020-07-12 11:37:55.392  INFO 14236 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-12 11:37:56.509  INFO 14236 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 11:37:56.518  INFO 14236 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 11:37:57.008  INFO 14236 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-12 11:37:57.015  INFO 14236 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Started ClientServiceImplTest in 5.244 seconds (JVM running for 6.06)
+2020-07-12 11:37:57.209  INFO 14236 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 11:37:57.211  INFO 14236 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-12 11:37:57.212  INFO 14236 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-12 11:37:57.224  INFO 14236 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-07-12 11:38:27.960  INFO 2392 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Starting ClientServiceImplTest on MohammadSabri with PID 2392 (started by Moham in C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic)
+2020-07-12 11:38:27.961 DEBUG 2392 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-12 11:38:27.961  INFO 2392 --- [main] c.exalt.petclinic.ClientServiceImplTest  : No active profile set, falling back to default profiles: default
+2020-07-12 11:38:28.717  INFO 2392 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-12 11:38:28.795  INFO 2392 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70ms. Found 4 JPA repository interfaces.
+2020-07-12 11:38:29.297  INFO 2392 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 11:38:29.353  INFO 2392 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 11:38:29.449  INFO 2392 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 11:38:29.589  INFO 2392 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 11:38:29.764  WARN 2392 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 11:38:30.123  INFO 2392 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-12 11:38:30.147  INFO 2392 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-12 11:38:30.817  INFO 2392 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-07-12 11:38:30.844  INFO 2392 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-07-12 11:38:30.885  INFO 2392 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-07-12 11:38:30.910  INFO 2392 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-12 11:38:30.947  INFO 2392 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-07-12 11:38:31.071  INFO 2392 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: creatWorkerUsingPOST_1
+2020-07-12 11:38:31.075  INFO 2392 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteWorkerUsingDELETE_1
+2020-07-12 11:38:31.080  INFO 2392 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminUsingGET_1
+2020-07-12 11:38:31.084  INFO 2392 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllOwnerUsingGET_1
+2020-07-12 11:38:31.088  INFO 2392 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllWorkerUsingGET_1
+2020-07-12 11:38:31.092  INFO 2392 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeUsingGET_1
+2020-07-12 11:38:31.101  INFO 2392 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateByOwnerUsingPUT_1
+2020-07-12 11:38:31.125  INFO 2392 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updatePetUsingPUT_1
+2020-07-12 11:38:31.132  INFO 2392 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addClientUsingPOST_1
+2020-07-12 11:38:31.134  INFO 2392 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteClientUsingDELETE_1
+2020-07-12 11:38:31.155  INFO 2392 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-12 11:38:32.009  INFO 2392 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 11:38:32.018  INFO 2392 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 11:38:32.456  INFO 2392 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-12 11:38:32.462  INFO 2392 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Started ClientServiceImplTest in 4.705 seconds (JVM running for 5.531)
+2020-07-12 11:38:32.675  INFO 2392 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 11:38:32.678  INFO 2392 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-12 11:38:32.678  INFO 2392 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-12 11:38:32.685  INFO 2392 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-07-12 11:39:27.276  INFO 14764 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Starting ClientServiceImplTest on MohammadSabri with PID 14764 (started by Moham in C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic)
+2020-07-12 11:39:27.277 DEBUG 14764 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-12 11:39:27.277  INFO 14764 --- [main] c.exalt.petclinic.ClientServiceImplTest  : No active profile set, falling back to default profiles: default
+2020-07-12 11:39:28.027  INFO 14764 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-12 11:39:28.108  INFO 14764 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73ms. Found 4 JPA repository interfaces.
+2020-07-12 11:39:28.611  INFO 14764 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 11:39:28.668  INFO 14764 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 11:39:28.800  INFO 14764 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 11:39:28.942  INFO 14764 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 11:39:29.107  WARN 14764 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 11:39:29.417  INFO 14764 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-12 11:39:29.453  INFO 14764 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-12 11:39:30.079  INFO 14764 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-07-12 11:39:30.108  INFO 14764 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-07-12 11:39:30.151  INFO 14764 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-07-12 11:39:30.236  INFO 14764 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-12 11:39:30.273  INFO 14764 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-07-12 11:39:30.332  INFO 14764 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: creatWorkerUsingPOST_1
+2020-07-12 11:39:30.336  INFO 14764 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteWorkerUsingDELETE_1
+2020-07-12 11:39:30.343  INFO 14764 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminUsingGET_1
+2020-07-12 11:39:30.349  INFO 14764 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllOwnerUsingGET_1
+2020-07-12 11:39:30.354  INFO 14764 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllWorkerUsingGET_1
+2020-07-12 11:39:30.357  INFO 14764 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeUsingGET_1
+2020-07-12 11:39:30.363  INFO 14764 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateByOwnerUsingPUT_1
+2020-07-12 11:39:30.383  INFO 14764 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updatePetUsingPUT_1
+2020-07-12 11:39:30.389  INFO 14764 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addClientUsingPOST_1
+2020-07-12 11:39:30.390  INFO 14764 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteClientUsingDELETE_1
+2020-07-12 11:39:30.417  INFO 14764 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-12 11:39:31.315  INFO 14764 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 11:39:31.322  INFO 14764 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 11:39:31.757  INFO 14764 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-12 11:39:31.763  INFO 14764 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Started ClientServiceImplTest in 4.687 seconds (JVM running for 5.483)
+2020-07-12 11:39:31.948  INFO 14764 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 11:39:31.949  INFO 14764 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-12 11:39:31.950  INFO 14764 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-12 11:39:31.954  INFO 14764 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-07-12 11:46:56.125  INFO 232 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Starting ClientServiceImplTest on MohammadSabri with PID 232 (started by Moham in C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic)
+2020-07-12 11:46:56.125 DEBUG 232 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-12 11:46:56.126  INFO 232 --- [main] c.exalt.petclinic.ClientServiceImplTest  : No active profile set, falling back to default profiles: default
+2020-07-12 11:46:56.885  INFO 232 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-12 11:46:56.963  INFO 232 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69ms. Found 4 JPA repository interfaces.
+2020-07-12 11:46:57.499  INFO 232 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 11:46:57.561  INFO 232 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 11:46:57.694  INFO 232 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 11:46:57.836  INFO 232 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 11:46:57.995  WARN 232 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 11:46:58.335  INFO 232 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-12 11:46:58.372  INFO 232 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-12 11:46:58.946  INFO 232 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-07-12 11:46:58.969  INFO 232 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-07-12 11:46:59.011  INFO 232 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-07-12 11:46:59.121  INFO 232 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-12 11:46:59.158  INFO 232 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-07-12 11:46:59.187  INFO 232 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: creatWorkerUsingPOST_1
+2020-07-12 11:46:59.191  INFO 232 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteWorkerUsingDELETE_1
+2020-07-12 11:46:59.195  INFO 232 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminUsingGET_1
+2020-07-12 11:46:59.198  INFO 232 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllOwnerUsingGET_1
+2020-07-12 11:46:59.201  INFO 232 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllWorkerUsingGET_1
+2020-07-12 11:46:59.204  INFO 232 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeUsingGET_1
+2020-07-12 11:46:59.209  INFO 232 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateByOwnerUsingPUT_1
+2020-07-12 11:46:59.230  INFO 232 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updatePetUsingPUT_1
+2020-07-12 11:46:59.239  INFO 232 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addClientUsingPOST_1
+2020-07-12 11:46:59.241  INFO 232 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteClientUsingDELETE_1
+2020-07-12 11:46:59.263  INFO 232 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-12 11:47:00.203  INFO 232 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 11:47:00.213  INFO 232 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 11:47:00.653  INFO 232 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-12 11:47:00.660  INFO 232 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Started ClientServiceImplTest in 4.734 seconds (JVM running for 5.541)
+2020-07-12 11:47:00.856  INFO 232 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 11:47:00.858  INFO 232 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-12 11:47:00.858  INFO 232 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-12 11:47:00.865  INFO 232 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-07-12 11:47:20.064  INFO 13352 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Starting ClientServiceImplTest on MohammadSabri with PID 13352 (started by Moham in C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic)
+2020-07-12 11:47:20.065 DEBUG 13352 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-12 11:47:20.065  INFO 13352 --- [main] c.exalt.petclinic.ClientServiceImplTest  : No active profile set, falling back to default profiles: default
+2020-07-12 11:47:20.854  INFO 13352 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-12 11:47:20.933  INFO 13352 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71ms. Found 4 JPA repository interfaces.
+2020-07-12 11:47:21.449  INFO 13352 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 11:47:21.505  INFO 13352 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 11:47:21.637  INFO 13352 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 11:47:21.786  INFO 13352 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 11:47:21.981  WARN 13352 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 11:47:22.340  INFO 13352 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-12 11:47:22.354  INFO 13352 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-12 11:47:23.061  INFO 13352 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-07-12 11:47:23.089  INFO 13352 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-07-12 11:47:23.120  INFO 13352 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-12 11:47:23.131  INFO 13352 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-07-12 11:47:23.157  INFO 13352 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-07-12 11:47:23.338  INFO 13352 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: creatWorkerUsingPOST_1
+2020-07-12 11:47:23.342  INFO 13352 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteWorkerUsingDELETE_1
+2020-07-12 11:47:23.349  INFO 13352 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminUsingGET_1
+2020-07-12 11:47:23.355  INFO 13352 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllOwnerUsingGET_1
+2020-07-12 11:47:23.360  INFO 13352 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllWorkerUsingGET_1
+2020-07-12 11:47:23.365  INFO 13352 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeUsingGET_1
+2020-07-12 11:47:23.375  INFO 13352 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateByOwnerUsingPUT_1
+2020-07-12 11:47:23.410  INFO 13352 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updatePetUsingPUT_1
+2020-07-12 11:47:23.418  INFO 13352 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addClientUsingPOST_1
+2020-07-12 11:47:23.420  INFO 13352 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteClientUsingDELETE_1
+2020-07-12 11:47:23.443  INFO 13352 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-12 11:47:24.340  INFO 13352 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 11:47:24.348  INFO 13352 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 11:47:24.839  INFO 13352 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-12 11:47:24.846  INFO 13352 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Started ClientServiceImplTest in 4.988 seconds (JVM running for 5.806)
+2020-07-12 11:47:25.056  INFO 13352 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 11:47:25.058  INFO 13352 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-12 11:47:25.058  INFO 13352 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-12 11:47:25.068  INFO 13352 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-07-12 12:03:24.471  INFO 11788 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Starting ClientServiceImplTest on MohammadSabri with PID 11788 (started by Moham in C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic)
+2020-07-12 12:03:24.471 DEBUG 11788 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-12 12:03:24.472  INFO 11788 --- [main] c.exalt.petclinic.ClientServiceImplTest  : No active profile set, falling back to default profiles: default
+2020-07-12 12:03:25.234  INFO 11788 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-12 12:03:25.310  INFO 11788 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 68ms. Found 4 JPA repository interfaces.
+2020-07-12 12:03:25.824  INFO 11788 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 12:03:25.883  INFO 11788 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 12:03:25.982  INFO 11788 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 12:03:26.126  INFO 11788 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 12:03:26.293  WARN 11788 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 12:03:26.612  INFO 11788 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-12 12:03:26.647  INFO 11788 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-12 12:03:27.251  INFO 11788 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-07-12 12:03:27.278  INFO 11788 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-07-12 12:03:27.321  INFO 11788 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-07-12 12:03:27.398  INFO 11788 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-12 12:03:27.438  INFO 11788 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-07-12 12:03:27.502  INFO 11788 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: creatWorkerUsingPOST_1
+2020-07-12 12:03:27.506  INFO 11788 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteWorkerUsingDELETE_1
+2020-07-12 12:03:27.511  INFO 11788 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminUsingGET_1
+2020-07-12 12:03:27.516  INFO 11788 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllOwnerUsingGET_1
+2020-07-12 12:03:27.521  INFO 11788 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllWorkerUsingGET_1
+2020-07-12 12:03:27.525  INFO 11788 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeUsingGET_1
+2020-07-12 12:03:27.532  INFO 11788 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateByOwnerUsingPUT_1
+2020-07-12 12:03:27.553  INFO 11788 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updatePetUsingPUT_1
+2020-07-12 12:03:27.562  INFO 11788 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addClientUsingPOST_1
+2020-07-12 12:03:27.563  INFO 11788 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteClientUsingDELETE_1
+2020-07-12 12:03:27.589  INFO 11788 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-12 12:03:28.538  INFO 11788 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 12:03:28.546  INFO 11788 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 12:03:28.970  INFO 11788 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-12 12:03:28.976  INFO 11788 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Started ClientServiceImplTest in 4.712 seconds (JVM running for 5.514)
+2020-07-12 12:03:29.125  INFO 11788 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 12:03:29.127  INFO 11788 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-12 12:03:29.127  INFO 11788 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-12 12:03:29.133  INFO 11788 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-07-12 12:04:45.962  INFO 11936 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Starting ClientServiceImplTest on MohammadSabri with PID 11936 (started by Moham in C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic)
+2020-07-12 12:04:45.963 DEBUG 11936 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-12 12:04:45.963  INFO 11936 --- [main] c.exalt.petclinic.ClientServiceImplTest  : No active profile set, falling back to default profiles: default
+2020-07-12 12:04:46.751  INFO 11936 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-12 12:04:46.836  INFO 11936 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69ms. Found 4 JPA repository interfaces.
+2020-07-12 12:04:47.344  INFO 11936 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 12:04:47.403  INFO 11936 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 12:04:47.527  INFO 11936 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 12:04:47.672  INFO 11936 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 12:04:47.835  WARN 11936 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 12:04:48.157  INFO 11936 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-12 12:04:48.194  INFO 11936 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-12 12:04:48.747  INFO 11936 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-07-12 12:04:48.782  INFO 11936 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-07-12 12:04:48.825  INFO 11936 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-07-12 12:04:48.939  INFO 11936 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-12 12:04:48.977  INFO 11936 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-07-12 12:04:48.997  INFO 11936 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: creatWorkerUsingPOST_1
+2020-07-12 12:04:49.001  INFO 11936 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteWorkerUsingDELETE_1
+2020-07-12 12:04:49.005  INFO 11936 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminUsingGET_1
+2020-07-12 12:04:49.008  INFO 11936 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllOwnerUsingGET_1
+2020-07-12 12:04:49.012  INFO 11936 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllWorkerUsingGET_1
+2020-07-12 12:04:49.014  INFO 11936 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeUsingGET_1
+2020-07-12 12:04:49.020  INFO 11936 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateByOwnerUsingPUT_1
+2020-07-12 12:04:49.041  INFO 11936 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updatePetUsingPUT_1
+2020-07-12 12:04:49.048  INFO 11936 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addClientUsingPOST_1
+2020-07-12 12:04:49.049  INFO 11936 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteClientUsingDELETE_1
+2020-07-12 12:04:49.070  INFO 11936 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-12 12:04:50.060  INFO 11936 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 12:04:50.069  INFO 11936 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 12:04:50.518  INFO 11936 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-12 12:04:50.523  INFO 11936 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Started ClientServiceImplTest in 4.766 seconds (JVM running for 5.573)
+2020-07-12 12:04:50.662  INFO 11936 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 12:04:50.663  INFO 11936 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-12 12:04:50.664  INFO 11936 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-12 12:04:50.671  INFO 11936 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-07-12 12:07:34.835  INFO 13712 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Starting ClientServiceImplTest on MohammadSabri with PID 13712 (started by Moham in C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic)
+2020-07-12 12:07:34.836 DEBUG 13712 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-12 12:07:34.837  INFO 13712 --- [main] c.exalt.petclinic.ClientServiceImplTest  : No active profile set, falling back to default profiles: default
+2020-07-12 12:07:35.603  INFO 13712 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-12 12:07:35.683  INFO 13712 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71ms. Found 4 JPA repository interfaces.
+2020-07-12 12:07:36.206  INFO 13712 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 12:07:36.264  INFO 13712 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 12:07:36.392  INFO 13712 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 12:07:36.543  INFO 13712 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 12:07:36.704  WARN 13712 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 12:07:37.032  INFO 13712 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-12 12:07:37.104  INFO 13712 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-12 12:07:37.708  INFO 13712 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-07-12 12:07:37.731  INFO 13712 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-07-12 12:07:37.773  INFO 13712 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-07-12 12:07:37.899  INFO 13712 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-12 12:07:37.948  INFO 13712 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-07-12 12:07:37.983  INFO 13712 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: creatWorkerUsingPOST_1
+2020-07-12 12:07:37.987  INFO 13712 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteWorkerUsingDELETE_1
+2020-07-12 12:07:37.991  INFO 13712 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminUsingGET_1
+2020-07-12 12:07:37.995  INFO 13712 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllOwnerUsingGET_1
+2020-07-12 12:07:37.998  INFO 13712 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllWorkerUsingGET_1
+2020-07-12 12:07:38.000  INFO 13712 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeUsingGET_1
+2020-07-12 12:07:38.008  INFO 13712 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateByOwnerUsingPUT_1
+2020-07-12 12:07:38.034  INFO 13712 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updatePetUsingPUT_1
+2020-07-12 12:07:38.042  INFO 13712 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addClientUsingPOST_1
+2020-07-12 12:07:38.043  INFO 13712 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteClientUsingDELETE_1
+2020-07-12 12:07:38.067  INFO 13712 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-12 12:07:39.064  INFO 13712 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 12:07:39.072  INFO 13712 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 12:07:39.523  INFO 13712 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-12 12:07:39.529  INFO 13712 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Started ClientServiceImplTest in 4.902 seconds (JVM running for 5.725)
+2020-07-12 12:07:39.694  INFO 13712 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 12:07:39.695  INFO 13712 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-12 12:07:39.696  INFO 13712 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-12 12:07:39.706  INFO 13712 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-07-12 12:17:20.283  INFO 16700 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Starting ClientServiceImplTest on MohammadSabri with PID 16700 (started by Moham in C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic)
+2020-07-12 12:17:20.283 DEBUG 16700 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-12 12:17:20.283  INFO 16700 --- [main] c.exalt.petclinic.ClientServiceImplTest  : No active profile set, falling back to default profiles: default
+2020-07-12 12:17:21.045  INFO 16700 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-12 12:17:21.123  INFO 16700 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71ms. Found 4 JPA repository interfaces.
+2020-07-12 12:17:21.642  INFO 16700 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 12:17:21.699  INFO 16700 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 12:17:21.839  INFO 16700 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 12:17:21.984  INFO 16700 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 12:17:22.167  WARN 16700 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 12:17:22.556  INFO 16700 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-12 12:17:22.560  INFO 16700 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-12 12:17:23.174  INFO 16700 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-07-12 12:17:23.199  INFO 16700 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-07-12 12:17:23.245  INFO 16700 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-07-12 12:17:23.327  INFO 16700 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-12 12:17:23.366  INFO 16700 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-07-12 12:17:23.433  INFO 16700 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: creatWorkerUsingPOST_1
+2020-07-12 12:17:23.439  INFO 16700 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteWorkerUsingDELETE_1
+2020-07-12 12:17:23.444  INFO 16700 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminUsingGET_1
+2020-07-12 12:17:23.447  INFO 16700 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllOwnerUsingGET_1
+2020-07-12 12:17:23.452  INFO 16700 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllWorkerUsingGET_1
+2020-07-12 12:17:23.455  INFO 16700 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeUsingGET_1
+2020-07-12 12:17:23.462  INFO 16700 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateByOwnerUsingPUT_1
+2020-07-12 12:17:23.485  INFO 16700 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updatePetUsingPUT_1
+2020-07-12 12:17:23.490  INFO 16700 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addClientUsingPOST_1
+2020-07-12 12:17:23.491  INFO 16700 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteClientUsingDELETE_1
+2020-07-12 12:17:23.514  INFO 16700 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-12 12:17:24.418  INFO 16700 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 12:17:24.425  INFO 16700 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 12:17:24.855  INFO 16700 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-12 12:17:24.863  INFO 16700 --- [main] c.exalt.petclinic.ClientServiceImplTest  : Started ClientServiceImplTest in 4.785 seconds (JVM running for 5.622)
+2020-07-12 12:17:25.043  INFO 16700 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 12:17:25.045  INFO 16700 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-12 12:17:25.046  INFO 16700 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-12 12:17:25.056  INFO 16700 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-07-12 14:56:25.189  INFO 17356 --- [main] c.exalt.petclinic.PetClinicApplication   : Starting PetClinicApplication on MohammadSabri with PID 17356 (C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic\target\classes started by Moham in C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic)
+2020-07-12 14:56:25.191 DEBUG 17356 --- [main] c.exalt.petclinic.PetClinicApplication   : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-12 14:56:25.191  INFO 17356 --- [main] c.exalt.petclinic.PetClinicApplication   : The following profiles are active: dev
+2020-07-12 14:56:25.829  INFO 17356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-12 14:56:25.888  INFO 17356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53ms. Found 4 JPA repository interfaces.
+2020-07-12 14:56:26.220  INFO 17356 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+2020-07-12 14:56:26.225  INFO 17356 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-12 14:56:26.225  INFO 17356 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-12 14:56:26.287  INFO 17356 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-12 14:56:26.288  INFO 17356 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1067 ms
+2020-07-12 14:56:26.374  INFO 17356 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 14:56:26.403  INFO 17356 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 14:56:26.441  INFO 17356 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 14:56:26.576  INFO 17356 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 14:56:26.614  WARN 17356 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 14:56:26.650  INFO 17356 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-12 14:56:26.706  INFO 17356 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-12 14:56:26.728  INFO 17356 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-12 14:56:26.739  INFO 17356 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-07-12 14:56:26.904  WARN 17356 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8000 is already in use
+2020-07-12 14:56:26.906  INFO 17356 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 14:56:27.354  INFO 17356 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 14:56:27.359  INFO 17356 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 14:56:27.361  INFO 17356 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-12 14:56:27.362  INFO 17356 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-12 14:56:27.363  INFO 17356 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-07-12 14:56:27.364  INFO 17356 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-07-12 14:56:27.371  INFO 17356 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-07-12 14:56:27.373 ERROR 17356 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8000 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8000 or configure this application to listen on another port.
+
+2020-07-12 14:56:33.459  INFO 4560 --- [RMI TCP Connection(290)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2020-07-12 14:56:33.800  INFO 4560 --- [RMI TCP Connection(290)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 14:56:33.812  INFO 4560 --- [RMI TCP Connection(290)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-12 14:56:33.812  INFO 4560 --- [RMI TCP Connection(290)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-12 14:56:33.821  INFO 4560 --- [RMI TCP Connection(290)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-07-12 14:56:37.524  INFO 9532 --- [main] c.exalt.petclinic.PetClinicApplication   : Starting PetClinicApplication on MohammadSabri with PID 9532 (C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic\target\classes started by Moham in C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic)
+2020-07-12 14:56:37.526 DEBUG 9532 --- [main] c.exalt.petclinic.PetClinicApplication   : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-12 14:56:37.526  INFO 9532 --- [main] c.exalt.petclinic.PetClinicApplication   : The following profiles are active: dev
+2020-07-12 14:56:38.134  INFO 9532 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-12 14:56:38.193  INFO 9532 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53ms. Found 4 JPA repository interfaces.
+2020-07-12 14:56:38.522  INFO 9532 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+2020-07-12 14:56:38.527  INFO 9532 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-12 14:56:38.528  INFO 9532 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-12 14:56:38.589  INFO 9532 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-12 14:56:38.589  INFO 9532 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1038 ms
+2020-07-12 14:56:38.679  INFO 9532 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 14:56:38.712  INFO 9532 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 14:56:38.749  INFO 9532 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 14:56:38.882  INFO 9532 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 14:56:38.920  WARN 9532 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 14:56:38.953  INFO 9532 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-12 14:56:39.012  INFO 9532 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-12 14:56:39.032  INFO 9532 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-12 14:56:39.044  INFO 9532 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-07-12 14:56:39.213  INFO 9532 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path ''
+2020-07-12 14:56:39.214  INFO 9532 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-07-12 14:56:39.227  INFO 9532 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-07-12 14:56:39.260  INFO 9532 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-07-12 14:56:39.395  INFO 9532 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: creatWorkerUsingPOST_1
+2020-07-12 14:56:39.399  INFO 9532 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteWorkerUsingDELETE_1
+2020-07-12 14:56:39.402  INFO 9532 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminUsingGET_1
+2020-07-12 14:56:39.405  INFO 9532 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllOwnerUsingGET_1
+2020-07-12 14:56:39.407  INFO 9532 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllWorkerUsingGET_1
+2020-07-12 14:56:39.409  INFO 9532 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeUsingGET_1
+2020-07-12 14:56:39.414  INFO 9532 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateByOwnerUsingPUT_1
+2020-07-12 14:56:39.427  INFO 9532 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updatePetUsingPUT_1
+2020-07-12 14:56:39.432  INFO 9532 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addClientUsingPOST_1
+2020-07-12 14:56:39.433  INFO 9532 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteClientUsingDELETE_1
+2020-07-12 14:56:39.447  INFO 9532 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-12 14:56:39.680  INFO 9532 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 14:56:39.685  INFO 9532 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 14:56:40.115  INFO 9532 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-12 14:56:40.120  INFO 9532 --- [main] c.exalt.petclinic.PetClinicApplication   : Started PetClinicApplication in 2.83 seconds (JVM running for 3.544)
+2020-07-12 14:57:01.804  INFO 9532 --- [RMI TCP Connection(8)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2020-07-12 14:57:02.144  INFO 9532 --- [RMI TCP Connection(8)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 14:57:02.146  INFO 9532 --- [RMI TCP Connection(8)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-12 14:57:02.146  INFO 9532 --- [RMI TCP Connection(8)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-12 14:57:02.147  INFO 9532 --- [RMI TCP Connection(8)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-07-12 14:57:07.646  INFO 19040 --- [main] c.exalt.petclinic.PetClinicApplication   : Starting PetClinicApplication on MohammadSabri with PID 19040 (C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic\target\classes started by Moham in C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic)
+2020-07-12 14:57:07.648 DEBUG 19040 --- [main] c.exalt.petclinic.PetClinicApplication   : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-12 14:57:07.648  INFO 19040 --- [main] c.exalt.petclinic.PetClinicApplication   : The following profiles are active: dev
+2020-07-12 14:57:08.257  INFO 19040 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-12 14:57:08.315  INFO 19040 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52ms. Found 4 JPA repository interfaces.
+2020-07-12 14:57:08.655  INFO 19040 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8001 (http)
+2020-07-12 14:57:08.660  INFO 19040 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-12 14:57:08.660  INFO 19040 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-12 14:57:08.721  INFO 19040 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-12 14:57:08.721  INFO 19040 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1046 ms
+2020-07-12 14:57:08.808  INFO 19040 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 14:57:08.837  INFO 19040 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 14:57:08.872  INFO 19040 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 14:57:09.004  INFO 19040 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 14:57:09.044  WARN 19040 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 14:57:09.080  INFO 19040 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-12 14:57:09.138  INFO 19040 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-12 14:57:09.161  INFO 19040 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-12 14:57:09.173  INFO 19040 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-07-12 14:57:09.346  INFO 19040 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8001 (http) with context path ''
+2020-07-12 14:57:09.346  INFO 19040 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-07-12 14:57:09.360  INFO 19040 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-07-12 14:57:09.394  INFO 19040 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-07-12 14:57:09.531  INFO 19040 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: creatWorkerUsingPOST_1
+2020-07-12 14:57:09.534  INFO 19040 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteWorkerUsingDELETE_1
+2020-07-12 14:57:09.538  INFO 19040 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminUsingGET_1
+2020-07-12 14:57:09.541  INFO 19040 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllOwnerUsingGET_1
+2020-07-12 14:57:09.543  INFO 19040 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllWorkerUsingGET_1
+2020-07-12 14:57:09.545  INFO 19040 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeUsingGET_1
+2020-07-12 14:57:09.549  INFO 19040 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateByOwnerUsingPUT_1
+2020-07-12 14:57:09.563  INFO 19040 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updatePetUsingPUT_1
+2020-07-12 14:57:09.567  INFO 19040 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addClientUsingPOST_1
+2020-07-12 14:57:09.568  INFO 19040 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteClientUsingDELETE_1
+2020-07-12 14:57:09.582  INFO 19040 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-12 14:57:09.823  INFO 19040 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 14:57:09.828  INFO 19040 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 14:57:10.245  INFO 19040 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-12 14:57:10.250  INFO 19040 --- [main] c.exalt.petclinic.PetClinicApplication   : Started PetClinicApplication in 2.856 seconds (JVM running for 3.591)
+2020-07-12 14:57:39.519  INFO 19040 --- [RMI TCP Connection(10)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2020-07-12 14:57:39.822  INFO 19040 --- [RMI TCP Connection(10)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 14:57:39.824  INFO 19040 --- [RMI TCP Connection(10)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-12 14:57:39.824  INFO 19040 --- [RMI TCP Connection(10)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-12 14:57:39.825  INFO 19040 --- [RMI TCP Connection(10)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-07-12 14:58:09.172  INFO 16376 --- [main] c.exalt.petclinic.PetClinicApplication   : Starting PetClinicApplication on MohammadSabri with PID 16376 (C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic\target\classes started by Moham in C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic)
+2020-07-12 14:58:09.174 DEBUG 16376 --- [main] c.exalt.petclinic.PetClinicApplication   : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-12 14:58:09.175  INFO 16376 --- [main] c.exalt.petclinic.PetClinicApplication   : The following profiles are active: dev
+2020-07-12 14:58:09.814  INFO 16376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-12 14:58:09.873  INFO 16376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53ms. Found 4 JPA repository interfaces.
+2020-07-12 14:58:10.200  INFO 16376 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8001 (http)
+2020-07-12 14:58:10.206  INFO 16376 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-12 14:58:10.206  INFO 16376 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-12 14:58:10.266  INFO 16376 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-12 14:58:10.266  INFO 16376 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1064 ms
+2020-07-12 14:58:10.356  INFO 16376 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 14:58:10.386  INFO 16376 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 14:58:10.424  INFO 16376 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 14:58:10.558  INFO 16376 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 14:58:10.600  WARN 16376 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 14:58:10.638  INFO 16376 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-12 14:58:10.702  INFO 16376 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-12 14:58:10.725  INFO 16376 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-12 14:58:10.738  INFO 16376 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-07-12 14:58:10.920  INFO 16376 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8001 (http) with context path ''
+2020-07-12 14:58:10.921  INFO 16376 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-07-12 14:58:10.935  INFO 16376 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-07-12 14:58:10.971  INFO 16376 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-07-12 14:58:11.111  INFO 16376 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: creatWorkerUsingPOST_1
+2020-07-12 14:58:11.114  INFO 16376 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteWorkerUsingDELETE_1
+2020-07-12 14:58:11.118  INFO 16376 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminUsingGET_1
+2020-07-12 14:58:11.121  INFO 16376 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllOwnerUsingGET_1
+2020-07-12 14:58:11.124  INFO 16376 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllWorkerUsingGET_1
+2020-07-12 14:58:11.126  INFO 16376 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeUsingGET_1
+2020-07-12 14:58:11.131  INFO 16376 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateByOwnerUsingPUT_1
+2020-07-12 14:58:11.146  INFO 16376 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updatePetUsingPUT_1
+2020-07-12 14:58:11.151  INFO 16376 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addClientUsingPOST_1
+2020-07-12 14:58:11.151  INFO 16376 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteClientUsingDELETE_1
+2020-07-12 14:58:11.167  INFO 16376 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-12 14:58:11.413  INFO 16376 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 14:58:11.418  INFO 16376 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 14:58:11.863  INFO 16376 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-12 14:58:11.868  INFO 16376 --- [main] c.exalt.petclinic.PetClinicApplication   : Started PetClinicApplication in 2.928 seconds (JVM running for 3.712)
+2020-07-12 15:12:47.721  INFO 16376 --- [RMI TCP Connection(25)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2020-07-12 15:12:48.020  INFO 16376 --- [RMI TCP Connection(25)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 15:12:48.022  INFO 16376 --- [RMI TCP Connection(25)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-12 15:12:48.022  INFO 16376 --- [RMI TCP Connection(25)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-12 15:12:48.023  INFO 16376 --- [RMI TCP Connection(25)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-07-12 15:12:51.946  INFO 3432 --- [main] c.exalt.petclinic.PetClinicApplication   : Starting PetClinicApplication on MohammadSabri with PID 3432 (C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic\target\classes started by Moham in C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic)
+2020-07-12 15:12:51.948 DEBUG 3432 --- [main] c.exalt.petclinic.PetClinicApplication   : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-12 15:12:51.948  INFO 3432 --- [main] c.exalt.petclinic.PetClinicApplication   : The following profiles are active: dev
+2020-07-12 15:12:52.548  INFO 3432 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-12 15:12:52.607  INFO 3432 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53ms. Found 4 JPA repository interfaces.
+2020-07-12 15:12:52.936  INFO 3432 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8001 (http)
+2020-07-12 15:12:52.942  INFO 3432 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-12 15:12:52.942  INFO 3432 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-12 15:12:53.003  INFO 3432 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-12 15:12:53.003  INFO 3432 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1030 ms
+2020-07-12 15:12:53.092  INFO 3432 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 15:12:53.121  INFO 3432 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 15:12:53.157  INFO 3432 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 15:12:53.290  INFO 3432 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 15:12:53.327  WARN 3432 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 15:12:53.364  INFO 3432 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-12 15:12:53.419  INFO 3432 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-12 15:12:53.444  INFO 3432 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-12 15:12:53.456  INFO 3432 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-07-12 15:12:53.623  INFO 3432 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8001 (http) with context path ''
+2020-07-12 15:12:53.624  INFO 3432 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-07-12 15:12:53.638  INFO 3432 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-07-12 15:12:53.673  INFO 3432 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-07-12 15:12:53.811  INFO 3432 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: creatWorkerUsingPOST_1
+2020-07-12 15:12:53.814  INFO 3432 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteWorkerUsingDELETE_1
+2020-07-12 15:12:53.818  INFO 3432 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminUsingGET_1
+2020-07-12 15:12:53.821  INFO 3432 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllOwnerUsingGET_1
+2020-07-12 15:12:53.823  INFO 3432 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllWorkerUsingGET_1
+2020-07-12 15:12:53.826  INFO 3432 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeUsingGET_1
+2020-07-12 15:12:53.830  INFO 3432 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateByOwnerUsingPUT_1
+2020-07-12 15:12:53.844  INFO 3432 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updatePetUsingPUT_1
+2020-07-12 15:12:53.847  INFO 3432 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addClientUsingPOST_1
+2020-07-12 15:12:53.849  INFO 3432 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteClientUsingDELETE_1
+2020-07-12 15:12:53.861  INFO 3432 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-12 15:12:54.093  INFO 3432 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 15:12:54.098  INFO 3432 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 15:12:54.508  INFO 3432 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-12 15:12:54.513  INFO 3432 --- [main] c.exalt.petclinic.PetClinicApplication   : Started PetClinicApplication in 2.804 seconds (JVM running for 3.532)
+2020-07-12 15:14:05.020  INFO 3432 --- [http-nio-8001-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-12 15:14:05.021  INFO 3432 --- [http-nio-8001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-12 15:14:05.025  INFO 3432 --- [http-nio-8001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2020-07-12 15:46:21.007  INFO 3432 --- [RMI TCP Connection(43)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2020-07-12 15:46:21.349  INFO 3432 --- [RMI TCP Connection(43)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 15:46:21.351  INFO 3432 --- [RMI TCP Connection(43)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-12 15:46:21.351  INFO 3432 --- [RMI TCP Connection(43)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-12 15:46:21.354  INFO 3432 --- [RMI TCP Connection(43)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-07-12 15:46:25.241  INFO 16740 --- [main] c.exalt.petclinic.PetClinicApplication   : Starting PetClinicApplication on MohammadSabri with PID 16740 (C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic\target\classes started by Moham in C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic)
+2020-07-12 15:46:25.243 DEBUG 16740 --- [main] c.exalt.petclinic.PetClinicApplication   : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-12 15:46:25.243  INFO 16740 --- [main] c.exalt.petclinic.PetClinicApplication   : No active profile set, falling back to default profiles: default
+2020-07-12 15:46:25.865  INFO 16740 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-12 15:46:25.925  INFO 16740 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54ms. Found 4 JPA repository interfaces.
+2020-07-12 15:46:26.273  INFO 16740 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+2020-07-12 15:46:26.279  INFO 16740 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-12 15:46:26.311  INFO 16740 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-12 15:46:26.371  INFO 16740 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-12 15:46:26.372  INFO 16740 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1103 ms
+2020-07-12 15:46:26.464  INFO 16740 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 15:46:26.493  INFO 16740 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 15:46:26.532  INFO 16740 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 15:46:26.665  INFO 16740 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 15:46:26.701  WARN 16740 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 15:46:26.739  INFO 16740 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-12 15:46:26.791  INFO 16740 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-12 15:46:26.996  INFO 16740 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path ''
+2020-07-12 15:46:26.997  INFO 16740 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-07-12 15:46:27.009  INFO 16740 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-07-12 15:46:27.043  INFO 16740 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-07-12 15:46:27.174  INFO 16740 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: creatWorkerUsingPOST_1
+2020-07-12 15:46:27.177  INFO 16740 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteWorkerUsingDELETE_1
+2020-07-12 15:46:27.180  INFO 16740 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminUsingGET_1
+2020-07-12 15:46:27.183  INFO 16740 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllOwnerUsingGET_1
+2020-07-12 15:46:27.185  INFO 16740 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllWorkerUsingGET_1
+2020-07-12 15:46:27.187  INFO 16740 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeUsingGET_1
+2020-07-12 15:46:27.192  INFO 16740 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateByOwnerUsingPUT_1
+2020-07-12 15:46:27.207  INFO 16740 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updatePetUsingPUT_1
+2020-07-12 15:46:27.211  INFO 16740 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addClientUsingPOST_1
+2020-07-12 15:46:27.212  INFO 16740 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteClientUsingDELETE_1
+2020-07-12 15:46:27.226  INFO 16740 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-12 15:46:27.342  INFO 16740 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-12 15:46:27.357  INFO 16740 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-07-12 15:46:27.976  INFO 16740 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 15:46:27.982  INFO 16740 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 15:46:28.404  INFO 16740 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-12 15:46:28.409  INFO 16740 --- [main] c.exalt.petclinic.PetClinicApplication   : Started PetClinicApplication in 3.411 seconds (JVM running for 4.138)

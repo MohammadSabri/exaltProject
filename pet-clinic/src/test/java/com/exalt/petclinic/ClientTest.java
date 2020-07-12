@@ -1,77 +1,63 @@
 package com.exalt.petclinic;
 
-import java.util.ArrayList;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.EntityManager;
 
 import org.hibernate.Session;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.exalt.petclinic.dto.ClientMapper;
+import com.exalt.petclinic.dto.ClientUpdateDto;
 import com.exalt.petclinic.model.Client;
-import com.exalt.petclinic.model.Pet;
 import com.exalt.petclinic.repository.ClientRepository;
+import com.exalt.petclinic.service.ClientService;
 
 @SpringBootTest
 public class ClientTest {
 	@Autowired
+	ClientService clientService;
+	@Autowired
 	ClientRepository clientRepository;
 	@Autowired
 	EntityManager entityManager;
+	private ClientMapper clientMapper = Mappers.getMapper(ClientMapper.class);
 
 	@Test
-	void contextLoads() {
+	@DisplayName(value = "testClientCreate_AddNewClient_successfull")
 
-	}
-	@Test
 	void addClient() {
 
-		Calendar calendar = Calendar.getInstance();
-		calendar.set(2020, 4, 2, 4, 13);
-		Date date = calendar.getTime();
+		ClientUpdateDto clientUpdateDto = new ClientUpdateDto();
+		clientUpdateDto.setFirstName("Test Create First Name");
+		clientUpdateDto.setLastName("Test Create Last Name");
+		clientUpdateDto.setEmail("Test@CreateMail.com");
+		clientUpdateDto.setPhoneNumber("0599123765");
+		clientUpdateDto.setPassword("TestPaswword");
 
-		Client client = new Client();
-		client.setFirstName("mohamamd");
-		client.setLastName("sabri");
-		client.setEmail("mohadd.khaledsabri@outlook.com");
-		client.setPhoneNumber("0533333492");
-		client.setPassword("1234567890");
-		client.setCreationDate(date);
+		Client client = clientMapper.updateDtoToClient(clientUpdateDto);
+		client.setCreationDate(Calendar.getInstance().getTime());
+		Client testClient = clientService.create(clientUpdateDto);
 
-		List<Pet> list = new ArrayList<Pet>();
-		// client.setId(1);
+		assertAll(() -> assertNotNull(testClient.getId()), () -> assertNotNull(testClient.getCreationDate()),
+				() -> assertEquals(testClient.getFirstName(), client.getFirstName()),
+				() -> assertEquals(testClient.getEmail(), client.getEmail()),
+				() -> assertEquals(testClient.getLastName(), client.getLastName()),
+				() -> assertEquals(testClient.getPassword(), client.getPassword()),
+				() -> assertEquals(testClient.getPhoneNumber(), client.getPhoneNumber())
 
-		Pet pet = new Pet();
-		pet.setName("sree");
-		pet.setSpecies("cherasi");
-		pet.setAge(5);
-		pet.setHeight(1.35);
-		pet.setWeight(23.5);
-		pet.setCreationDate(date);
-
-		list.add(pet);
-		pet.setClient(client);
-
-		Pet pet2 = new Pet();
-
-		pet2.setName("sree");
-		pet2.setSpecies("cherasi");
-		pet2.setAge(5);
-		pet2.setHeight(1.35);
-		pet2.setWeight(23.5);
-		pet2.setCreationDate(date);
-		pet2.setClient(client);
-
-		list.add(pet2);
-		client.setPets(list);
-
-		clientRepository.save(client);
+		);
 
 	}
 

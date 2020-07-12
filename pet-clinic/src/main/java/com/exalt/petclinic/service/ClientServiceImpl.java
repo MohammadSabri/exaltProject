@@ -12,9 +12,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.exalt.petclinic.DTO.ClientDto;
-import com.exalt.petclinic.DTO.ClientMapper;
-import com.exalt.petclinic.DTO.ClientUpdateDto;
+import com.exalt.petclinic.dto.ClientDto;
+import com.exalt.petclinic.dto.ClientMapper;
+import com.exalt.petclinic.dto.ClientUpdateDto;
 import com.exalt.petclinic.exception.CommonException;
 import com.exalt.petclinic.exception.ErrorEnum;
 import com.exalt.petclinic.model.Client;
@@ -44,9 +44,7 @@ public class ClientServiceImpl implements ClientService {
 
 		Client client = clientMapper.updateDtoToClient(clientUpdateDto);
 		client.setCreationDate(Calendar.getInstance().getTime());
-		clientRepository.save(client);
-		client.setId(clientRepository.findClientIdNQ());
-		return client;
+		return clientRepository.save(client);
 
 	}
 
@@ -121,7 +119,11 @@ public class ClientServiceImpl implements ClientService {
 			throw new CommonException(ErrorEnum.CLIENT_NOT_FOUND);
 		} else {
 			clientRepository.deleteById(id);
-			return "Deleted sucsessfuly";
+			if (clientRepository.findClientExistNQ(id) == 0) {
+				return "Client Deleted sucsessfuly";
+			} else {
+				return "Client Not Deleted";
+			}
 		}
 	}
 
