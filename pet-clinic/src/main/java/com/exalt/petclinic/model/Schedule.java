@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -25,7 +26,11 @@ public class Schedule {
 	private String problemDescribtion;
 	@Column(name = "medical_describtion")
 	private String medicalDescribtion;
-	private Date date;
+	@NotNull
+	@Column(name = "creation_date")
+	private Date creationDate;
+	@Column(name = "reservation_date")
+	private Date reservationDate;
 	@ManyToOne
 	@JoinColumn(name = "pet_id")
 	private Pet pet;
@@ -35,18 +40,6 @@ public class Schedule {
 
 	public Schedule() {
 		super();
-	}
-
-	public Schedule(int id, double price, String problemDescribtion, String medicalDescribtion, Date date, Pet pet,
-			Employee employee) {
-		super();
-		this.id = id;
-		this.price = price;
-		this.problemDescribtion = problemDescribtion;
-		this.medicalDescribtion = medicalDescribtion;
-		this.date = date;
-		this.pet = pet;
-		this.employee = employee;
 	}
 
 	public int getId() {
@@ -81,12 +74,20 @@ public class Schedule {
 		this.medicalDescribtion = medicalDescribtion;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getCreationDate() {
+		return creationDate;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public Date getReservationDate() {
+		return reservationDate;
+	}
+
+	public void setReservationDate(Date reservationDate) {
+		this.reservationDate = reservationDate;
 	}
 
 	public Pet getPet() {
@@ -103,13 +104,6 @@ public class Schedule {
 
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
-	}
-
-	@Override
-	public String toString() {
-		return "Schedule [id=" + id + ", price=" + price + ", problemDescribtion=" + problemDescribtion
-				+ ", medicalDescribtion=" + medicalDescribtion + ", date=" + date + ", pet=" + pet + ", employee="
-				+ employee + "]";
 	}
 
 }

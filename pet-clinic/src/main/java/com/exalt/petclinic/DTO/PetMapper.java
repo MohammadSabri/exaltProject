@@ -10,19 +10,28 @@ import com.exalt.petclinic.model.Pet;
 
 @Mapper
 public interface PetMapper {
-	@Mapping(target = "schedule",ignore = true)
-	@Mapping(target = "id",ignore = true)
-	@Mapping(target = "creationDate",ignore = true)
-	@Mapping(target = "client",source = "clientId")
-	Pet dtoToPetUpdate(PetUpdateDto petUpdateDto);
-	PetDto petToDto (Pet pet);
-	List<PetDto> petToDto (List<Pet> pets);
-	
-	
+	@Mapping(target = "schedule", ignore = true)
+	@Mapping(target = "id", ignore = true)
+	@Mapping(target = "creationDate", ignore = true)
+	@Mapping(target = "client", source = "clientId")
+	Pet updateDtoToPet(PetUpdateDto petUpdateDto);
+
+	PetDto petToDto(Pet pet);
+
+	List<PetDto> petToDto(List<Pet> pets);
+
+	@Mapping(target = "clientId", source = "client")
+	PetUpdateDto petToUpdateDto(Pet pet);
+
 	default Client idToClient(int id) {
-		Client client= new Client();
+		Client client = new Client();
 		client.setId(id);
 		return client;
 	}
-}
 
+	default int clientToId(Client client) {
+
+		return client.getId();
+	}
+
+}

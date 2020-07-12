@@ -1,5 +1,6 @@
 package com.exalt.petclinic.DTO;
 
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -10,9 +11,9 @@ public class PetUpdateDto {
 	private int age;
 	@NotNull(message = "The Species field must be writen")
 	private String species;
-	@Min(value = (long) 0.1,message = "The min height is 0.1 meter")
+	@DecimalMin(value = "0.1",message = "The min height is 0.1 meter")
 	private double height;
-	@Min(value = (long) 0.1,message = "The min Weight is 0.1 Kg")
+	@DecimalMin(value =  "0.1",message = "The min Weight is 0.1 Kg")
 	private double weight;
 	private int clientId;
 

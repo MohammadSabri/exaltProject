@@ -9,8 +9,8 @@ import com.exalt.petclinic.model.Client;
 public interface ClientService {
 	
 	Client create(ClientUpdateDto clientUpdateDto);
-	ClientUpdateDto update(int id, ClientUpdateDto clientUpdateDto);
 	ClientDto get(int id);
 	List<ClientDto> getAll(int page, int limit);
+	ClientUpdateDto update(int id, ClientUpdateDto clientUpdateDto);
 	String delete (int id);
 }

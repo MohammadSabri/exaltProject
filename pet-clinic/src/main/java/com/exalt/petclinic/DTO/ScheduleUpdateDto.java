@@ -2,27 +2,24 @@ package com.exalt.petclinic.DTO;
 
 import java.util.Date;
 
-public class ScheduleDto {
-	private int id;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+public class ScheduleUpdateDto {
+	@DecimalMin(value = "1", message = "The price cant be for free")
 	private double price;
+	@NotNull(message = "Please write a problem description")
 	private String problemDescribtion;
+	@NotNull(message = "Please write a medical description")
 	private String medicalDescribtion;
-	private Date creationDate;
+	@NotNull
+	@Min(value = 1, message = "pet id must be >0")
 	private int petId;
+	@NotNull
+	@Min(value = 1, message = "Employee id must be >0")
 	private int employeeId;
 	private Date reservationDate;
-
-	public ScheduleDto() {
-		super();
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public double getPrice() {
 		return price;
@@ -46,14 +43,6 @@ public class ScheduleDto {
 
 	public void setMedicalDescribtion(String medicalDescribtion) {
 		this.medicalDescribtion = medicalDescribtion;
-	}
-
-	public Date getCreationDate() {
-		return creationDate;
-	}
-
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
 	}
 
 	public int getPetId() {

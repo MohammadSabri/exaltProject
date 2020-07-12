@@ -51,6 +51,34 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Override
+	@Transactional
+	public ClientDto get(int id) {
+		if (id <= 0) {
+			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);
+		}
+
+		if (clientRepository.findClientExistNQ(id) == 0)
+			throw new CommonException(ErrorEnum.CLIENT_NOT_FOUND);
+		else
+			return clientMapper.clientToDto(clientRepository.findById(id).get());
+
+	}
+
+	@Override
+	public List<ClientDto> getAll(int page, int limit) {
+		if (page < 1) {
+			throw new CommonException(ErrorEnum.PAGE_INVALID);
+		}
+		if (limit < 1) {
+			throw new CommonException(ErrorEnum.LIMIT_INVALID);
+		}
+		Pageable pageable = PageRequest.of((page - 1) * limit, limit);
+		Page<Client> pagedResult = clientRepository.findAll(pageable);
+		return clientMapper.clientToDto(pagedResult.toList());
+
+	}
+
+	@Override
 	@Transactional(isolation = Isolation.SERIALIZABLE)
 	public ClientUpdateDto update(int id, ClientUpdateDto clientUpdateDto) {
 		if (id <= 0) {
@@ -81,34 +109,6 @@ public class ClientServiceImpl implements ClientService {
 		clientRepository.save(client);
 
 		return clientMapper.clientToUpdateDto(client);
-	}
-
-	@Override
-	@Transactional
-	public ClientDto get(int id) {
-		if (id <= 0) {
-			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);
-		}
-
-		if (clientRepository.findClientExistNQ(id) == 0)
-			throw new CommonException(ErrorEnum.CLIENT_NOT_FOUND);
-		else
-			return clientMapper.clientToDto(clientRepository.findById(id).get());
-
-	}
-
-	@Override
-	public List<ClientDto> getAll(int page, int limit) {
-		if (page < 1) {
-			throw new CommonException(ErrorEnum.PAGE_INVALID);
-		}
-		if (limit < 1) {
-			throw new CommonException(ErrorEnum.LIMIT_INVALID);
-		}
-		Pageable pageable = PageRequest.of((page - 1) * limit, limit);
-		Page<Client> pagedResult = clientRepository.findAll(pageable);
-		return clientMapper.clientToDto(pagedResult.toList());
-
 	}
 
 	@Override

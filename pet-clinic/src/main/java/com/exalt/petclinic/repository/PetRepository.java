@@ -33,14 +33,11 @@ public interface PetRepository extends JpaRepository<Pet, Integer> {
 	List<PetProjection> findPetsNQ(@Param("id") int id);
 
 	List<Pet> findByClientId(int id);
-	@Query(value = "select * from  pet where client_id=:id limit:limit offset:offset ", nativeQuery = true)
-	List<Pet> findAllPetsByClientId(@Param("id") int id,@Param("offset") int offset, @Param("limit") int limit);
+
+	@Query(value = "select * from  pet where client_id=:id limit :limit offset :offset ", nativeQuery = true)
+	List<Pet> findAllPetsByClientIdNQ(@Param("id") int id, @Param("offset") int offset, @Param("limit") int limit);
 
 	@Query(value = "select max(id) from pet ", nativeQuery = true)
 	int findPetIdNQ();
-	
-	
-	
-	
-	
+
 }

@@ -29,7 +29,7 @@ public class ScheduleTest {
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(2020, 3, 23, 4, 0);
 		
-		schedule.setDate(calendar.getTime());
+		//schedule.setDate(calendar.getTime());
 
 		List<Schedule> schedules = new ArrayList<Schedule>();
 

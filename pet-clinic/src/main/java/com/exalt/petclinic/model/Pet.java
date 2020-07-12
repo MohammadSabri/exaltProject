@@ -15,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -39,9 +40,10 @@ public class Pet {
 	@NotNull()
 	private String species;
 	@NotNull()
-	@Min((long) 1.0)
+	@DecimalMin(value = "0.1",message = "The min height is 0.1 meter")
 	private double height;
 	@NotNull()
+	@DecimalMin(value = "0.1",message = "The min weight is 0.1 Kg")
 	private double weight;
 
 	// @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyy")

@@ -36,37 +36,36 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@NotNull
+	
 	@Column(name = "first_name")
 	private String firstName;
-	@NotNull
+	
 	@Column(name = "last_name")
 	private String lastName;
-	@NotNull
+	
 	@Column(name = "house_location")
 	private String houseLocation;
-	@NotNull
+	
 	@Min(value = 200, message = "no salary less than 200")
 	private Double salary;
-	@NotNull
+	
 	@Column(name = "college_degree")
 	private String collegeDegree;
-	@NotNull
+	
 	@Column(name = "working_field")
 	@Enumerated(EnumType.STRING)
 	private WorkingField workingField;
-	@NotNull
+	
 	@Column(name = "phone_number")
 	private String phoneNumber;
-	@NotNull
+	
 	@Column(name = "years_of_experience")
 	private Integer yearsOfExperience;
-	@NotNull
 	@Column(name = "creation_date")
 	private Date creationDate;
 	@NotNull
 	private String password;
-	@NotNull
+	
 	@ValidateEmail
 	private String email;
 	@OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.EAGER)

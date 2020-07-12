@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.exalt.petclinic.DTO.PetDto;
 import com.exalt.petclinic.DTO.PetUpdateDto;
-import com.exalt.petclinic.model.Pet;
 import com.exalt.petclinic.repository.PetRepository;
 import com.exalt.petclinic.service.PetService;
 
@@ -46,8 +45,6 @@ public class PetController {
 		return (petService.getAll(page, limit));
 	}
 
-	
-
 	@GetMapping("/api/v1/pets/{id}")
 
 	public PetDto getOnePet(@PathVariable int id) {
@@ -57,14 +54,15 @@ public class PetController {
 
 	@GetMapping(path = "/api/v1/pets/client/{id}", params = { "page", "limit" })
 
-	public List<PetDto> getClientPets(@PathVariable int id,@RequestParam("page") int page, @RequestParam("limit") int limit) {
+	public List<PetDto> getClientPets(@PathVariable int id, @RequestParam("page") int page,
+			@RequestParam("limit") int limit) {
 
-		return (petService.getClientPets(id,page,limit));
+		return (petService.getClientPets(id, page, limit));
 	}
 
 	@PutMapping(path = "/api/v1/pets/{id}", consumes = "application/json", produces = "application/json")
-	public Pet updatePet(@Valid @RequestBody PetUpdateDto pet, @PathVariable int id) {
-		return petService.update(id, pet);
+	public PetUpdateDto updatePet(@Valid @RequestBody PetUpdateDto petUpdateDto, @PathVariable int id) {
+		return petService.update(id, petUpdateDto);
 	}
 
 	@DeleteMapping("/api/v1/pets/{id}")

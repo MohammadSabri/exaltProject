@@ -1,51 +1,62 @@
 package com.exalt.petclinic.DTO;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
-import org.springframework.stereotype.Component;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 import com.exalt.petclinic.model.Employee;
 import com.exalt.petclinic.model.Pet;
 import com.exalt.petclinic.model.Schedule;
 
-@Component
-public class ScheduleMapper {
-	public Schedule dtoToSchedule(ScheduleDto scheduleDto) {
-		Pet pet = new Pet();
+@Mapper
+public interface ScheduleMapper {
+
+	@Mapping(target = "employee", source = "scheduleUpdateDto")
+	@Mapping(target = "pet", source = "scheduleUpdateDto")
+	@Mapping(target = "id", ignore = true)
+	@Mapping(target = "creationDate", ignore = true)
+	Schedule updateDtoToSchedule(ScheduleUpdateDto scheduleUpdateDto);
+
+	@Mapping(target = "employeeId", source = "employee")
+	@Mapping(target = "petId", source = "pet")
+	ScheduleUpdateDto scheduleToUpdateDto(Schedule schedule);
+
+	@Mapping(target = "employeeId", source = "employee")
+	@Mapping(target = "petId", source = "pet")
+	ScheduleDto scheduleToDto(Schedule schedule);
+
+	List<ScheduleDto> scheduleToDto(List<Schedule> schedules);
+
+	default Employee toEmployee(ScheduleDto scheduleDto) {
 		Employee employee = new Employee();
 		employee.setId(scheduleDto.getEmployeeId());
+		return employee;
+	}
+
+	default Pet toPet(ScheduleDto scheduleDto) {
+		Pet pet = new Pet();
 		pet.setId(scheduleDto.getPetId());
-		Schedule schedule = new Schedule();
-		schedule.setDate(scheduleDto.getDate());
-		schedule.setPrice(scheduleDto.getPrice());
-		schedule.setMedicalDescribtion(scheduleDto.getMedicalDescribtion());
-		schedule.setProblemDescribtion(scheduleDto.getProblemDescribtion());
-		schedule.setEmployee(employee);
-		schedule.setPet(pet);
-		return schedule;
+		return pet;
 	}
 
-	public List<Schedule> dtoToSchedule(List<ScheduleDto> scheduleDto) {
-		return scheduleDto.stream().map(d -> dtoToSchedule(d)).collect(Collectors.toList());
+	default Employee toEmployee(ScheduleUpdateDto scheduleUpdateDto) {
+		Employee employee = new Employee();
+		employee.setId(scheduleUpdateDto.getEmployeeId());
+		return employee;
 	}
 
-	public ScheduleDto scheduleToDto(Schedule schedule) {
-
-		ScheduleDto scheduleDto = new ScheduleDto();
-		scheduleDto.setId(schedule.getId());
-		scheduleDto.setDate(schedule.getDate());
-		scheduleDto.setPrice(schedule.getPrice());
-		scheduleDto.setMedicalDescribtion(schedule.getMedicalDescribtion());
-		scheduleDto.setProblemDescribtion(schedule.getProblemDescribtion());
-		scheduleDto.setEmployeeId(schedule.getEmployee().getId());
-		scheduleDto.setPetId(schedule.getPet().getId());
-		return scheduleDto;
+	default Pet toPet(ScheduleUpdateDto scheduleUpdateDto) {
+		Pet pet = new Pet();
+		pet.setId(scheduleUpdateDto.getPetId());
+		return pet;
 	}
 
-	public List<ScheduleDto> scheduleToDto(List<Schedule> schedules) {
-		return schedules.stream().map(d -> scheduleToDto(d)).collect(Collectors.toList());
-
+	default int employeeToId(Employee employee) {
+		return employee.getId();
 	}
 
+	default int petToId(Pet pet) {
+		return pet.getId();
+	}
 }
