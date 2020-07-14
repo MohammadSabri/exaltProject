@@ -14,7 +14,7 @@ import com.exalt.petclinic.repository.PetRepository;
 
 @SpringBootTest
 public class PetTest {
-
+/*
 	@Autowired
 	PetRepository petRepository;
 
@@ -118,4 +118,5 @@ public class PetTest {
 	 * @Test void testProjection() { PetProjection pt=
 	 * petRepository.findPetsNQ(1).get(0); System.out.println(pt.getAge()); }
 	 */
+	
 }

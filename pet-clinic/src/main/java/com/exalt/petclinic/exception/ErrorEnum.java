@@ -19,7 +19,8 @@ public enum ErrorEnum {
 	FILE_NOT_FOUND("Wrong file name entered", HttpStatus.BAD_REQUEST),
 	CAN_NOT_READ_FILE("cant read the file ", HttpStatus.INTERNAL_SERVER_ERROR),
 	UNSUPORTED_ENCODING("unsuporten encoding to UTF-8 ", HttpStatus.INTERNAL_SERVER_ERROR),
-	CAN_NOT_WRITE_TO_FILE("Wrong file name entered", HttpStatus.BAD_REQUEST);
+	CAN_NOT_WRITE_TO_FILE("Wrong file name entered", HttpStatus.BAD_REQUEST),
+	INVALID_WORKING_FIELD("Working field must be oe of 3 (Owner,Admin,Worker ", HttpStatus.INTERNAL_SERVER_ERROR);
 
 	private String message;
 	private HttpStatus status;

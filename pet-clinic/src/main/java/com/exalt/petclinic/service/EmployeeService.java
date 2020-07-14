@@ -2,19 +2,22 @@ package com.exalt.petclinic.service;
 
 import java.util.List;
 
-import com.exalt.petclinic.model.Employee;
+import com.exalt.petclinic.dto.EmployeeDto;
+import com.exalt.petclinic.dto.EmployeeUpdateDto;
 
 public interface EmployeeService {
-	Employee getEmployee(int id);
-	List<Employee> getAllWorker(int page, int limit);
-	Employee creatWorker(Employee employee);
-	Employee updateEmployee(int id, Employee employee);
-	String deleteWorker(int id);
-	List<Employee> getAllAdmin(int page, int limit);
-	Employee creatAdmin(Employee employee);
-	String deleteAdmin(int id);
-	List<Employee> getAllOwner(int page, int limit);
-	Employee creatOwner(Employee employee);
-	String deleteOwner(int id);
+	EmployeeDto getEmployee(int id);
+
+	List<EmployeeDto> getAllAdmin(int page, int limit);
+
+	List<EmployeeDto> getAllWorker(int page, int limit);
+
+	List<EmployeeDto> getAllOwner(int page, int limit);
+
+	EmployeeDto creatEmployee(EmployeeUpdateDto employeeUpdateDto);
+
+	String deleteEmployee(int id);
+
+	EmployeeDto updateEmployee(int id, EmployeeUpdateDto employeeUpdateDto);
 
 }

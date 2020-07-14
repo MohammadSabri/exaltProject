@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 
 import com.exalt.petclinic.model.Client;
 
@@ -22,6 +23,8 @@ public interface ClientMapper {
 	@Mapping(target = "creationDate", ignore = true)
 	@Mapping(target = "id", ignore = true)
 	Client updateDtoToClient(ClientUpdateDto clientUpdateDto);
-
 	ClientUpdateDto clientToUpdateDto(Client client);
+
+	ClientUpdateDto dtoToUpdateDto(ClientDto clientDto);
+
 }

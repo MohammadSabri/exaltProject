@@ -16,6 +16,7 @@ import com.exalt.petclinic.repository.ScheduleRepository;
 
 @SpringBootTest
 public class ScheduleTest {
+	/*
 	@Autowired
 	ScheduleRepository scheduleRepository;
 
@@ -57,4 +58,5 @@ public class ScheduleTest {
 		
 		System.out.println(scheduleRepository.findByEmployeeId(3).getEmployee().toString());
 	}
+	*/
 }

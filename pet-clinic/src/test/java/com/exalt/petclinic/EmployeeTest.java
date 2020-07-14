@@ -17,6 +17,7 @@ import com.exalt.petclinic.repository.EmployeeRepository;
 
 @SpringBootTest
 public class EmployeeTest {
+	/*
 	@Autowired
 	EmployeeRepository employeeRepository;
 	@Test
@@ -67,5 +68,5 @@ public class EmployeeTest {
 	{
 		employeeRepository.deleteById(15);
 	}
-
+*/
 }

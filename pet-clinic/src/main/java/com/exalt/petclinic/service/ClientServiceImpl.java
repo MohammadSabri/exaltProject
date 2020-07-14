@@ -9,7 +9,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.exalt.petclinic.dto.ClientDto;
@@ -49,7 +48,7 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Override
-	@Transactional
+	@Transactional(readOnly = true)
 	public ClientDto get(int id) {
 		if (id <= 0) {
 			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);
@@ -63,6 +62,7 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<ClientDto> getAll(int page, int limit) {
 		if (page < 1) {
 			throw new CommonException(ErrorEnum.PAGE_INVALID);
@@ -77,7 +77,7 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Override
-	@Transactional(isolation = Isolation.SERIALIZABLE)
+	@Transactional
 	public ClientUpdateDto update(int id, ClientUpdateDto clientUpdateDto) {
 		if (id <= 0) {
 			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);

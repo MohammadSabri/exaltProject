@@ -2,6 +2,8 @@ package com.exalt.petclinic.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,86 +14,61 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.exalt.petclinic.model.Employee;
+import com.exalt.petclinic.dto.EmployeeDto;
+import com.exalt.petclinic.dto.EmployeeUpdateDto;
 import com.exalt.petclinic.service.EmployeeService;
 
-//TODO Convert to Dto
+//TODO Convert to DTO
 @RestController
 public class EmployeeController {
 
 	@Autowired
 	private EmployeeService employeeService;
 
-	@GetMapping(path = { "/api/v1/owner", "/api/v1/admin/owner" }, params = { "page", "limit" })
-	public List<Employee> getAllOwner(@RequestParam("page") int page, @RequestParam("limit") int limit) {
+	@GetMapping(path = { "/api/v1/owners", "/api/v1/admin/owners" }, params = { "page", "limit" })
+	public List<EmployeeDto> getAllOwner(@RequestParam("page") int page, @RequestParam("limit") int limit) {
 
 		return (employeeService.getAllOwner(page, limit));
 	}
 
-	@GetMapping(path = { "/api/v1/owner/admin", "/api/v1/admin" }, params = { "page", "limit" })
-	public List<Employee> getAllAdmin(@RequestParam("page") int page, @RequestParam("limit") int limit) {
+	@GetMapping(path = { "/api/v1/owner/admins", "/api/v1/admins" }, params = { "page", "limit" })
+	public List<EmployeeDto> getAllAdmin(@RequestParam("page") int page, @RequestParam("limit") int limit) {
 
 		return (employeeService.getAllAdmin(page, limit));
 	}
 
-	@GetMapping(path = { "/api/v1/owner/worker", "/api/v1/admin/worker" }, params = { "page", "limit" })
-	public List<Employee> getAllWorker(@RequestParam("page") int page, @RequestParam("limit") int limit) {
+	@GetMapping(path = { "/api/v1/owner/workers", "/api/v1/admin/workers" ,"/api/v1/workers"}, params = { "page", "limit" })
+	public List<EmployeeDto> getAllWorker(@RequestParam("page") int page, @RequestParam("limit") int limit) {
 
 		return (employeeService.getAllWorker(page, limit));
 	}
 
-	@GetMapping(path = { "/api/v1/owner/employee/{id}", "/api/v1/admin/employee/{id}" })
+	@GetMapping(path = { "/api/v1/employee/{id}"})
 
-	public Employee getEmployee(@PathVariable int id) {
+	public EmployeeDto getEmployee(@PathVariable int id) {
 
 		return employeeService.getEmployee(id);
 	}
 
-	// ---------------------------end of get
 
-	@PostMapping(path = { "/api/v1/owner/worker",
-			"/api/v1/admin/worker" }, consumes = "application/json", produces = "application/json")
+	@PostMapping(path = { "/api/v1/employee" })
 
-	public Employee creatWorker(@RequestBody Employee employee) {
-		return employeeService.creatWorker(employee);
+	public EmployeeDto creatEmployee(@Valid @RequestBody EmployeeUpdateDto employeeUpdateDto) {
+		System.out.println("GGGGGGGGGGGGGGGGGGGGGGGGGGGG");
+
+		return employeeService.creatEmployee(employeeUpdateDto);
 	}
 
-	@PostMapping(path = "/api/v1/owner/admin", consumes = "application/json", produces = "application/json")
 
-	public Employee creatAdmin(@RequestBody Employee employee) {
-		return employeeService.creatAdmin(employee);
+	@PutMapping(path = { "/api/v1/employee/{id}"}, consumes = "application/json", produces = "application/json")
+	public EmployeeDto updateEmployee(@RequestBody EmployeeUpdateDto employeeUpdateDto, @PathVariable int id) {
+		return employeeService.updateEmployee(id, employeeUpdateDto);
 	}
 
-	@PostMapping(path = "/api/v1/owner", consumes = "application/json", produces = "application/json")
+	@DeleteMapping("/api/v1/employee{id}")
+	public void deleteEmployee(@PathVariable int id) {
 
-	public Employee creatOwner(@RequestBody Employee employee) {
-		return employeeService.creatOwner(employee);
-	}
-
-	// --------------------------------end of post
-
-	@PutMapping(path = { "/api/v1/owner/admin/{id}",
-			"/api/v1/owner/worker/{id}" }, consumes = "application/json", produces = "application/json")
-	public Employee updateByOwner(@RequestBody Employee employee, @PathVariable int id) {
-		return employeeService.updateEmployee(id, employee);
-	}
-
-	@PutMapping(path = { "/api/v1/admin/worker/{id}" }, consumes = "application/json", produces = "application/json")
-	public Employee updateByAdmin(@RequestBody Employee employee, @PathVariable int id) {
-		return employeeService.updateEmployee(id, employee);
-	}
-
-	// ----------------------------------
-	@DeleteMapping("/api/v1/owner/admin/{id}")
-	public void deleteAdmin(@PathVariable int id) {
-
-		employeeService.deleteAdmin(id);
-	}
-
-	@DeleteMapping(path = { "/api/v1/owner/worker/{id}", "/api/v1/admin/worker/{id}" })
-	public void deleteWorker(@PathVariable int id) {
-
-		employeeService.deleteWorker(id);
+		employeeService.deleteEmployee(id);
 	}
 
 }

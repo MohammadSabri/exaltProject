@@ -38,6 +38,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 	private ScheduleMapper scheduleMapper = Mappers.getMapper(ScheduleMapper.class);
 
 	@Override
+	@Transactional
 	public ScheduleDto create(ScheduleUpdateDto scheduleUpdateDto) {
 
 		if (employeeRepository.findWorkerExistNQ(scheduleUpdateDto.getEmployeeId()) == 0) {
@@ -52,6 +53,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public ScheduleDto get(int id) {
 		if (id < 1) {
 			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);
@@ -63,6 +65,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<ScheduleDto> getAll(int page, int limit) {
 		if (page < 1) {
 			throw new CommonException(ErrorEnum.PAGE_INVALID);
@@ -76,6 +79,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<ScheduleDto> getAllByWorkerId(int id, int page, int limit) {
 		if (employeeRepository.findWorkerExistNQ(id) == 0) {
 			throw new CommonException(ErrorEnum.WORKER_NOT_FOUND);
@@ -91,6 +95,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<ScheduleDto> getAllByPetId(int id, int page, int limit) {
 		if (petRepository.findPetExistNQ(id) == 0) {
 			throw new CommonException(ErrorEnum.PET_NOT_FOUND);
@@ -105,6 +110,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<ScheduleDto> getAllByClientId(int id, int page, int limit) {
 		if (clientRepository.findClientExistNQ(id) == 0) {
 			throw new CommonException(ErrorEnum.CLIENT_NOT_FOUND);
@@ -144,6 +150,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 	}
 
 	@Override
+	@Transactional
 	public String delete(int id) {
 		if (id < 1) {
 			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);

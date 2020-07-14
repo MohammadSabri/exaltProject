@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.exalt.petclinic.dto.PetDto;
 import com.exalt.petclinic.dto.PetMapper;
@@ -19,7 +20,6 @@ import com.exalt.petclinic.exception.ErrorEnum;
 import com.exalt.petclinic.model.Pet;
 import com.exalt.petclinic.repository.ClientRepository;
 import com.exalt.petclinic.repository.PetRepository;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @Service
 public class PetServiceImpl implements PetService {
@@ -32,6 +32,7 @@ public class PetServiceImpl implements PetService {
 	private PetMapper petMapper = Mappers.getMapper(PetMapper.class);
 
 	@Override
+	@Transactional
 	public PetDto create(PetUpdateDto petUpdateDto) {
 
 		if (petUpdateDto.getClientId() < 1) {
@@ -47,6 +48,7 @@ public class PetServiceImpl implements PetService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public PetDto get(int id) {
 		if (id <= 0) {
 			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);
@@ -64,6 +66,7 @@ public class PetServiceImpl implements PetService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<PetDto> getAll(int page, int limit) {
 		if (page < 1) {
 			throw new CommonException(ErrorEnum.PAGE_INVALID);
@@ -78,8 +81,8 @@ public class PetServiceImpl implements PetService {
 
 	}
 
-	@JsonPropertyOrder(alphabetic = true)
 	@Override
+	@Transactional(readOnly = true)
 	public List<PetDto> getClientPets(int id, int page, int limit) {
 		if (id <= 0) {
 			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);
@@ -89,6 +92,7 @@ public class PetServiceImpl implements PetService {
 	}
 
 	@Override
+	@Transactional
 	public PetUpdateDto update(int id, PetUpdateDto petUpdateDto) {
 		if (id <= 0) {
 		}
@@ -113,6 +117,7 @@ public class PetServiceImpl implements PetService {
 	}
 
 	@Override
+	@Transactional
 	public String delete(int id) {
 		if (id <= 0) {
 			throw new CommonException(ErrorEnum.WRONG_ID_ENTERED);

@@ -12,10 +12,12 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import com.sun.istack.NotNull;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties("employees")
 @Entity
 @Table(name = "role")
+
 public class Role {
 	public enum RoleEnum {
 		Owner, Admin, Worker
@@ -26,7 +28,7 @@ public class Role {
 	private Integer id;
 	@Column(name = "role_name")
 	@Enumerated(EnumType.STRING)
-	@NotNull
+
 	private RoleEnum role;
 
 	@ManyToMany(mappedBy = "roles")
