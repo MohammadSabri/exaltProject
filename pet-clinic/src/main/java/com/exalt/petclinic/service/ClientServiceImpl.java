@@ -72,6 +72,7 @@ public class ClientServiceImpl implements ClientService {
 		}
 		Pageable pageable = PageRequest.of((page - 1) * limit, limit);
 		Page<Client> pagedResult = clientRepository.findAll(pageable);
+		
 		return clientMapper.clientToDto(pagedResult.toList());
 
 	}
