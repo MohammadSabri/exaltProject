@@ -24,6 +24,7 @@ The project provide you with the CRUD opperation (Cread, Read, Update and Delete
 - MYSQL server 8.0.20 [intall MYSQL server](https://dev.mysql.com/downloads/windows/installer/8.0.html)
 
 1- Install the above links
+
 2- Add the enviroment variable
 
 ---
