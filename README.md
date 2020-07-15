@@ -21,10 +21,12 @@ The project provide you with the CRUD opperation (Cread, Read, Update and Delete
 
 - Java JDK1.8.0_241 [install JDK 8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
 - Apache Maven 3.6.3 [install Maven](https://maven.apache.org/download.cgi)
-- MYSQL server 8.0.20 [intall MYSQL server](https://dev.mysql.com/downloads/windows/installer/8.0.html)
+- MYSQL server 8.0.20 [install MYSQL server](https://dev.mysql.com/downloads/windows/installer/8.0.html)
 
 1- Install the above links.  
-2- Add the enviroment variable.
+2- Add the enviroment variable.  
+![alt text](https://howtodoinjava.files.wordpress.com/2013/01/set_java_home_in_windows.png)
+
 
 ---
 
