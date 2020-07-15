@@ -4,7 +4,7 @@ Pet Clinic Project
 ### Table of Contents
 
 - [Description](#description)
-- [Requirements and installation](#requirements and installation)
+- [Requirements and installation](#requirements-and-installation)
 - [How To Use](#how-to-use)
 - [License](#license)
 - [Author Info](#author-info)
