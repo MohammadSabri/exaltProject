@@ -23,7 +23,7 @@ The project provide you with the CRUD opperation (Cread, Read, Update and Delete
 - Apache Maven 3.6.3 [install Maven](https://maven.apache.org/download.cgi)
 - MYSQL server 8.0.20 [intall MYSQL server](https://dev.mysql.com/downloads/windows/installer/8.0.html)
 
-1- Install the above links.
+1- Install the above links.  
 2- Add the enviroment variable.
 
 ---
