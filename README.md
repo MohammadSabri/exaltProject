@@ -4,7 +4,7 @@
 ### Table of Contents
 
 - [Description](#description)
-- [Requirements ](#requirements )
+- [Requirements and installation](#requirements and installation)
 - [How To Use](#how-to-use)
 - [License](#license)
 - [Author Info](#author-info)
@@ -17,7 +17,7 @@ This is a Pet-Clinic web project used to organize a pet-clinic with all its comp
 employees (Owner,Admin,Worker).
 
 The project provide you with the CRUD opperation (Cread, Read, Update and Delete)
-## Requirements
+## Requirements and installation
 
 - Java JDK1.8.0_241 [install JDK 8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
 - Apache Maven 3.6.3 [install Maven](https://maven.apache.org/download.cgi)
