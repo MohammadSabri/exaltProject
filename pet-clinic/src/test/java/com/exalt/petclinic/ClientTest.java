@@ -26,6 +26,7 @@ import org.springframework.web.client.RestClientException;
 import com.exalt.petclinic.dto.ClientDto;
 import com.exalt.petclinic.dto.ClientMapper;
 import com.exalt.petclinic.dto.ClientUpdateDto;
+import com.exalt.petclinic.dto.PageDto;
 import com.exalt.petclinic.model.Client;
 import com.exalt.petclinic.repository.ClientRepository;
 import com.exalt.petclinic.service.ClientService;
@@ -104,10 +105,12 @@ public class ClientTest {
 	@Test
 	@DisplayName(value = "testClientGetAll_GetAllClient_successfull")
 	void getAllClientTest() throws RestClientException, URISyntaxException {
-		
-		addClientTest();
-		Page<ClientDto>page = getAll(1, 10);
-		System.out.println(page.getTotalElements());
+		addTenClient();
+		int page, limit;
+		page = 1;
+		limit = 10;
+		PageDto<ClientDto> pageDto = getAll(page, limit);
+		assertEquals(pageDto.getNumberOfElements(), 10);
 
 	}
 
@@ -169,14 +172,14 @@ public class ClientTest {
 				new URI("http://localhost:" + port + "/api/v1/client/" + getId())), ClientUpdateDto.class).getBody();
 	}
 
-	private Page<ClientDto> getAll(int page, int limit) throws RestClientException, URISyntaxException {
+	private PageDto<ClientDto> getAll(int page, int limit) throws RestClientException, URISyntaxException {
 
 		return testRestTemplate
 				.exchange(new URI("http://localhost:" + port + "/api/v1/clients?page=" + page + "&limit=" + limit),
-						HttpMethod.GET, null, new ParameterizedTypeReference<Page<ClientDto>>() {
+						HttpMethod.GET, null, new ParameterizedTypeReference<PageDto<ClientDto>>() {
 						})
 				.getBody();
-				
+
 	}
 
 	private int getId() {
@@ -192,7 +195,7 @@ public class ClientTest {
 			clientUpdateDto.setPassword("TestPaswword");
 			clientUpdateDto.setEmail("Test" + i + "@Creat.com");
 			clientUpdateDto.setPhoneNumber("059912377" + i);
-			create(clientUpdateDto);
+			create(clientUpdateDto).getId();
 		}
 
 	}

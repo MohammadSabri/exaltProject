@@ -1,7 +1,5 @@
 package com.exalt.petclinic.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -18,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.exalt.petclinic.dto.ClientDto;
 import com.exalt.petclinic.dto.ClientUpdateDto;
+import com.exalt.petclinic.dto.PageDto;
 import com.exalt.petclinic.model.Client;
 import com.exalt.petclinic.service.ClientService;
 
@@ -35,7 +34,7 @@ public class ClientController {
 	 * @return
 	 */
 	@GetMapping(path = "/api/v1/clients", params = { "page", "limit" })
-	public Page<ClientDto> getClients(HttpServletRequest request, @RequestParam("page") int page,
+	public PageDto<ClientDto> getClients(HttpServletRequest request, @RequestParam("page") int page,
 			@RequestParam("limit") int limit) {
 
 		return (clientService.getAll(page, limit));

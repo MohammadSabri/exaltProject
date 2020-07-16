@@ -1,9 +1,8 @@
 package com.exalt.petclinic.service;
 
-import org.springframework.data.domain.Page;
-
 import com.exalt.petclinic.dto.ClientDto;
 import com.exalt.petclinic.dto.ClientUpdateDto;
+import com.exalt.petclinic.dto.PageDto;
 import com.exalt.petclinic.model.Client;
 
 public interface ClientService {
@@ -12,7 +11,7 @@ public interface ClientService {
 
 	ClientDto get(int id);
 
-	Page<ClientDto> getAll(int page, int limit);
+	PageDto<ClientDto> getAll(int page, int limit);
 
 	ClientUpdateDto update(int id, ClientUpdateDto clientUpdateDto);
 

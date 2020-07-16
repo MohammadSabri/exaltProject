@@ -15,7 +15,7 @@ Pet Clinic Project
 This is a Pet-Clinic web project used to organize a pet-clinic with all its component as clients and their pets
 employees (Owner,Admin,Worker).
 
-The project provide you with the CRUD operation (Create, Read, Update and Delete)
+The project provide you with the CRUD operation (Create, Read, Update and Delete) on each element.
 ## Requirements
 
 - Windows 10
@@ -37,8 +37,8 @@ The project provide you with the CRUD operation (Create, Read, Update and Delete
 * run without spring-boot app  
 
    run the command "mvn spring-boot:run"
-
-
+   
+   
 
 
 #### API Reference

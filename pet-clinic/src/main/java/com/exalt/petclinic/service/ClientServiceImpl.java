@@ -1,7 +1,6 @@
 package com.exalt.petclinic.service;
 
 import java.util.Calendar;
-import java.util.List;
 
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,7 +63,7 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public Page<ClientDto> getAll(int page, int limit) {
+	public PageDto<ClientDto> getAll(int page, int limit) {
 
 		if (page < 1) {
 			throw new CommonException(ErrorEnum.PAGE_INVALID);
@@ -75,9 +74,15 @@ public class ClientServiceImpl implements ClientService {
 		Pageable pageable = PageRequest.of((page - 1) * limit, limit);
 		Page<Client> pagedResult = clientRepository.findAll(pageable);
 		System.out.println("******************************");
-		System.out.println(pagedResult.getSize());
+		System.out.println(pagedResult.getNumberOfElements());
+
+		for (Client c : pagedResult.getContent()) {
+			System.out.println(c.getPhoneNumber());
+		}
 		System.out.println("*******************************");
-		return pagedResult.map(c -> clientMapper.clientToDto(c));
+		PageDto<ClientDto> pageDto = new PageDto<>(clientMapper.clientToDto(pagedResult.getContent()), pagedResult.getTotalElements(),
+				pagedResult.getNumberOfElements());
+		return pageDto;
 
 	}
 
