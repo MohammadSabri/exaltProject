@@ -19,6 +19,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.RequestEntity;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.web.client.RestClientException;
 
 import com.exalt.petclinic.dto.ClientDto;
@@ -27,7 +28,7 @@ import com.exalt.petclinic.dto.ClientUpdateDto;
 import com.exalt.petclinic.model.Client;
 import com.exalt.petclinic.repository.ClientRepository;
 import com.exalt.petclinic.service.ClientService;
-
+@ActiveProfiles("dev")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class ClientTest {
 
