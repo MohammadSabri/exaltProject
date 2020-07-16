@@ -1,4 +1,4 @@
-								Pet Clinic Project
+Pet Clinic Project
 ===
 
 ## Table of Contents
