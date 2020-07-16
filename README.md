@@ -29,6 +29,13 @@ The project provide you with the CRUD opperation (Cread, Read, Update and Delete
 ---
 
 ## How To Use
+-Open CMD  
+-change dirictory to project file (cd ....)  
+*To run the Test
+-run the command (mvn clean install)
+*run without test  
+
+
 
 
 
