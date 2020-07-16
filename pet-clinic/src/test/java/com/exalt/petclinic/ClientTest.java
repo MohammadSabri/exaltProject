@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,7 +15,9 @@ import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.RequestEntity;
 import org.springframework.test.context.ActiveProfiles;
@@ -28,16 +29,18 @@ import com.exalt.petclinic.dto.ClientUpdateDto;
 import com.exalt.petclinic.model.Client;
 import com.exalt.petclinic.repository.ClientRepository;
 import com.exalt.petclinic.service.ClientService;
-@ActiveProfiles("dev")
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class ClientTest {
 
+@ActiveProfiles("dev")
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class ClientTest {
+	@LocalServerPort
+	private int port;
 	@Autowired
-	ClientService clientService;
+	private ClientService clientService;
 	@Autowired
-	ClientRepository clientRepository;
+	private ClientRepository clientRepository;
 	@Autowired
-	TestRestTemplate testRestTemplate;
+	private TestRestTemplate testRestTemplate;
 
 	private ClientMapper clientMapper = Mappers.getMapper(ClientMapper.class);
 
@@ -101,6 +104,10 @@ public class ClientTest {
 	@Test
 	@DisplayName(value = "testClientGetAll_GetAllClient_successfull")
 	void getAllClientTest() throws RestClientException, URISyntaxException {
+		
+		addClientTest();
+		Page<ClientDto>page = getAll(1, 10);
+		System.out.println(page.getTotalElements());
 
 	}
 
@@ -140,34 +147,36 @@ public class ClientTest {
 	}
 
 	private ClientDto get() throws RestClientException, URISyntaxException {
-		return testRestTemplate.getForEntity(new URI("http://localhost:8001/api/v1/client/" + getId()), ClientDto.class)
+		return testRestTemplate
+				.getForEntity(new URI("http://localhost:" + port + "/api/v1/client/" + getId()), ClientDto.class)
 				.getBody();
 	}
 
 	private Client create(ClientUpdateDto clientUpdateDto) throws RestClientException, URISyntaxException {
 		return testRestTemplate
-				.postForEntity(new URI("http://localhost:8001/api/v1/client"), clientUpdateDto, Client.class).getBody();
+				.postForEntity(new URI("http://localhost:" + port + "/api/v1/client"), clientUpdateDto, Client.class)
+				.getBody();
 	}
 
 	private String delete() throws RestClientException, URISyntaxException {
-		return testRestTemplate.exchange(
-				new RequestEntity<>(HttpMethod.DELETE, new URI("http://localhost:8001/api/v1/client/" + getId())),
-				String.class).getBody();
+		return testRestTemplate.exchange(new RequestEntity<>(HttpMethod.DELETE,
+				new URI("http://localhost:" + port + "/api/v1/client/" + getId())), String.class).getBody();
 	}
 
 	private ClientUpdateDto update(ClientUpdateDto clientUpdateDto) throws RestClientException, URISyntaxException {
 
 		return testRestTemplate.exchange(new RequestEntity<>(clientUpdateDto, HttpMethod.PUT,
-				new URI("http://localhost:8001/api/v1/client/" + getId())), ClientUpdateDto.class).getBody();
+				new URI("http://localhost:" + port + "/api/v1/client/" + getId())), ClientUpdateDto.class).getBody();
 	}
 
-	private List<ClientDto> getAll(int page, int limit) throws RestClientException, URISyntaxException {
+	private Page<ClientDto> getAll(int page, int limit) throws RestClientException, URISyntaxException {
 
 		return testRestTemplate
-				.exchange(new URI("http://localhost:8001/api/v1/client?page=" + page + "&limit=" + limit),
-						HttpMethod.GET, null, new ParameterizedTypeReference<List<ClientDto>>() {
+				.exchange(new URI("http://localhost:" + port + "/api/v1/clients?page=" + page + "&limit=" + limit),
+						HttpMethod.GET, null, new ParameterizedTypeReference<Page<ClientDto>>() {
 						})
 				.getBody();
+				
 	}
 
 	private int getId() {

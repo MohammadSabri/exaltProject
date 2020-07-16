@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.exalt.petclinic.dto.ClientDto;
 import com.exalt.petclinic.dto.ClientMapper;
 import com.exalt.petclinic.dto.ClientUpdateDto;
+import com.exalt.petclinic.dto.PageDto;
 import com.exalt.petclinic.exception.CommonException;
 import com.exalt.petclinic.exception.ErrorEnum;
 import com.exalt.petclinic.model.Client;
@@ -63,7 +64,8 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<ClientDto> getAll(int page, int limit) {
+	public Page<ClientDto> getAll(int page, int limit) {
+
 		if (page < 1) {
 			throw new CommonException(ErrorEnum.PAGE_INVALID);
 		}
@@ -72,8 +74,10 @@ public class ClientServiceImpl implements ClientService {
 		}
 		Pageable pageable = PageRequest.of((page - 1) * limit, limit);
 		Page<Client> pagedResult = clientRepository.findAll(pageable);
-		
-		return clientMapper.clientToDto(pagedResult.toList());
+		System.out.println("******************************");
+		System.out.println(pagedResult.getSize());
+		System.out.println("*******************************");
+		return pagedResult.map(c -> clientMapper.clientToDto(c));
 
 	}
 

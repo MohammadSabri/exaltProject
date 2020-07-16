@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.springframework.data.domain.Page;
 
 import com.exalt.petclinic.model.Client;
 
@@ -15,7 +16,6 @@ public interface ClientMapper {
 
 	@Mapping(target = "pets", ignore = true)
 	Client dtoToClient(ClientDto clientDto);
-
 	List<Client> dtoToClient(List<ClientDto> clientDtos);
 	
 	@Mapping(target = "pets", ignore = true)
