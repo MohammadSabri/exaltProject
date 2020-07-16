@@ -20,7 +20,7 @@ The project provide you with the CRUD operation (Create, Read, Update and Delete
 
 - Windows 10
 - Java JDK1.8.0_241 [install JDK 8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
-- Apache Maven 3.6.3 [install Maven](https://maven.apache.org/download.cgi) |[How to Install](https://howtodoinjava.com/maven/how-to-install-maven-on-windows/)
+- Apache Maven 3.6.3 [install Maven](https://maven.apache.org/download.cgi) | [How to Install](https://howtodoinjava.com/maven/how-to-install-maven-on-windows/)
 - MYSQL server 8.0.20 [install MYSQL server](https://dev.mysql.com/downloads/windows/installer/8.0.html)
 
 
