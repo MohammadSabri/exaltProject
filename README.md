@@ -4,7 +4,7 @@ Pet Clinic Project
 ### Table of Contents
 
 - [Description](#description)
-- [Requirements and installation](#requirements-and-installation)
+- [Requirements](#requirements)
 - [How To Use](#how-to-use)
 - [License](#license)
 - [Author Info](#author-info)
@@ -17,22 +17,19 @@ This is a Pet-Clinic web project used to organize a pet-clinic with all its comp
 employees (Owner,Admin,Worker).
 
 The project provide you with the CRUD opperation (Cread, Read, Update and Delete)
-## Requirements and installation
+## Requirements
 
 - Windows 10
 - Java JDK1.8.0_241 [install JDK 8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
 - Apache Maven 3.6.3 [install Maven](https://maven.apache.org/download.cgi) |[How to Install](https://howtodoinjava.com/maven/how-to-install-maven-on-windows/)
 - MYSQL server 8.0.20 [install MYSQL server](https://dev.mysql.com/downloads/windows/installer/8.0.html)
 
-1- Install the above links.  
-2- Add the enviroment variable.  
 
 
 ---
 
 ## How To Use
 
-#### Installation
 
 
 
