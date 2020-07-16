@@ -1,4 +1,4 @@
-Pet Clinic Project
+							Pet Clinic Project
 ===
 
 ## Table of Contents
@@ -40,7 +40,7 @@ The project provide you with the CRUD operation (Create, Read, Update and Delete
   ```
 
 
-#### API Reference
+## API Reference
 
 ```html
 http://localhost:8000/swagger-ui.html
