@@ -1,4 +1,4 @@
-							Pet Clinic Project
+Pet Clinic Project
 ===
 
 ## Table of Contents
@@ -29,7 +29,7 @@ The project provide you with the CRUD operation (Create, Read, Update and Delete
 
 ## How To Use
 1. Open CMD  
-2. change directory to project file (cd ....)  eg: 
+2. change directory to project file (cd ....)  eg: cd C:\Users\Moham\Desktop\exalt project\exaltProject\pet-clinic
  * To run the Test
     ```DOS batch
 	mvn clean install
