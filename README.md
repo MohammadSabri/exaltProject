@@ -1,7 +1,7 @@
-Pet Clinic Project
----
+								**Pet Clinic Project**
+===
 
-### Table of Contents
+## Table of Contents
 
 - [Description](#description)
 - [Requirements](#requirements)
@@ -29,16 +29,15 @@ The project provide you with the CRUD operation (Create, Read, Update and Delete
 
 ## How To Use
 1. Open CMD  
-2. change directory to project file (cd ....)  
-3. 
+2. change directory to project file (cd ....)  eg: 
  * To run the Test
- run the command "mvn clean install"
-
-* run without spring-boot app  
-
-   run the command "mvn spring-boot:run"
-   
-   
+    ```DOS batch
+	mvn clean install
+	```
+* To run the project with spring-boot 
+	```DOS batch
+   mvn spring-boot:run
+  ```
 
 
 #### API Reference
@@ -51,3 +50,4 @@ http://localhost:8000/swagger-ui.html
 ## Author Info
 
 - Mohammad sabri
+
