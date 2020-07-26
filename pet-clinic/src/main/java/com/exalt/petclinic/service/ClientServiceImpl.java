@@ -71,7 +71,7 @@ public class ClientServiceImpl implements ClientService {
 		if (limit < 1) {
 			throw new CommonException(ErrorEnum.LIMIT_INVALID);
 		}
-		Pageable pageable = PageRequest.of((page - 1) * limit, limit);
+		Pageable pageable = PageRequest.of((page - 1) , limit);
 		Page<Client> pagedResult = clientRepository.findAll(pageable);
 		System.out.println("******************************");
 		System.out.println(pagedResult.getNumberOfElements());

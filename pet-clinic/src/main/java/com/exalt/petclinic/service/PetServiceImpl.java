@@ -75,7 +75,7 @@ public class PetServiceImpl implements PetService {
 			throw new CommonException(ErrorEnum.LIMIT_INVALID);
 		}
 
-		Pageable pageable = PageRequest.of((page - 1) * limit, limit);
+		Pageable pageable = PageRequest.of((page - 1), limit);
 		Page<Pet> pagedResult = petRepository.findAll(pageable);
 		return petMapper.petToDto(pagedResult.toList());
 

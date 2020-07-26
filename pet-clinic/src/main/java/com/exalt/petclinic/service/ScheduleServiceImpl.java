@@ -73,7 +73,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 		if (limit < 1) {
 			throw new CommonException(ErrorEnum.LIMIT_INVALID);
 		}
-		Pageable pageable = PageRequest.of((page - 1) * limit, limit);
+		Pageable pageable = PageRequest.of((page - 1), limit);
 		Page<Schedule> pagedResult = scheduleRepository.findAll(pageable);
 		return scheduleMapper.scheduleToDto(pagedResult.toList());
 	}

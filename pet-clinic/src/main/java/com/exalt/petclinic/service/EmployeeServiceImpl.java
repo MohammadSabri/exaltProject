@@ -48,7 +48,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		if (limit < 1) {
 			throw new CommonException(ErrorEnum.LIMIT_INVALID);
 		}
-		return employeeMapper.employeeToDto(employeeRepository.findAllWorkerNQ((page - 1) * limit, limit));
+		return employeeMapper.employeeToDto(employeeRepository.findAllWorkerNQ((page - 1) , limit));
 	}
 
 	@Override
