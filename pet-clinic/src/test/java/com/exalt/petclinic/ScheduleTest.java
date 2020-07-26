@@ -1,18 +1,6 @@
 package com.exalt.petclinic;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import com.exalt.petclinic.model.Client;
-import com.exalt.petclinic.model.Employee;
-import com.exalt.petclinic.model.Pet;
-import com.exalt.petclinic.model.Schedule;
-import com.exalt.petclinic.repository.ScheduleRepository;
 
 @SpringBootTest
 public class ScheduleTest {

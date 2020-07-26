@@ -20,7 +20,9 @@ public interface ClientMapper {
 	@Mapping(target = "pets", ignore = true)
 	@Mapping(target = "creationDate", ignore = true)
 	@Mapping(target = "id", ignore = true)
+
 	Client updateDtoToClient(ClientUpdateDto clientUpdateDto);
+	
 	ClientUpdateDto clientToUpdateDto(Client client);
 
 	ClientUpdateDto dtoToUpdateDto(ClientDto clientDto);
