@@ -29,4 +29,8 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
 	@Query(value = "select count(*) from employee where id=:id  and working_field='Worker'", nativeQuery = true)
 	int findWorkerExistNQ(@Param("id") int id);
+	
+	@Query(value = "select * from employee where email=:email ", nativeQuery = true)
+	Employee findEmailNQ(@Param("email") String email);
+	
 }

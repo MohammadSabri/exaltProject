@@ -37,30 +37,27 @@ public class EmployeeController {
 		return (employeeService.getAllAdmin(page, limit));
 	}
 
-	@GetMapping(path = { "/api/v1/owner/workers", "/api/v1/admin/workers" ,"/api/v1/workers"}, params = { "page", "limit" })
+	@GetMapping(path = { "/api/v1/owner/workers", "/api/v1/admin/workers", "/api/v1/workers" }, params = { "page",
+			"limit" })
 	public List<EmployeeDto> getAllWorker(@RequestParam("page") int page, @RequestParam("limit") int limit) {
 
 		return (employeeService.getAllWorker(page, limit));
 	}
 
-	@GetMapping(path = { "/api/v1/employee/{id}"})
+	@GetMapping(path = { "/api/v1/employee/{id}" })
 
 	public EmployeeDto getEmployee(@PathVariable int id) {
 
 		return employeeService.getEmployee(id);
 	}
 
-
 	@PostMapping(path = { "/api/v1/employee" })
 
 	public EmployeeDto creatEmployee(@Valid @RequestBody EmployeeUpdateDto employeeUpdateDto) {
-		System.out.println("GGGGGGGGGGGGGGGGGGGGGGGGGGGG");
-
 		return employeeService.creatEmployee(employeeUpdateDto);
 	}
 
-
-	@PutMapping(path = { "/api/v1/employee/{id}"}, consumes = "application/json", produces = "application/json")
+	@PutMapping(path = { "/api/v1/employee/{id}" }, consumes = "application/json", produces = "application/json")
 	public EmployeeDto updateEmployee(@RequestBody EmployeeUpdateDto employeeUpdateDto, @PathVariable int id) {
 		return employeeService.updateEmployee(id, employeeUpdateDto);
 	}
