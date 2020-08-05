@@ -33,7 +33,6 @@ public class EmployeeController {
 
 	@GetMapping(path = { "/api/v1/owner/admins", "/api/v1/admins" }, params = { "page", "limit" })
 	public List<EmployeeDto> getAllAdmin(@RequestParam("page") int page, @RequestParam("limit") int limit) {
-
 		return (employeeService.getAllAdmin(page, limit));
 	}
 
