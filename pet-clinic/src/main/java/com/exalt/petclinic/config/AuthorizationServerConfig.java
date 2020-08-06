@@ -23,9 +23,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 
-		clients.inMemory().withClient("my-trusted-client").authorizedGrantTypes("client_credentials","password")
-				.authorities("ROLE_Admin").scopes("all").resourceIds("oauth2-resource")
-				.accessTokenValiditySeconds(5000).secret("secret");
+		clients.inMemory().withClient("my-trusted-client").authorizedGrantTypes("client_credentials", "password")
+				.authorities("ROLE_Admin").scopes("all").resourceIds("oauth2-resource").accessTokenValiditySeconds(5000)
+				.secret("secret");
 	}
 
 	@Override
