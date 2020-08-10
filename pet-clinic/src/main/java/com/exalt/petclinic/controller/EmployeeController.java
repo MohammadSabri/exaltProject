@@ -4,7 +4,11 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import com.exalt.petclinic.config.AuthorizationServerConfig;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
+import org.springframework.security.oauth2.provider.endpoint.AuthorizationEndpoint;
+import org.springframework.security.oauth2.provider.endpoint.TokenEndpoint;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,6 +37,7 @@ public class EmployeeController {
 
 	@GetMapping(path = { "/api/v1/owner/admins", "/api/v1/admins" }, params = { "page", "limit" })
 	public List<EmployeeDto> getAllAdmin(@RequestParam("page") int page, @RequestParam("limit") int limit) {
+
 		return (employeeService.getAllAdmin(page, limit));
 	}
 
