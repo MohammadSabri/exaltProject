@@ -19,7 +19,10 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/", "/api/v1/pets/**", "/register", "/login").permitAll()
-                .antMatchers("/private/**", "/api/v1/admins/**").hasRole("Admin");
+                .antMatchers("/private/**", "/api/v1/admins/**").hasRole("Admin").and().formLogin().successForwardUrl("https://oauth.pstmn.io/v1/callback")
+                .permitAll();
+
+       //  .successForwardUrl("/oauth/token")
     }
 
 }
